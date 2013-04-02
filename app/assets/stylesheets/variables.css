@@ -1,0 +1,49 @@
+.l {
+  float: left;
+}
+.r {
+  float: right;
+}
+.social,
+.details {
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
+}
+::-webkit-input-placeholder {
+  color: #808080;
+}
+:-moz-placeholder {
+  color: #808080;
+}
+::-moz-placeholder {
+  color: #808080;
+}
+:-ms-input-placeholder {
+  color: #808080;
+}
+#tooltip {
+  position: absolute;
+  z-index: 3000;
+  border: 1px solid #2aac9f;
+  color: #2aac9f;
+  background-color: #ffffff;
+  padding: 7px;
+  opacity: 0.95;
+}
+.hide {
+  display: none;
+}
+/*
+.howto {
+	position: absolute;
+	top: 0px;
+	left: 50%;
+	margin-left: -600px;
+	width: 1200px;
+	height: 900px;
+	background: url(/assets/howto.png) no-repeat;
+	opacity: 0.5;
+}
+*/

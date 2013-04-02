@@ -7,8 +7,96 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <%= js_msg([notice, alert])%>
+  <%= js_msg([flash[:error]], 'error')%>
+<div class="howto"></div>
+  <div class="w960">
+    <header>
+      <a href="#" class="logo"></a>
+      <nav>
+        <%= render "shared/#{user_signed_in? ? 'user' : 'guest'}_nav" %>
+      </nav>
+      <div class="search">
+        <input type="text" placeholder="Search">
+        <input type="button">
+      </div>
+      <% if user_signed_in? %>
+              <div class="account">
+                  <div class="usermenu drop">
+                      <img src="/assets/ava.jpg" alt=""/>
+                      <ul class="hide">
+                          <li class="active"><a href="">Profile</a></li>
+                          <li><a href="">Find Friends</a></li>
+                          <li><a href="">Get the Bookmarklet</a></li>
+                          <li><%= link_to "Settings", edit_profile_path %></li>
+                          <li><%= link_to "Sign out", logout_path %></li>
+                      </ul>
+                  </div>
+                  <div class="count"><span>1</span></div>
+              </div>
+      <% end %>
+    </header>
+    <section class="content">
+      
+      <%= yield %>
 
-<%= yield %>
+    </section>
+    <%= render 'shared/right_section' if @right_section %>
+  </div>
+
+  <div class="hide">
+    <div id="make_mmmine" class="style">
+      <form>
+        <h3>make it mmmine!</h3>
+        <select>
+          <option>Things i want</option>
+          <option>Lorem</option>
+          <option>Ipsum</option>
+          <option>Dolor</option>
+          <option>Sit</option>
+          <option>Amet</option>
+        </select>
+        <textarea placeholder="Add your comment, #hashtag, @mention"></textarea>      
+      </form>
+    </div>
+    <div id="share" class="style">
+      <form>
+        <h3>show a friend</h3>
+        <p>Share this product with a friend from <i>mmmine</i> or Facebook</p>
+        <textarea>@</textarea>      
+      </form>
+    </div>
+    <div id="login" class="style">
+      <form>
+        <h3>login to mmmine</h3>
+                  <input type="email" placeholder="Email"/>
+                  <input type="password" placeholder="Password"/> <a href="#" class="forgot">Forgot?</a>
+                  <label for="rem" class="ch"><input type="checkbox" id="rem"/>Remember me</label>
+                  <button class="btn" type="submit">Log in</button>
+                  <p>Not a member? <a class="popup b" href="#signup">Sign up now.</a></p>
+      </form>
+    </div>
+    <div id="signup" class="style clearfix">
+              <h3>create a mmmine account</h3>
+              <div class="l">
+                  <a href="<%= user_omniauth_authorize_path(:facebook) %>">
+                      <span class="l fb_b"></span>
+                      <span class="fb_login btn">Login with Facebook</span>
+                  </a>
+                  <span>or</span>
+              </div>
+              <div class="r">
+                  <form action="">
+                      <input type="email" placeholder="Email"/>
+                      <input type="text" placeholder="Username"/>
+                      <input type="password" placeholder="Password"/>
+                      <label for="keep" class="ch"><input type="checkbox" id="keep"/>Keep me updated!</label>
+                      <button class="btn" type="submit">Get Started</button>
+                      <p>Already a member? <br/><a class="popup b" href="#login">Sign in.</a></p>
+                  </form>
+              </div>
+    </div>
+  </div>
 
 </body>
 </html>

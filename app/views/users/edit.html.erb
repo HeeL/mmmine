@@ -1,0 +1,58 @@
+ <h2>Edit Account Settings</h2>
+
+    <form action="" id="profile_settings">
+        <div>
+            <label for="lang">Language</label>
+            <select id="lang">
+                <option>English</option>
+                <option>Русский</option>
+                <option>Polish</option>
+                <option>Romanian</option>
+                <option>Italian</option>
+                <option>French</option>
+            </select>
+        </div>
+        <div>
+            <label for="email">Email Address</label><input type="email" id="email" placeholder="emailaddress@gmail.com"/>
+        </div>
+        <div>
+            <label for="pass">Password</label><a id="pass" href="#password" class="btn gray popup b">Change Password</a>
+        </div>
+        <div>
+            <label for="username">Username</label><span>http://mmmine.com/u/</span><input type="text" id="username" placeholder="username"/>
+        </div>
+        <div>
+            <label for="photo">Photo</label><input type="file" id="photo" value="Upload a photo"/>
+        </div>
+        <div>
+            <label for="location">Location</label><input type="text" id="location"/>
+        </div>
+        <div>
+            <label for="website">Website</label><input type="text" id="website"/>
+        </div>
+        <div>
+            <label for="about">About</label><textarea name="" id="about"></textarea>
+        </div>
+
+        <hr>
+
+        <section id="email_settings">
+            <p>Get an email notification when</p>
+            <label><input type="checkbox"/>Someone starts following you</label>
+            <label><input type="checkbox"/>Someone you're following saves a product in your sets</label>
+            <label><input type="checkbox"/>Someone mentions you</label>
+        </section>
+
+        <hr>
+
+        <section id="fb_settings">
+            <span class="l fb_b"></span>
+            <label><input type="checkbox"/>Log in with Facebook</label>
+            <label><input type="checkbox"/>Publish activity on your Facebook timeline</label>
+        </section>
+
+        <hr>
+
+        <button type="submit" class="btn">Save Profile</button>
+        <a href="#" class="r">Deactivate Account</a>
+    </form>
