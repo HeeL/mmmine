@@ -1,6 +1,6 @@
  <h2>Edit Account Settings</h2>
 
-    <form action="" id="profile_settings">
+      <%= form_tag(root_path, remote: true, id: "profile_settings") do %>
         <div>
             <label for="lang">Language</label>
             <select id="lang">
@@ -55,4 +55,4 @@
 
         <button type="submit" class="btn">Save Profile</button>
         <a href="#" class="r">Deactivate Account</a>
-    </form>
+    <%end%>

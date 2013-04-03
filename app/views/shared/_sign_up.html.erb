@@ -1,0 +1,23 @@
+<div id="signup" class="style clearfix">
+  <h3>create a mmmine account</h3>
+  <div class="l">
+    <a href="<%= user_omniauth_authorize_path(:facebook) %>">
+      <span class="l fb_b"></span>
+      <span class="fb_login btn">Login with Facebook</span>
+    </a>
+    <span>or</span>
+  </div>
+  <div class="r">
+    <%= form_tag(register_path, remote: true, id: "sign_up_form") do %>
+      <input type="email" name="email" placeholder="Email"/>
+      <input type="text" name="name" placeholder="Username"/>
+      <input type="password" name="password" placeholder="Password"/>
+      <label for="keep" class="ch"><input type="checkbox" id="keep"/>Keep me updated!</label>
+      <button class="btn" type="submit">Get Started</button>
+      <p>
+        Already a member? <br/>
+        <a class="popup b" href="#login">Sign in.</a>
+      </p>
+    <%end%>
+  </div>
+</div>
