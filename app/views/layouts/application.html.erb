@@ -23,7 +23,7 @@
       <% if user_signed_in? %>
               <div class="account">
                   <div class="usermenu drop">
-                      <img src="/assets/ava.jpg" alt=""/>
+                      <%=image_tag current_user.photo(:avatar), class: 'small-avatar' if has_photo? %>
                       <ul class="hide">
                           <li class="active"><a href="">Profile</a></li>
                           <li><a href="">Find Friends</a></li>

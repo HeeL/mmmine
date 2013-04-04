@@ -879,10 +879,26 @@ h2 {
  font-size: 24px;
  font-weight: normal;
 }
+
+.small-avatar {
+  width: 24px;
+  height: 24px;
+}
+
 #profile_settings {
- width: 444px;
- color: #808083;
- font-size: 13px;
+  width: 448px;
+  color: #808083;
+  font-size: 13px;
+  .photo {
+    margin-left: 120px;
+  }
+  .field_with_errors {
+    display: inline-block;
+    input {
+      border: 1px solid #ff0000;
+    }
+ }
+
 }
 #profile_settings > div {
  margin-top: 24px;
@@ -893,9 +909,9 @@ h2 {
  vertical-align: middle;
 }
 #profile_settings select {
- margin-top: 0;
+  margin-top: 0;
 }
-#profile_settings input:not(#username):not([type=checkbox]), #profile_settings textarea {
+#profile_settings input:not(#user_name):not([type=checkbox]), #profile_settings textarea {
  margin-top: 0!important;
  display: inline-block;
  width: 330px;
@@ -905,7 +921,7 @@ h2 {
 #profile_settings textarea {
  height: 116px;
 }
-#profile_settings input#username {
+#profile_settings input#user_name {
  margin-top: 0!important;
  display: inline-block;
  padding: 9px 5px;
@@ -916,7 +932,7 @@ h2 {
  margin-left: 4px;
  padding: 10px 16px;
 }
-#profile_settings label[for=about] {
+#profile_settings label[for=user_about] {
  vertical-align: top;
 }
 #profile_settings span {
@@ -941,6 +957,10 @@ h2 {
  margin-top: 3px;
  margin-right: 55px;
 }
+#fb_settings {
+   height: 40px;
+}
+
 #profile_settings button {
  font-size: 20px;
  padding: 6px 16px;

@@ -6,12 +6,14 @@ class UsersController < ApplicationController
   end
   
   def update
+    flash[:notice] = ''
+    flash[:error] = ''
     if !current_user.update_attributes(params[:user])
-      result = set_error(current_user.errors.full_messages.first)
+      flash[:error] = current_user.errors.full_messages.first
     else
-      result = set_success('Profile updated')
+      flash[:notice] = 'Profile was updated'
     end
-    render json: result
+    render 'edit'
   end
 
   def logout

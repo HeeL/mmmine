@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   attr_accessible :about, :email, :location, :name, :password, :photo,
                   :provider, :uid, :website, :password_confirmation, :remember_me
 
+
+  has_attached_file :photo, :styles => { :photo => "140x120>", :avatar => "32x32>" }
+
   validates :name, presence: true, length: {in: 3..30}
 
   def self.find_fb_user(auth)

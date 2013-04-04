@@ -1,37 +1,37 @@
  <h2>Edit Account Settings</h2>
 
-      <%= form_tag(root_path, remote: true, id: "profile_settings") do %>
+     <%= form_for(current_user, url: update_profile_path,html: {id: 'profile_settings'}) do |f|%>
+        
         <div>
-            <label for="lang">Language</label>
-            <select id="lang">
-                <option>English</option>
-                <option>Русский</option>
-                <option>Polish</option>
-                <option>Romanian</option>
-                <option>Italian</option>
-                <option>French</option>
-            </select>
+          <%=f.label :email %>
+          <%=f.text_field :email%>
+        </div>
+
+        <div>
+          <label for="pass">Password</label>
+          <a id="pass" href="#password" class="btn gray popup b">Change Password</a>
         </div>
         <div>
-            <label for="email">Email Address</label><input type="email" id="email" placeholder="emailaddress@gmail.com"/>
+            <%=f.label :name%>
+            <span>http://mmmine.com/u/</span>
+            <%=f.text_field :name, size: '22'%>
         </div>
         <div>
-            <label for="pass">Password</label><a id="pass" href="#password" class="btn gray popup b">Change Password</a>
+          <%=f.label :photo%>
+          <%=f.file_field :photo%>
+          <%= image_tag(current_user.photo(:photo), class: 'photo') if has_photo?%>
         </div>
         <div>
-            <label for="username">Username</label><span>http://mmmine.com/u/</span><input type="text" id="username" placeholder="username"/>
+          <%=f.label :location %>
+          <%=f.text_field :location%>
         </div>
         <div>
-            <label for="photo">Photo</label><input type="file" id="photo" value="Upload a photo"/>
+          <%=f.label :website %>
+          <%=f.text_field :website%>
         </div>
         <div>
-            <label for="location">Location</label><input type="text" id="location"/>
-        </div>
-        <div>
-            <label for="website">Website</label><input type="text" id="website"/>
-        </div>
-        <div>
-            <label for="about">About</label><textarea name="" id="about"></textarea>
+          <%=f.label :about%>
+          <%=f.text_area :about, :size => "22x30"%>
         </div>
 
         <hr>
@@ -47,12 +47,10 @@
 
         <section id="fb_settings">
             <span class="l fb_b"></span>
-            <label><input type="checkbox"/>Log in with Facebook</label>
             <label><input type="checkbox"/>Publish activity on your Facebook timeline</label>
         </section>
 
         <hr>
 
         <button type="submit" class="btn">Save Profile</button>
-        <a href="#" class="r">Deactivate Account</a>
     <%end%>

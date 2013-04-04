@@ -5,4 +5,8 @@ module ApplicationHelper
     javascript_tag("$(document).ready(function(){ #{js.join} });") unless js.empty?
   end
 
+  def has_photo?
+    current_user.photo.exists?
+  end
+
 end
