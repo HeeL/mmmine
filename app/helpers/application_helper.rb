@@ -9,4 +9,9 @@ module ApplicationHelper
     current_user.photo.exists?
   end
 
+  def clear_messages
+    flash[:notice] = ''
+    flash[:error] = ''
+  end
+
 end

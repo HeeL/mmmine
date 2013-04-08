@@ -9,10 +9,11 @@
 <body>
   <%= js_msg([notice, alert])%>
   <%= js_msg([flash[:error]], 'error')%>
+  <%clear_messages%>
 <div class="howto"></div>
   <div class="w960">
     <header>
-      <a href="#" class="logo"></a>
+      <a href="/" class="logo"></a>
       <nav>
         <%= render "shared/#{user_signed_in? ? 'user' : 'guest'}_nav" %>
       </nav>
@@ -47,8 +48,10 @@
   <div class="hide">
     <%= render 'shared/make_mine' %>
     <%= render 'shared/share_product' %>
-    <%= render 'shared/sign_in' %>
-    <%= render 'shared/sign_up' %>
+    <% if !current_user %>
+      <%= render 'shared/sign_in' %>
+      <%= render 'shared/sign_up' %>
+    <% end %>
   </div>
 
 </body>

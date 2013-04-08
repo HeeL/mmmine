@@ -9,9 +9,7 @@ Mmmine::Application.routes.draw do
 
   devise_scope :user do
     get '/users/auth/:provider/callback' => 'users/omniauth_callbacks#passthru'
-
-    get 'profile/edit' => 'users#edit', as: :edit_profile
-    put 'profile/update' => 'users#update', as: :update_profile
+    match 'profile/edit' => 'users#edit', as: :edit_profile, via: [:get, :put]
   end
 
 

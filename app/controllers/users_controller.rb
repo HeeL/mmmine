@@ -1,13 +1,9 @@
 class UsersController < ApplicationController
 
   before_filter :authenticate_user!, except: [:login, :register]
-  
+    
   def edit
-  end
-  
-  def update
-    flash[:notice] = ''
-    flash[:error] = ''
+    return unless params[:user]
     if !current_user.update_attributes(params[:user])
       flash[:error] = current_user.errors.full_messages.first
     else

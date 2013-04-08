@@ -1,6 +1,6 @@
  <h2>Edit Account Settings</h2>
 
-     <%= form_for(current_user, url: update_profile_path,html: {id: 'profile_settings'}) do |f|%>
+     <%= form_for(current_user, url: edit_profile_path,html: {id: 'profile_settings'}) do |f|%>
         
         <div>
           <%=f.label :email %>
@@ -34,23 +34,32 @@
           <%=f.text_area :about, :size => "22x30"%>
         </div>
 
-        <hr>
+        <%= f.fields_for :user_setting, current_user.user_setting || current_user.build_user_setting do |f| %>
+          <hr>
+          <section id="email_settings">
+              <p>Get an email notification when</p>
+              <%= label_tag do%>
+                <%= f.check_box :new_follower_notify %> Someone starts following you
+              <%end%>
+              <%= label_tag do%>
+                <%= f.check_box :product_save_notify %> Someone you're following saves a product in your sets
+              <%end%>
+              <%= label_tag do%>
+                <%= f.check_box :mentions_notify %> Someone mentions you
+              <%end%>
+          </section>
 
-        <section id="email_settings">
-            <p>Get an email notification when</p>
-            <label><input type="checkbox"/>Someone starts following you</label>
-            <label><input type="checkbox"/>Someone you're following saves a product in your sets</label>
-            <label><input type="checkbox"/>Someone mentions you</label>
-        </section>
+          <hr>
 
-        <hr>
+          <section id="fb_settings">
+              <span class="l fb_b"></span>
+              <%= label_tag do%>
+                <%= f.check_box :publish_fb %> Publish activity on your Facebook timeline
+              <%end%>
+          </section>
 
-        <section id="fb_settings">
-            <span class="l fb_b"></span>
-            <label><input type="checkbox"/>Publish activity on your Facebook timeline</label>
-        </section>
-
-        <hr>
+          <hr>
+        <%end%>
 
         <button type="submit" class="btn">Save Profile</button>
     <%end%>
