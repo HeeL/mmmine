@@ -1,3 +1,5 @@
+<section class="content">
+      
  <h2>Edit Account Settings</h2>
 
      <%= form_for(current_user, url: edit_profile_path,html: {id: 'profile_settings'}) do |f|%>
@@ -14,7 +16,7 @@
         <div>
             <%=f.label :name%>
             <span>http://mmmine.com/u/</span>
-            <%=f.text_field :name, size: '22'%>
+            <%=f.text_field :name, size: '21'%>
         </div>
         <div>
           <%=f.label :photo%>
@@ -63,3 +65,5 @@
 
         <button type="submit" class="btn">Save Profile</button>
     <%end%>
+
+</section>

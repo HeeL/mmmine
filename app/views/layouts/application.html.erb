@@ -2,6 +2,10 @@
 <html>
 <head>
   <title>Mmmine</title>
+  <!--[if lt IE 9]>
+    <script src="/assets/html5shiv.js"></script>
+    <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
+  <![endif]-->
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -28,7 +32,7 @@
                       <ul class="hide">
                           <li class="active"><a href="">Profile</a></li>
                           <li><a href="">Find Friends</a></li>
-                          <li><a href="">Get the Bookmarklet</a></li>
+                          <li><a href="#bookmarklet" class="b bookmarklet" data-toggle="modal" role="button">Get the Bookmarklet</a></li>
                           <li><%= link_to "Settings", edit_profile_path %></li>
                           <li><%= link_to "Sign out", logout_path %></li>
                       </ul>
@@ -37,22 +41,22 @@
               </div>
       <% end %>
     </header>
-    <section class="content">
-      
-      <%= yield %>
 
-    </section>
+      <%= yield %>
+    
     <%= render 'shared/right_section' if @right_section %>
   </div>
 
-  <div class="hide">
-    <%= render 'shared/make_mine' %>
-    <%= render 'shared/share_product' %>
-    <% if !current_user %>
-      <%= render 'shared/sign_in' %>
-      <%= render 'shared/sign_up' %>
-    <% end %>
-  </div>
+  <%= render 'shared/product_details'%>
+  <%= render 'shared/make_mine' %>
+  <%= render 'shared/share_product' %>
+  <%= render 'shared/bookmarklet' %>
+  <%= render 'shared/report' %>
+  <% if !current_user %>
+    <%= render 'shared/sign_in' %>
+    <%= render 'shared/sign_up' %>
+  <% end %>
 
+  <%= javascript_include_tag "settings" %>
 </body>
 </html>

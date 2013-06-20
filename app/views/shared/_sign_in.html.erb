@@ -1,12 +1,18 @@
-<div id="login" class="style">
-  <%= form_tag(login_path, remote: true, id: "sign_in_form") do %>
-    <h3>login to mmmine</h3>
-    <input type="email" name="email" placeholder="Email"/>
-    <input type="password" name="password" placeholder="Password"/> <a href="#" class="forgot">Forgot?</a>
-    <label for="rem" class="ch"><input type="checkbox" id="rem"/>Remember me</label>
-    <button class="btn" type="submit">Log in</button>
-    <p>
-      Not a member? <a class="popup b" href="#signup">Sign up now.</a>
-    </p>
-  <%end%>
+<div id="login" class="style modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+      <h3>login to mmmine</h3>
+  </div>
+  <div class="modal-body">
+    <%= form_tag(login_path, remote: true, id: "sign_in_form") do %>
+      <h3>login to mmmine</h3>
+      <input type="email" name="email" placeholder="Email"/>
+      <input type="password" name="password" placeholder="Password"/> <a href="#" class="forgot">Forgot?</a>
+      <label for="rem" class="ch"><input type="checkbox" id="rem"/>Remember me</label>
+      <button class="btn" type="submit">Log in</button>
+      <p>
+        Not a member? <a class="b signup" href="#signup" data-toggle="modal" role="button">Sign up now.</a>
+      </p>
+    <%end%>
+  </div>
 </div>

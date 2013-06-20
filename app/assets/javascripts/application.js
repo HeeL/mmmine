@@ -12,5 +12,15 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.pnotify.min.js
-//= require_tree .
+//= require jquery.pnotify.min
+//= require jquery.uniform.min
+//= require jquery-migrate-1.1.1.min
+//= require jquery.tooltip.pack
+//= require bootstrap-transition
+//= require bootstrap-modal
+//= require grid
+//= require modernizr
+//= require jquery.placeholder.min
+//= require modernizr
+//= require main
+//= require users
