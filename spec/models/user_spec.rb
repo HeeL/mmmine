@@ -40,12 +40,9 @@ describe User do
       uid: '123',
       provider: 'facebook',
       info: OpenStruct.new({
-        email: 'test@test.com'
-      }),
-      extra: OpenStruct.new({
-        raw_info: OpenStruct.new({
-          name: 'name'
-        })
+        email: 'test@test.com',
+        location: 'Munich, Germany',
+        nickname: 'test.testovich'
       })
     }
     OpenStruct.new(auth)

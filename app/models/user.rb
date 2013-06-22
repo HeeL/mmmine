@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :validatable, :omniauthable, :rememberable, :trackable
 
   attr_accessible :about, :email, :location, :name, :password, :photo, :user_setting_attributes,
-                  :provider, :uid, :website, :password_confirmation, :remember_me
+  :provider, :uid, :website, :password_confirmation, :remember_me
 
   has_one :user_setting, :dependent => :destroy
 
@@ -16,8 +16,9 @@ class User < ActiveRecord::Base
     user = User.where(provider: auth.provider, uid: auth.uid).first
     if !user
       user = User.new(
-        name: auth.extra.raw_info.name,
+        name: auth.info.nickname,
         email: auth.info.email,
+        location: auth.info.location,
         password: Devise.friendly_token[0,10]
       )
       user.provider = auth.provider

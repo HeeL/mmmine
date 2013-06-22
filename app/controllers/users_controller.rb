@@ -12,6 +12,17 @@ class UsersController < ApplicationController
     render 'edit'
   end
 
+  def change_password
+    if current_user.valid_password?(params[:old_password])
+      current_user.update_attributes(password: params[:new_password])
+      sign_in(current_user, bypass: true)
+      result = set_success
+    else
+      result = set_error("The old password is not correct")  
+    end
+    render json: result
+  end
+
   def logout
     sign_out current_user
     flash[:notice] = 'Signed out successfully'

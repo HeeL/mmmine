@@ -6,6 +6,7 @@ Mmmine::Application.routes.draw do
   match 'users/sign_out' => 'users#logout', as: :logout
   match 'users/register' => 'users#register', as: :register
   match 'users/login' => 'users#login', as: :login
+  match 'users/change_password' => 'users#change_password', as: :change_password
 
   devise_scope :user do
     get '/users/auth/:provider/callback' => 'users/omniauth_callbacks#passthru'

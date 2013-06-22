@@ -15,9 +15,7 @@ describe UsersController do
         fill_in f.capitalize, with: "new#{@user.send(f)}"
       end
       checks.each do |f|
-        check_box = find("#user_user_setting_attributes_#{f}")
-        check_box.should_not be_checked  
-        check_box.set(true)
+        find("#user_user_setting_attributes_#{f}").set(false)
       end
       fill_in 'About', with: "new about"
       click_button 'Save Profile'
@@ -27,7 +25,7 @@ describe UsersController do
       end
       page.should have_xpath("//textarea[@id='user_about' and contains(text(), 'new#{@user.about}')]")
       checks.each do |f|
-        find("#user_user_setting_attributes_#{f}").should be_checked
+        find("#user_user_setting_attributes_#{f}").should_not be_checked
       end
     end
   end

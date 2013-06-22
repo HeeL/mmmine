@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Mmmine</title>
+  <title>mmmine</title>
   <!--[if lt IE 9]>
     <script src="/assets/html5shiv.js"></script>
     <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
@@ -48,13 +48,15 @@
   </div>
 
   <%= render 'shared/product_details'%>
-  <%= render 'shared/make_mine' %>
   <%= render 'shared/share_product' %>
-  <%= render 'shared/bookmarklet' %>
   <%= render 'shared/report' %>
   <% if !current_user %>
     <%= render 'shared/sign_in' %>
     <%= render 'shared/sign_up' %>
+  <%else%>
+    <%= render 'shared/change_password' %>
+    <%= render 'shared/make_mine' %>
+    <%= render 'shared/bookmarklet' %>
   <% end %>
 
   <%= javascript_include_tag "settings" %>

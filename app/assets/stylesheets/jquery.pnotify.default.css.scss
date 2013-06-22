@@ -9,6 +9,7 @@ Description:
 */
 /* -- Notice */
 .ui-pnotify {
+  color: #666;
   top: 85px;
   right: 25px;
   position: absolute;
@@ -16,9 +17,9 @@ Description:
   /* Ensures notices are above everything */
   z-index: 9999;
   opacity:0.8 !important;
-  background-color: #669966;
+  background-color: #fff;
   .alert-error{
-    background-color: #A52A2A;
+    border: 2px solid #A52A2A;
   }
 }
 

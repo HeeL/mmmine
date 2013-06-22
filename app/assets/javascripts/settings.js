@@ -93,6 +93,16 @@ $('.drop').on('click', function(e) {
     e.stopPropagation();
 });
 
+$('.drop').on('mouseover', function(e) {
+    $(this).addClass('active');
+});
+
+$('.drop').on('mouseleave', function(e) {
+    if (!$(this).find('ul:visible').length) {
+      $(this).removeClass('active');
+    }
+});
+
 $('.drop a').on('click', function() {
     var id = $(this).attr('href');
     $(id).modal('show');
