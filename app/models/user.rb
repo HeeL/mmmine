@@ -6,7 +6,11 @@ class User < ActiveRecord::Base
 
   has_one :user_setting, :dependent => :destroy
 
-  has_attached_file :photo, :styles => { :photo => "140x120>", :avatar => "32x32>" }
+  has_attached_file :photo, :styles => { 
+    :photo => "140x120>",
+    :avatar => "32x32>"
+  }, 
+  :default_url => '/assets/missing_photo/:style.png'
 
   validates :name, presence: true, length: {in: 3..30}
 

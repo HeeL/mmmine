@@ -21,7 +21,7 @@
         <div>
           <%=f.label :photo%>
           <%=f.file_field :photo%>
-          <%= image_tag(current_user.photo(:photo), class: 'photo') if has_photo?%>
+          <%= image_tag(current_user.photo(:photo), class: 'photo') %>
         </div>
         <div>
           <%=f.label :location %>
