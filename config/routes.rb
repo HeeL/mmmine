@@ -9,6 +9,7 @@ Mmmine::Application.routes.draw do
   match 'users/change_password' => 'users#change_password', as: :change_password
 
   devise_scope :user do
+    match 'products/create' => 'products#create', as: :product_create
     get '/users/auth/:provider/callback' => 'users/omniauth_callbacks#passthru'
     match 'profile/edit' => 'users#edit', as: :edit_profile, via: [:get, :put]
   end

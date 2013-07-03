@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   :provider, :uid, :website, :password_confirmation, :remember_me
 
   has_one :user_setting, :dependent => :destroy
+  has_many :products
 
   has_attached_file :photo, :styles => { 
     :photo => "140x120>",

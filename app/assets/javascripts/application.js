@@ -24,3 +24,4 @@
 //= require modernizr
 //= require main
 //= require users
+//= require products

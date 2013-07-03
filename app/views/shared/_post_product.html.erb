@@ -1,0 +1,12 @@
+<div id="post" class="style modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3>post a product</h3>
+    </div>
+    <div class="modal-body">
+        <%= form_tag(product_create_path, remote: true, id: "product_create_form") do %>
+            <input type="text" name="url" placeholder="Product url"/>
+            <button class="btn big" type="submit">Post</button>
+        <%end%>
+    </div>
+</div>
