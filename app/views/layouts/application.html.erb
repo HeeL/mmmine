@@ -47,17 +47,16 @@
     <%= render 'shared/right_section' if @right_section %>
   </div>
 
-  <%= render 'shared/product_details'%>
-  <%= render 'shared/share_product' %>
-  <%= render 'shared/report' %>
+  <%= render 'shared/pop_ups/share_product' %>
+  <%= render 'shared/pop_ups/report' %>
   <% if !current_user %>
-    <%= render 'shared/sign_in' %>
-    <%= render 'shared/sign_up' %>
+    <%= render 'shared/pop_ups/sign_in' %>
+    <%= render 'shared/pop_ups/sign_up' %>
   <%else%>
-    <%= render 'shared/change_password' %>
-    <%= render 'shared/make_mine' %>
-    <%= render 'shared/bookmarklet' %>
-    <%= render 'shared/post_product' %>
+    <%= render 'shared/pop_ups/change_password' %>
+    <%= render 'shared/pop_ups/make_mine' %>
+    <%= render 'shared/pop_ups/bookmarklet' %>
+    <%= render 'shared/pop_ups/post_product' %>
   <% end %>
 
   <%= javascript_include_tag "settings" %>

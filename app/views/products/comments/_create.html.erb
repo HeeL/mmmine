@@ -1,0 +1,8 @@
+<div class="user-post clearfix">
+    <img src="<%=current_user.photo(:photo)%>" alt="ava2" width="45" height="45">
+    <%= form_tag(comment_create_path, remote: true, class: "comment-form") do %>
+        <textarea name="text" placeholder="Add your comment, #hashtag, @mention"></textarea>
+        <%=hidden_field_tag :product_id, @product.id%>
+        <button class="post-comment btn gray">Post</button>
+    <%end%>
+</div>

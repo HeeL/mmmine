@@ -1,0 +1,28 @@
+<%@product = product%>
+<div class="item">
+  <a href="#thing_popup<%=@product.id%>" data-toggle="modal" role="button">
+    <%=image_tag @product.picture(:middle)%>
+  </a>
+  <div class="social">
+    <a title="Make it mmmine!" href="#make_mmmine" class="b mmmine" data-toggle="modal" role="button">45</a>
+    <a title="Show a friend" href="#share" class="b myspace" data-toggle="modal" role="button">124</a>
+    <a title="Share" class="b other">26</a>
+  </div>
+  <div class="details">
+    <div class="t_from">
+      <p class="from"><b>From</b> <span>Abercrombie Fitch Lorems</span> | $19.90</p>
+                    <a href="#" class="follow r">Follow</a>
+      <div class="user l">
+        <img src="/assets/ava.jpg">
+        <p class="name">Laura Brown</p>
+        <p class="time">About 3 hours ago</p>
+      </div>
+    </div>
+    <div class="t_share hide">
+      <button class="s_button fb">Facebook</button>
+      <button class="s_button tw">Twitter</button>
+    </div>
+  </div>
+</div>
+
+<%=render partial: 'products/product_details' %>

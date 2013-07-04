@@ -1,0 +1,11 @@
+<section class="item_comments">
+    
+  <%=render 'products/comments/create'%>
+
+  <div class="list-comments">
+    <ul>
+      <%=render partial: 'products/comments/comment', collection: @product.comments %>
+    </ul>
+  </div>
+
+</section>

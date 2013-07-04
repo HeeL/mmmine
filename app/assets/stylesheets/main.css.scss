@@ -1305,6 +1305,9 @@ h3 {
   padding: 10px;
   top: 126%;
 }
+.more-menu {
+  margin-top: -10px;
+}
 .drop ul li:not(.active) a:hover {
   text-decoration: underline;
 }
@@ -1521,13 +1524,13 @@ ins {
 .user_l a {
   display: inline-block;
 }
-#thing_popup {
-  color: #808080;
-  padding: 34px 45px;
-  width: 722px;
-  top: 3%;
+.product-details {
+  color: #808080 !important;
+  padding: 34px 45px !important;
+  width: 722px !important;
+  top: 3% !important;
 }
-#thing_popup .fllw.r {
+.product-details .fllw.r {
   margin-top: -8px;
 }
 .more_in_set {
@@ -1739,21 +1742,21 @@ ins {
 .big_item .social .b.mmmine {
   background: #2aac9f url('/assets/icons/big_mmmine.png') 5px 15px;
 }
-img + #comment-form {
+img + .comment-form {
   float: right;
 }
-#comment-form textarea,
-#comment-form button {
+.comment-form textarea,
+.comment-form button {
   margin-top: 0;
   border-radius: 0;
   height: 45px;
   display: inline-block;
   vertical-align: top;
 }
-#comment-form .post-comment.btn {
+.comment-form .post-comment.btn {
   width: 79px;
 }
-#comment-form textarea {
+.comment-form textarea {
   width: 480px;
   margin-right: 5px;
 }

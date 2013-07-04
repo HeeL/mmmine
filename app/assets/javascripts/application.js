@@ -25,3 +25,4 @@
 //= require main
 //= require users
 //= require products
+//= require comments
