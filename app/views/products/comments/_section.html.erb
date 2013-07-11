@@ -1,6 +1,6 @@
 <section class="item_comments">
     
-  <%=render 'products/comments/create'%>
+  <%=render 'products/comments/create' if current_user%>
 
   <div class="list-comments">
     <ul>

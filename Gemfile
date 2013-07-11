@@ -16,9 +16,12 @@ group :test do
   gem 'factory_girl_rails'
 end
 
-group :test, :development do
+group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
+end
+
+group :test, :development do
   gem 'rspec-rails'
 end
 
