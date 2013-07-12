@@ -12,6 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.pnotify.min
+//= require lib/jquery.pnotify.min
 //= require_tree
 //= require settings
