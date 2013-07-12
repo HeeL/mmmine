@@ -24,5 +24,7 @@ function show_hide(el, show) {
 }
 
 $(document).ready(function(){
-
+  if(popup = window.location.href.match(/#thing_popup([0-9]+)/)){
+    $(popup[0]).modal('show');
+  }
 });

@@ -10,19 +10,9 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
-//= require jquery
-//= require jquery_ujs
-//= require jquery.pnotify.min
-//= require jquery.uniform.min
-//= require jquery-migrate-1.1.1.min
-//= require jquery.tooltip.pack
-//= require bootstrap-transition
-//= require bootstrap-modal
-//= require grid
-//= require modernizr
-//= require jquery.placeholder.min
-//= require modernizr
+//= require_tree ./lib
 //= require main
 //= require users
 //= require products
 //= require comments
+//= require more

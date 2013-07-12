@@ -26,12 +26,7 @@
       </section>
       <div class="big_item_details">
           <p>From <a href="http://abercrombie.com">abercrombie.com</a></p>
-          <div class="big_item_likes">
-              <button class="s_button fb">Like</button>
-              <button class="s_button tw">Tweet</button>
-              <button class="s_button pt">Pin it</button>
-          </div>
-      </div>
+          <%=render partial: 'products/social_btns'%>
       <section class="more_in_set">
           <button class="btn green r fllw">Follow</button>
           <p>More from <a href=""><b>Things I Want</b></a></p>
@@ -46,5 +41,6 @@
           </ul>
       </section>
       <%=render partial: 'products/comments/section'%>
+    </div>
   </div>
 </div>
