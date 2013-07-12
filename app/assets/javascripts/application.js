@@ -12,6 +12,14 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree ./lib
-//= require_tree
-//= require settings
+//= require ./lib/jquery.pnotify.min
+//= require ./lib/jquery.uniform.min
+//= require ./lib/jquery-migrate-1.1.1.min
+//= require ./lib/jquery.tooltip.pack
+//= require ./lib/bootstrap-transition
+//= require ./lib/bootstrap-modal
+//= require ./lib/grid
+//= require ./lib/modernizr
+//= require ./lib/jquery.placeholder.min
+//= require ./lib/modernizr
+//= require_directory .
