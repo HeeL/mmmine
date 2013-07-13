@@ -51,6 +51,16 @@ Mmmine::Application.configure do
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
 
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings = {
+    address: ENV['EMAIL_SERVER'],
+    port: 25,
+    user_name: ENV['EMAIL_USER'],
+    password: ENV['EMAIL_PASS'],
+    authentication: :plain
+  }
+
   # Enable threaded mode
   # config.threadsafe!
 
