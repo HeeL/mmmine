@@ -1797,7 +1797,11 @@ img + .comment-form {
 .t_share {
   text-align: center;
   font-size: 0;
+  iframe {
+    width: 90px !important;
+  }
 }
+
 .fb_login {
   background: #486DB3!important;
   border: 1px solid #1E335F;
