@@ -3,6 +3,7 @@ Mmmine::Application.routes.draw do
   devise_for :users, skip: :sessions, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
 
   match '/more' => 'pages#more', as: :more
+  post  '/reports/create' => 'reports#create', as: :report_create
 
   match '/users/sign_in' => redirect('/')
   match '/users/sign_out' => 'users#logout', as: :logout

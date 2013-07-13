@@ -5,13 +5,14 @@
   </div>
   <div class="modal-body">
     <p>Why are you reporting this product?</p>
-    <form>
-        <label for="r1"><input id="r1" value="r1" type="radio" name="report"/>Not a product</label>
-        <label for="r2"><input id="r2" value="r2" type="radio" name="report"/>Incorrect price</label>
-        <label for="r3"><input id="r3" value="r3" type="radio" name="report"/>Bad image</label>
-        <label for="r4"><input id="r4" value="r4" type="radio" name="report"/>Spam</label>
-        <label for="r5"><input id="r5" value="r5" type="radio" name="report"/>Other</label>
-        <button class="btn" type="submit">Report</button>
-    </form>
+    <%= form_tag(report_create_path, remote: true, id: "report_create_form") do %>
+      <%=hidden_field_tag :product_id, nil, id: 'report_product_id'%>
+      <label for="r1"><input id="r1" value="1" type="radio" name="reason_num"/>Not a product</label>
+      <label for="r2"><input id="r2" value="2" type="radio" name="reason_num"/>Incorrect price</label>
+      <label for="r3"><input id="r3" value="3" type="radio" name="reason_num"/>Bad image</label>
+      <label for="r4"><input id="r4" value="4" type="radio" name="reason_num"/>Spam</label>
+      <label for="r5"><input id="r5" value="0" type="radio" name="reason_num"/>Other</label>
+      <button class="btn" type="submit">Report</button>
+    <%end%>
   </div>
 </div>

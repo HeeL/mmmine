@@ -14,4 +14,8 @@ module ApplicationHelper
     flash[:error] = ''
   end
 
+  def product_url(id)
+    "http://mmmine.com/#thing_popup#{id}"
+  end
+
 end
