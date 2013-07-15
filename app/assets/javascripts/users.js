@@ -1,10 +1,19 @@
 $(document).ready(function(){
   track_remote_messages($('#sign_up_form, #sign_in_form, #change_password_form'));
 
-  $('#sign_up_form, #sign_in_form').on('ajax:success', function(data, response, xhr) {
+  function redirect_on_success(path, response){
     if (response.status == 'success') {
-      window.location.href = '/profile/edit'
+      window.location.href = path
     }
+  }
+
+  $('#sign_up_form').on('ajax:success', function(data, response, xhr) {
+    redirect_on_success('/profile/edit', response);
+  });
+
+
+  $('#sign_in_form').on('ajax:success', function(data, response, xhr) {
+    redirect_on_success('/products/live_feed', response);
   });
 
   $('#change_password_form').on('submit', function(){

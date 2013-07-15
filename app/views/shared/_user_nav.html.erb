@@ -1,7 +1,7 @@
 <nav>
         <ul>
             <li><a href="#">Popular</a></li>
-            <li><a href="#">Live Feed</a></li>
+            <li><%=link_to 'Live Feed', live_feed_path%></li>
             <li><a href="#post" data-toggle="modal" role="button" class="b post">Post</a></li>
             <%=render 'shared/more'%>
         </ul>

@@ -12,6 +12,7 @@ Mmmine::Application.routes.draw do
   match '/users/change_password' => 'users#change_password', as: :change_password
 
   devise_scope :user do
+    match '/products/live_feed' => 'products#live_feed', as: :live_feed
     match '/products/create' => 'products#create', as: :product_create
     match '/products/comment_create' => 'products#comment_create', as: :comment_create
     get '/users/auth/:provider/callback' => 'users/omniauth_callbacks#passthru'
