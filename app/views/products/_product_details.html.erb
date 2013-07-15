@@ -25,7 +25,7 @@
           </div>
       </section>
       <div class="big_item_details">
-          <p>From <a href="http://abercrombie.com">abercrombie.com</a></p>
+          <p>From <%=link_to product_site, "http://#{product_site}"%></p>
           <%=render partial: 'products/social_btns'%>
       <section class="more_in_set">
           <button class="btn green r fllw">Follow</button>
