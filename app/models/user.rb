@@ -20,11 +20,13 @@ class User < ActiveRecord::Base
   def self.find_fb_user(auth)
     user = User.where(provider: auth.provider, uid: auth.uid).first
     if !user
+      photo = open("http://graph.facebook.com/#{auth.uid}/picture?type=large") rescue nil
       user = User.new(
         name: auth.info.nickname,
         email: auth.info.email,
         location: auth.info.location,
-        password: Devise.friendly_token[0,10]
+        password: Devise.friendly_token[0,10],
+        photo: photo
       )
       user.provider = auth.provider
       user.uid = auth.uid
