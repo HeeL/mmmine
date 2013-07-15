@@ -3,7 +3,8 @@ $(document).ready(function(){
 
   $('.comment-form').on('ajax:success', function(data, response, xhr) {
     if (response.status == 'success') {
-      $('.comment-form textarea').val('');
+      $('.comment-form:visible textarea').val('');
+      $('.list-comments:visible ul').prepend(response.new_comment)
     }
   });
 });
