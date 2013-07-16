@@ -37,7 +37,7 @@
                           <li><%= link_to "Sign out", logout_path %></li>
                       </ul>
                   </div>
-                  <div class="count"><span>1</span></div>
+                  <div class="count" id="notification_count"><span <%= 'class="zero"'.html_safe if true%>><%= 0 %></span></div>
               </div>
       <% end %>
     </header>

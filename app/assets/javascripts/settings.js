@@ -13,8 +13,8 @@ $(document).ready(function() {
     $(document).ready(function() {
 
     $('.social a').tooltip({
-        track: true,
-        delay: 0,
+        track: false,
+        delay: 500,
         showURL: false,
         showBody: " - ",
         fade: 250
