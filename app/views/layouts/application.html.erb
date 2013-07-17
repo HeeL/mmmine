@@ -42,6 +42,8 @@
       <% end %>
     </header>
 
+    <%= render 'shared/strapline' unless user_signed_in?%>
+
       <%= yield %>
     
     <%= render 'shared/right_section' if @right_section %>

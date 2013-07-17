@@ -5,9 +5,11 @@ class ProductsController < ApplicationController
   before_filter :show_sidebar, only: [:index, :live_feed]
 
   def create
-    product = current_user.products.new(get_product_info)
-    if product.save
+    @product = current_user.products.new(get_product_info)
+    if @product.save
       result = set_success
+      result.merge!(new_product)
+      result.merge!(product_id: @product.id)
     else
       result = set_error(product.errors.full_messages.first)  
     end
@@ -40,6 +42,16 @@ class ProductsController < ApplicationController
       new_comment:
         render_to_string('/products/comments/_comment',
           locals: {comment: @comment},
+          layout: false
+        )
+    }
+  end
+
+  def new_product
+    {
+      new_product:
+        render_to_string('/products/_product_details',
+          locals: {product: @product},
           layout: false
         )
     }
