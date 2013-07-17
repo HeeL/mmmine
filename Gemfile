@@ -9,6 +9,7 @@ gem 'omniauth'
 gem 'oauth2'
 gem 'omniauth-facebook'
 gem 'paperclip'
+gem 'kaminari'
 
 group :test do
   gem 'capybara'

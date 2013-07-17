@@ -19,18 +19,6 @@ describe ProductsController do
     end
   end
 
-  describe "#comment_create" do
-    before :each do
-      sign_in @user = FactoryGirl.create(:user)
-    end
-
-    it "creates a comment" do
-      product = FactoryGirl.create(:product)
-      get :comment_create, text: 'test', product_id: product.id
-      product.comments.last.text.should eq('test')
-    end
-  end
-
   describe "#index" do
     render_views
 

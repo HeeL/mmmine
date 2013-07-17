@@ -1532,6 +1532,10 @@ ins {
 .user_l a {
   display: inline-block;
 }
+#products_loading {
+  position: absolute;
+  display: none;
+}
 .product-details {
   .product_desc {
     width: 90%;
