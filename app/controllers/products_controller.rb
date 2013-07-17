@@ -5,12 +5,11 @@ class ProductsController < ApplicationController
   before_filter :show_sidebar, only: [:index, :live_feed]
 
   def create
-    if params[:url].blank?
-      result = set_error("Fill the url field")  
-    elsif Product.create_by_url(params[:url], current_user).persisted?
+    product = current_user.products.new(get_product_info)
+    if product.save
       result = set_success
     else
-      result = set_error("We have failed to post your product")  
+      result = set_error(product.errors.full_messages.first)  
     end
     render json: result
   end
@@ -44,7 +43,6 @@ class ProductsController < ApplicationController
           layout: false
         )
     }
-
   end
 
   def add_comment
@@ -53,6 +51,13 @@ class ProductsController < ApplicationController
       text: params[:text],
       product: Product.find(params[:product_id])
     )
+  end
+
+  def get_product_info
+    if params[:product][:url].to_s.match(/http\:\/\/.+/)
+      params[:product].merge!(picture: open(params[:product].try(:[],:url)))
+    end
+    params[:product]
   end
 
   def show_sidebar

@@ -2,7 +2,7 @@ class Product < ActiveRecord::Base
 
   default_scope order('created_at desc')
 
-  attr_accessible :url, :picture, :user
+  attr_accessible :url, :picture, :user, :price, :description
 
   belongs_to :user
 
@@ -14,13 +14,7 @@ class Product < ActiveRecord::Base
   }
 
   validates :url, presence: true
-
-  def self.create_by_url(url, user)
-    self.create(
-      user: user,
-      url: url,
-      picture: open(url)
-    )
-  end
+  validates :price, presence: true
+  validates :description, presence: true
 
 end

@@ -9,8 +9,13 @@ describe ProductsController do
 
     it "creates a product" do
       url = 'http://www.google.com.ua/images/srpr/logo4w.png'
-      get :create, url: url
-      @user.products.first.url.should eq(url)
+      price = '88'
+      desc = 'description of a product'
+      get :create, product: {url: url, price: price, description: desc}
+      new_product = @user.products.first
+      new_product.url.should eq(url)
+      new_product.price.should eq(price)
+      new_product.description.should eq(desc)
     end
   end
 

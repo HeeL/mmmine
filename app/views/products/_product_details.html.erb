@@ -19,7 +19,7 @@
               <%=image_tag @product.picture(:big)%>
               <div class="social">
                   <a title="Make it mmmine!" href="#make_mmmine" class="b mmmine" data-toggle="modal" role="button">45</a>
-                  <a title="Product url" href="#share" class="b url" data-toggle="modal" role="button">$45.50</a>
+                  <a title="Product url" href="#share" class="b url" data-toggle="modal" role="button"><%=format_price(@product.price)%></a>
                   <a title="Report" href="#report" data-toggle="modal" class="report" role="button"><span>!</span></a>
               </div>
           </div>
@@ -29,6 +29,9 @@
           <%=render partial: 'products/social_btns'%>
       <section class="more_in_set">
           <button class="btn green r fllw">Follow</button>
+          <div class="product_desc">
+            <%=simple_format(@product.description)%>
+          </div>
           <p>More from <a href=""><b>Things I Want</b></a></p>
           <ul>
               <li><a href="#"><img src="/assets/7_m.jpg" alt=""/></a></li>

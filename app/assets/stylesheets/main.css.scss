@@ -1533,6 +1533,10 @@ ins {
   display: inline-block;
 }
 .product-details {
+  .product_desc {
+    width: 90%;
+    line-height: 160%;
+  }
   color: #808080 !important;
   padding: 34px 45px !important;
   width: 722px !important;
