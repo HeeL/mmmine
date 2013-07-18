@@ -7,6 +7,13 @@ $(document).ready(function(){
     }
   }
 
+  $('#register_with_email').on('click', function(){
+    $('#signup').modal('show');
+    email = $('#email_to_register').val();
+    $('#sign_up_form input[name="email"]').val(email);
+    return false;
+  });
+
   $('#sign_up_form').on('ajax:success', function(data, response, xhr) {
     redirect_on_success('/profile/edit', response);
   });

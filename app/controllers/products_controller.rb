@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
 
 
   def index
-    @products = Product.page(params[:page]).per(2)
+    @products = Product.page(params[:page]).per(18)
     ajax_products if request.xhr?
   end
 
