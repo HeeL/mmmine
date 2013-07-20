@@ -14,6 +14,7 @@ Mmmine::Application.routes.draw do
   devise_scope :user do
     match '/products/live_feed' => 'products#live_feed', as: :live_feed
     match '/products/create' => 'products#create', as: :product_create
+    match '/products/destroy/:id' => 'products#destroy', as: :product_destroy
     match '/comments/create' => 'comments#create', as: :comment_create
     get '/users/auth/:provider/callback' => 'users/omniauth_callbacks#passthru'
     match '/profile/edit' => 'users#edit', as: :edit_profile, via: [:get, :put]
