@@ -19,7 +19,7 @@ class ProductsController < ApplicationController
       result.merge!(new_product)
       result.merge!(product_id: @product.id)
     else
-      result = set_error(product.errors.full_messages.first)  
+      result = set_error('Please complete all the fields')  
     end
     render json: result
   end
