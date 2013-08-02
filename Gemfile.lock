@@ -36,6 +36,7 @@ GEM
       erubis (>= 2.7.0)
     binding_of_caller (0.6.8)
     builder (3.0.4)
+    cancan (1.6.9)
     capistrano (2.14.1)
       highline
       net-scp (>= 1.0.0)
@@ -213,6 +214,7 @@ PLATFORMS
 DEPENDENCIES
   better_errors
   binding_of_caller
+  cancan
   capistrano
   capybara
   coffee-rails (~> 3.2.1)

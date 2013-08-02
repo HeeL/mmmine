@@ -1,6 +1,8 @@
 class CommentsController < ApplicationController
   
   before_filter :authenticate_user!
+  before_filter :find_comment, only: :destroy
+  before_filter :check_permissions, only: :destroy
 
 
   def create
@@ -15,7 +17,20 @@ class CommentsController < ApplicationController
     render json: result
   end
 
+  def destroy
+    @comment.destroy
+    render 'products/comments/destroy'
+  end
+
   private
+
+  def check_permissions
+    authorize! :destroy, @comment
+  end
+
+  def find_comment
+    @comment = Comment.find(params[:id])
+  end
 
   def new_comment
     {

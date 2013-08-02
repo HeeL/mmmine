@@ -1,8 +1,13 @@
-<li>
+<li id="c<%=comment.id%>">
     <img class="l userpic" src="<%=comment.user.photo(:photo)%>" alt="ava2" width="45" height="45">
     <div class="user_l">
         <a class="name" href=""><%=comment.user.name%></a>
         <p class="comment-text"><%=simple_format(comment.text)%></p>
         <small class="comment-time"><%=comment.created_at.strftime('%d.%m.%Y')%></small>
+        <%if can? :destroy, comment%>
+          <div class="delete">
+            <%= link_to 'Delete', comment_destroy_path(comment), method: :delete, remote: true %>
+          </div>
+        <%end%>
     </div>
 </li>

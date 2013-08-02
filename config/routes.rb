@@ -16,6 +16,7 @@ Mmmine::Application.routes.draw do
     match '/products/create' => 'products#create', as: :product_create
     match '/products/destroy/:id' => 'products#destroy', as: :product_destroy
     match '/comments/create' => 'comments#create', as: :comment_create
+    match '/comments/:id/destroy' => 'comments#destroy', as: :comment_destroy
     get '/users/auth/:provider/callback' => 'users/omniauth_callbacks#passthru'
     match '/profile/edit' => 'users#edit', as: :edit_profile, via: [:get, :put]
   end

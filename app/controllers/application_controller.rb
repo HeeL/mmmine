@@ -1,6 +1,10 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url, :error => exception.message
+  end
+
   def set_success(text = '')
     {status: 'success', text: text}
   end
