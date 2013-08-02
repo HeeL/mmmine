@@ -24,6 +24,13 @@ class ProductsController < ApplicationController
     render json: result
   end
 
+  def destroy
+    Product.where(id: params[:id], user_id: current_user.id).first.try(:destroy)
+    redirect_to live_feed_path
+  end
+
+  private
+
   def new_product
     {
       new_product:
