@@ -13,40 +13,24 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = current_user.products.new(get_product_info)
-    if @product.save
-      result = set_success
-      result.merge!(new_product)
-      result.merge!(product_id: @product.id)
-    else
-      result = set_error('Please complete all the fields')  
+    @product = current_user.products.new(params[:product])
+    if @product.valid? && params[:product_pictures].present?
+      @product.save
+      params[:product_pictures].each do |i, pic|
+        @product.product_pictures.create(picture: pic)
+      end
     end
-    render json: result
   end
 
   def destroy
-    Product.where(id: params[:id], user_id: current_user.id).first.try(:destroy)
+    product = Product.find(params[:id])
+    authorize! :destroy, product
+    product.destroy
+
     redirect_to live_feed_path
   end
 
   private
-
-  def new_product
-    {
-      new_product:
-        render_to_string('/products/_product_details',
-          locals: {product: @product},
-          layout: false
-        )
-    }
-  end
-
-  def get_product_info
-    if params[:product][:url].to_s.match(/http\:\/\/.+/)
-      params[:product].merge!(picture: open(params[:product].try(:[],:url)))
-    end
-    params[:product]
-  end
 
   def show_sidebar
     @right_section = true

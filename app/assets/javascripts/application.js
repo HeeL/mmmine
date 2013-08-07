@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.remotipart
 //= require ./lib/jquery.pnotify.min
 //= require ./lib/jquery.uniform.min
 //= require ./lib/jquery-migrate-1.1.1.min

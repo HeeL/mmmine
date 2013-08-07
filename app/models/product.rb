@@ -2,19 +2,19 @@ class Product < ActiveRecord::Base
 
   default_scope order('created_at desc')
 
-  attr_accessible :url, :picture, :user, :price, :description
+  attr_accessible :url, :user, :price, :description, 
+    :size, :currency, :title
 
   belongs_to :user
 
-  has_many :comments
+  has_many :comments, dependent: :destroy
+  has_many :product_pictures, dependent: :destroy
 
-  has_attached_file :picture, :styles => { 
-    big: "620x",
-    middle: "217x"
-  }
-
-  validates :url, presence: true
   validates :price, presence: true
   validates :description, presence: true
+
+  def main_picture
+    (product_pictures.first || ProductPicture.new).picture(:middle)
+  end
 
 end

@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   has_one :user_setting, :dependent => :destroy
   has_many :products
+  has_many :comments
 
   has_attached_file :photo, :styles => { 
     :photo => "140x120#",

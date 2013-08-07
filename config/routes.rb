@@ -1,5 +1,10 @@
 Mmmine::Application.routes.draw do
 
+  root :to => 'products#index'
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+
   devise_for :users, skip: :sessions, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
 
   match '/more' => 'pages#more', as: :more
@@ -10,6 +15,7 @@ Mmmine::Application.routes.draw do
   match '/users/register' => 'users#register', as: :register
   match '/users/login' => 'users#login', as: :login
   match '/users/change_password' => 'users#change_password', as: :change_password
+  match '/categories/subcategories/:id' => 'categories#sub_cats'
 
   devise_scope :user do
     match '/products/live_feed' => 'products#live_feed', as: :live_feed
@@ -22,7 +28,5 @@ Mmmine::Application.routes.draw do
   end
 
   match  '/products' => 'products#index'
-
-  root :to => 'products#index'
 
 end

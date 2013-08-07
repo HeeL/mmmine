@@ -1,0 +1,2 @@
+<% options = @subs.map{|sub_cat| [sub_cat.title, sub_cat.id]}%>
+<%= options_for_select(options.insert(0, ['Please choose...', nil])) %>

@@ -1,14 +1,21 @@
 <div id="post" class="style modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-        <h3>post a product</h3>
-    </div>
-    <div class="modal-body">
-        <%= form_for(Product.new, url: product_create_path, remote: true, html: {id: "product_create_form"}) do |f| %>
-            <%= f.text_field :url, placeholder: 'Product url'%>
-            <%= f.text_field :price, placeholder: 'Price ($)'%>
-            <%= f.text_area :description, placeholder: 'Description'%>
-            <button class="btn big" type="submit">Post</button>
-        <%end%>
-    </div>
+  <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+      <h3>sell a product</h3>
+  </div>
+  <div class="modal-body">
+    <%= form_for(Product.new, url: product_create_path, remote: true, html: {multipart: true}) do |f| %>
+      <%3.times do |i| %>
+        <%= file_field_tag "product_pictures[#{i}]", placeholder: 'You can upload up to 3 photos' %>
+      <%end%>
+      <div class="input-line">
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+      </div>
+      <%= f.text_area :description, placeholder: 'Description' %>
+      <%= f.text_field :size %>
+      <%= f.text_field :price, class: 'price_field' %>
+      <button class="btn big" type="submit">Post</button>
+    <%end%>
+  </div>
 </div>

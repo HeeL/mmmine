@@ -1,0 +1,7 @@
+<%if @product.persisted?%>
+  $('#post').modal('hide');
+  $('.products_list:first').prepend('<%= j(render partial: "/products/product_details", locals: {product: @product}) %>');
+  $('#thing_popup<%=@product.id%>').modal('show');
+<%else%>
+  show_message('Please complete all the fields','','error');
+<%end%>

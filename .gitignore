@@ -15,6 +15,5 @@
 /tmp
 /config/database.yml
 /public/system
-db/schema.rb
 config/environments/development.rb
 config/application.yml

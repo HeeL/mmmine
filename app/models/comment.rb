@@ -7,6 +7,6 @@ class Comment < ActiveRecord::Base
   belongs_to :user
   belongs_to :product
 
-  validates :text, presence: true
+  validates :text, presence: {message: 'You have to write something'}
 
 end

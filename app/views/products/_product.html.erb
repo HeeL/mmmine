@@ -1,7 +1,7 @@
 <%@product = product%>
 <div class="item">
   <a href="#thing_popup<%=@product.id%>" data-toggle="modal" role="button">
-    <%=image_tag @product.picture(:middle)%>
+    <%=image_tag @product.main_picture%>
   </a>
   <div class="social">
     <a title="Make it mmmine!" href="#make_mmmine" class="b mmmine" data-toggle="modal" role="button">45</a>
