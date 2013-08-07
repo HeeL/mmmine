@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130805194659) do
+ActiveRecord::Schema.define(:version => 20130807221225) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -64,16 +64,6 @@ ActiveRecord::Schema.define(:version => 20130805194659) do
   add_index "comments", ["product_id"], :name => "index_comments_on_product_id"
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
-  create_table "pictures", :force => true do |t|
-    t.integer  "product_id"
-    t.string   "picture_file_name"
-    t.string   "picture_content_type"
-    t.integer  "picture_file_size"
-    t.datetime "picture_updated_at"
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
-  end
-
   create_table "product_pictures", :force => true do |t|
     t.integer  "product_id"
     t.string   "picture_file_name"
@@ -86,12 +76,8 @@ ActiveRecord::Schema.define(:version => 20130805194659) do
 
   create_table "products", :force => true do |t|
     t.integer  "user_id"
-    t.string   "picture_file_name"
-    t.string   "picture_content_type"
-    t.integer  "picture_file_size"
-    t.datetime "picture_updated_at"
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
     t.string   "price"
     t.text     "description"
     t.integer  "category_id"

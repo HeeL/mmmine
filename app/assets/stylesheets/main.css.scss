@@ -2153,17 +2153,31 @@ span.or {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  .input-line {
+  .input-line, .input-line-text {
     display: block;
     height: 40px;
     label {
-      font-size: 16px;
+      font-size: 15px;
       color: #000;
       font-weight: bold;
       float: left;
       margin-top: 10px;
     }
-    input {
+    .price-field {
+      width: 240px;
+      float: left;
+    }
+    .currency {
+      width: 100px;
+      float: left;
+      height: 35px;
+      margin-left: 10px;
+    }
+    .right-fields {
+      float: right;
+      width: 350px;
+    }
+    input, select, textarea {
       width: 350px;
       display: inline-block;
       float: right;
@@ -2172,12 +2186,18 @@ span.or {
   input[type=file] {
     width: 500px;
   }
+  .input-line-text {
+    height: 134px;
+    label {
+      margin-top: 50px;
+    }
+  }
 }
 #post .btn {
   display: inline-block;
   vertical-align: top;
   padding: 8px 20px;
-  margin: 0 0 0 20px;
+  margin: 10px 0 0 20px;
   float: right;
 }
 .btn.gray {

@@ -12,9 +12,27 @@
         <%= f.label :title %>
         <%= f.text_field :title %>
       </div>
-      <%= f.text_area :description, placeholder: 'Description' %>
-      <%= f.text_field :size %>
-      <%= f.text_field :price, class: 'price_field' %>
+      <div class="input-line">
+        <%= f.label :category %>
+        <%= f.select :category_id, Category.for_select, include_blank: 'Please choose...' %>
+        <%= f.select :sub_category_id, [] %>
+      </div>
+      <div class="input-line-text">
+        <%= f.label :description %>
+        <%= f.text_area :description, placeholder: 'Description' %>
+      </div>
+      <div class="input-line">
+        <%= f.label :size %>
+        <%= f.text_field :size %>
+      </div>
+      <div class="input-line">
+        <%= f.label :price %>
+        <div class="right-fields">
+          <%= f.text_field :price, class: 'price-field' %>
+          <%= f.select :currency, currencies_for_select, {}, class: 'currency' %>  
+        </div>
+      </div>
+      <div class="clear"></div>
       <button class="btn big" type="submit">Post</button>
     <%end%>
   </div>

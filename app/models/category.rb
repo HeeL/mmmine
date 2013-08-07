@@ -7,4 +7,9 @@ class Category < ActiveRecord::Base
 
   accepts_nested_attributes_for :sub_categories, allow_destroy: true
 
+
+  def self.for_select
+    self.all.collect { |c| [c.title, c.id] }
+  end
+
 end

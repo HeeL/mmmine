@@ -20,4 +20,8 @@ module ApplicationHelper
     "http://mmmine.com/#thing_popup#{id}"
   end
 
+  def currencies_for_select
+    CURRENCIES.map{|c| [c.upcase, c]}
+  end
+
 end
