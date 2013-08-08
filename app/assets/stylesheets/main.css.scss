@@ -622,6 +622,7 @@ table {
   width: 140px;
 }
 .content .item .details .user p.time {
+  margin-top: 4px;
   font-size: 10px;
 }
 .content .item .details .user img {
@@ -634,18 +635,26 @@ table {
   font-size: 12px;
   font-weight: bold;
 }
-.content .item .details .from {
+.content .item .details .from, .price-size {
   font-size: 11px;
   margin-bottom: 12px;
 }
-.content .item .details .from span {
+.content .item .details .from span, .price-size {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   -o-text-overflow: ellipsis;
-  width: 120px;
+  width: 130px;
   display: inline-block;
   vertical-align: bottom;
+}
+.price-size {
+  margin-top: 5px;
+  color: #655B5A;
+  display: block;
+  .separator {
+    margin: 0 5px 0 5px;
+  }
 }
 .content .item img {
   width: 100%;

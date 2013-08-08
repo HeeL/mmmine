@@ -7,6 +7,10 @@ module ApplicationHelper
     javascript_tag("$(document).ready(function(){ #{js.join} });") unless js.empty?
   end
 
+  def get_currency(currency_num)
+    CURRENCIES[currency_num].to_s.upcase
+  end
+
   def has_photo?
     current_user.photo.exists?
   end
@@ -21,7 +25,7 @@ module ApplicationHelper
   end
 
   def currencies_for_select
-    CURRENCIES.map{|c| [c.upcase, c]}
+    CURRENCIES.each_with_index.map{|c, i| [c.upcase, i]}
   end
 
 end

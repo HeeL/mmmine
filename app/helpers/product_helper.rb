@@ -1,11 +1,9 @@
 module ProductHelper
 
-  def format_price(price)
-    '$' + price.to_s.gsub(',', '.').gsub(/[^0-9\.]+/, '')
-  end
-
-  def can_manage?
-    current_user && current_user.id == @product.user.id
+  def format_price(product)
+    price = product.price.to_s.gsub(',', '.').gsub(/[^0-9\.]+/, '')
+    currency = get_currency(product.currency)
+    "#{currency} #{price}"
   end
 
 end

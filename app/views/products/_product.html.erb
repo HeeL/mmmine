@@ -10,7 +10,10 @@
   </div>
   <div class="details">
     <div class="t_from">
-      <p class="from"><b>From</b> <span>Abercrombie Fitch Lorems</span> | <%=format_price(@product.price)%></p>
+      <b><%=@product.title%></b>
+      <div class="price-size">
+        <%=format_price(@product)%> <span class="separator">|</span> Size: <%=@product.size%>
+      </div>
                     <a href="#" class="follow r">Follow</a>
       <div class="user l">
         <img src="/assets/ava.jpg">
