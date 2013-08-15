@@ -618,6 +618,7 @@ table {
 .content .item .details .follow:hover {
   background: #088a7d;
 }
+
 .content .item .details .user {
   width: 140px;
 }
@@ -625,6 +626,51 @@ table {
   margin-top: 4px;
   font-size: 10px;
 }
+.user_l {
+  .details-top {
+    width: 543px;
+    .left-top {
+      float: left;
+    }
+    .right-top {
+      float: right;
+      b {
+        font-size: 22px;
+        color: #000;
+      }
+      .currency {
+        font-size: 14px;
+        color: #ccc;
+        display: inline;
+        margin-left: 4px;
+      }
+      .buy-now {
+        margin-left: 40px;
+        background: #ED7822;
+        padding: 12px;
+        color: #ffffff;
+        font-size: 18px;
+        border-radius: 3px;
+        text-decoration: none;
+      }
+      .buy-now:hover {
+        background-color: #eaa823;
+      }
+    }
+  }
+}
+
+.content .item .details .follow {
+
+}
+.content .item .details .follow:active {
+  background: #00796c;
+}
+.content .item .details .follow:hover {
+  background: #088a7d;
+}
+
+
 .content .item .details .user img {
   height: 24px;
   width: 24px;
@@ -644,7 +690,7 @@ table {
   overflow: hidden;
   text-overflow: ellipsis;
   -o-text-overflow: ellipsis;
-  width: 130px;
+  width: 190px;
   display: inline-block;
   vertical-align: bottom;
 }
@@ -1538,6 +1584,7 @@ ins {
 }
 .user_l span.name {
   font: bold 17px Helvetica, Arial, sans-serif;
+  color: #000;
 }
 .user_l span.posted {
   font-size: 13px;

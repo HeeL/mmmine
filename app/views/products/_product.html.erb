@@ -16,9 +16,11 @@
       </div>
                     <a href="#" class="follow r">Follow</a>
       <div class="user l">
-        <img src="/assets/ava.jpg">
-        <p class="name">Laura Brown</p>
-        <p class="time">About 3 hours ago</p>
+        <%= image_tag @product.user.photo(:avatar) %>
+        <p class="name">
+          <%= @product.user.name %>
+        </p>
+        <p class="time"><%=nice_date(@product.created_at)%></p>
       </div>
     </div>
     <div class="t_share hide">

@@ -6,8 +6,16 @@
               <img src="<%=@product.user.photo(:photo)%>" alt="ava2" width="117" height="123" />
               <div class="user_l">
                   <span class="name"><%=@product.user.name%></span>
-                  <span class="posted">Posted this to <a href="#">Things I Want</a> via <a href="#">laurabrown</a> 10 days ago</span>
-                  <a href="#" class="btn">Follow</a>
+                  <span class="posted">Posted <%=nice_date(@product.created_at, false)%></span>
+                  <div class="details-top">
+                    <div class="left-top">
+                      <a href="#" class="btn">Follow</a>
+                    </div>
+                    <div class="right-top">
+                      <b><%=get_currency_sign(@product.currency)%><%=@product.price%></b> <span class="currency"><%=get_currency(@product.currency)%></span>
+                      <a href="#" class="buy-now follow">Buy Now</a>
+                    </div>
+                  </div>
               </div>
           </div>
       </section>

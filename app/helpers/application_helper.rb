@@ -1,3 +1,5 @@
+#encoding: utf-8
+
 module ApplicationHelper
 
   CURRENCIES = [:usd, :nzd, :aud, :gbp]
@@ -9,6 +11,15 @@ module ApplicationHelper
 
   def get_currency(currency_num)
     CURRENCIES[currency_num].to_s.upcase
+  end
+
+  def get_currency_sign(currency_num)
+    get_currency(currency_num) == 'GBP' ? '£' : '$'
+  end
+
+  def nice_date(date, capitalize = true)
+    date = distance_of_time_in_words(Time.now, date)
+    "#{capitalize ? date.capitalize : date} ago"
   end
 
   def has_photo?
