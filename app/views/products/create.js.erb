@@ -3,5 +3,5 @@
   $('.products_list:first').prepend('<%= j(render partial: "/products/product_details", locals: {product: @product}) %>');
   $('#thing_popup<%=@product.id%>').modal('show');
 <%else%>
-  show_message('Please complete all the fields','','error');
+  show_message('oops! We’re missing some information,<br /> please review your listing','','error');
 <%end%>

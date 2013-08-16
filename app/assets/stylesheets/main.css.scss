@@ -2209,6 +2209,13 @@ span.or {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  .mandatory-info {
+    color: #999;
+    font-style: italic;
+    font-size: 10px;
+    float: left;
+    margin-top: 20px;
+  }
   .input-line, .input-line-text {
     display: block;
     height: 40px;

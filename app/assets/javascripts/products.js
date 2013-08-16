@@ -8,7 +8,7 @@ $(document).ready(function(){
 
   $('#new_product').on('submit', function(){
     if(form_not_filled()) {
-      show_message('Please complete all the fields','','error');
+      show_message('oops! We’re missing some information,<br /> please review your listing','','error');
       return false;
     }
     return true;
