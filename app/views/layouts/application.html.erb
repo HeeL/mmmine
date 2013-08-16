@@ -31,8 +31,6 @@
                       <%=image_tag current_user.photo(:avatar), class: 'small-avatar' %>
                       <ul class="hide">
                           <li class="active"><a href="">Profile</a></li>
-                          <li><a href="">Find Friends</a></li>
-                          <li><a href="#bookmarklet" class="b bookmarklet" data-toggle="modal" role="button">Get the Bookmarklet</a></li>
                           <li><%= link_to "Settings", edit_profile_path %></li>
                           <li><%= link_to "Sign out", logout_path %></li>
                       </ul>

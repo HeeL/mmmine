@@ -1058,6 +1058,12 @@ dfn[title] {
 .account .usermenu.active:after {
   border-top-color: #2aac9f;
 }
+.account {
+  .usermenu ul {
+    width: 90px;
+    margin-left: -13px;
+  }
+}
 .account > div {
   display: inline-block;
   width: 31px;
@@ -1219,7 +1225,7 @@ header nav > ul li.active > a {
   color: #2aac9f;
 }
 header nav > ul > li {
-  margin-left: 53px;
+  margin-left: 40px;
   position: relative;
   height: 19px;
 }
