@@ -5,8 +5,11 @@ class ProductsController < ApplicationController
 
 
   def index
-    @products = Product.page(params[:page]).per(18)
-    ajax_products if request.xhr?
+    @product_list_options = {
+      classes: 'content row3 products_list',
+      path: product_list_path
+    }
+    @products = get_product_list(Product, @product_list_options)
   end
 
   def live_feed
@@ -34,14 +37,6 @@ class ProductsController < ApplicationController
 
   def show_sidebar
     @right_section = true
-  end
-
-  def ajax_products
-    if @products.blank?
-      render text: ''
-    else
-      render layout: false
-    end
   end
 
 end

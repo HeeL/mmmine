@@ -1,0 +1,28 @@
+<section class="user_profile">
+  <div class="l">
+    <img src="<%=@user.photo(:photo)%>" alt="ava2" width="117" height="123">
+    <div class="profile_l">
+      <h3 class="name"><%=@user.name%></h3>
+      <%=link_to 'Edit Profile', edit_profile_path, class: 'btn gray'%>
+    </div>
+  </div>
+  <div class="r">
+    <div class="profile_count">
+      <ul>
+        <li>
+          <a class="btn" href="#"><%=@user.follow_count%></a><span>Following</span>
+        </li>
+        <li>
+          <a class="btn orange" href="#"><%=@user.followers_count%></a><span>Followers</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div id="profile_nav">
+  <div class="profile-tab">My Store</div>
+  <div class="profile-tab-line"></div>
+</div>
+
+<%=render partial: 'shared/product_list', locals: {products: @user.products}.merge(@product_list_options)%>

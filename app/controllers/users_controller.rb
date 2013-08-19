@@ -1,6 +1,17 @@
 class UsersController < ApplicationController
 
   before_filter :authenticate_user!, except: [:login, :register]
+  before_filter :follow_info, only: :follow
+  before_filter :find_user, only: :show
+
+
+  def show
+    @product_list_options = {
+      classes: 'content row4 nomargin products_list',
+      path: show_profile_path(id: @user.id)
+    }
+    get_product_list(@user.products, @product_list_options)
+  end
     
   def edit
     return unless params[:user]
@@ -55,6 +66,26 @@ class UsersController < ApplicationController
       result = set_error(user.errors.full_messages.first)
     end
     render json: result
+  end
+
+  def follow
+    @follow = current_user.following?(@follow_user)
+    if @follow
+      current_user.stop_following(@follow_user)
+    else
+      current_user.follow(@follow_user)
+    end
+  end
+
+  private
+
+  def follow_info
+    @product = Product.find(params[:product_id])
+    @follow_user = @product.user
+  end
+
+  def find_user
+    @user = params[:id] ? User.find(params[:id]) : current_user
   end
 
 end

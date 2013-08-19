@@ -1,0 +1,10 @@
+btn = $('.follow-<%=@product.id%>');
+<%if @follow%>
+  label = 'Follow';
+  btn.removeClass('unfollow');
+<%else%>
+  label = 'Unfollow';
+  btn.addClass('unfollow');
+<%end%>
+
+btn.text(label);

@@ -18,6 +18,9 @@ class User < ActiveRecord::Base
 
   accepts_nested_attributes_for :user_setting
 
+  acts_as_followable
+  acts_as_follower
+
   def self.find_fb_user(auth)
     user = User.where(provider: auth.provider, uid: auth.uid).first
     if !user

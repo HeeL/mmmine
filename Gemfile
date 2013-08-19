@@ -4,7 +4,6 @@ gem 'rails', '3.2.11'
 
 gem 'pg'
 
-
 gem 'activeadmin'
 gem "meta_search", '>= 1.1.0.pre'
 gem 'devise'
@@ -15,6 +14,7 @@ gem 'paperclip'
 gem 'kaminari'
 gem 'cancan'
 gem 'remotipart', '~> 1.2'
+gem "acts_as_follower"
 
 group :test do
   gem 'capybara'

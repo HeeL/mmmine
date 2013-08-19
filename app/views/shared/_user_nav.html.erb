@@ -1,9 +1,24 @@
 <nav>
-        <ul>
-            <li><%=link_to 'Live Feed', live_feed_path%></li>
-            <li><a href="#">Things I want</a></li>
-            <li><a href="#post" data-toggle="modal" role="button" class="b post">Sell an item</a></li>
-            <%=render 'shared/more'%>
-        </ul>
+  <ul>
+    <li><%=link_to 'Live Feed', live_feed_path%></li>
+    <li><a href="#">Things I want</a></li>
+    <li><a href="#post" data-toggle="modal" role="button" class="b post">Sell an item</a></li>
+    <%=render 'shared/more'%>
+  </ul>
+</nav>
 
-    </nav>
+<%=render 'shared/search'%>
+
+<div class="account">
+  <div class="usermenu drop">
+      <%=image_tag current_user.photo(:avatar), class: 'small-avatar' %>
+      <ul class="hide">
+          <li <%='class=active' if at_profile_page?%>><%= link_to "Profile", show_profile_path %></li>
+          <li <%='class=active' if at_edit_profile_page?%>><%= link_to "Settings", edit_profile_path %></li>
+          <li><%= link_to "Sign out", logout_path %></li>
+      </ul>
+  </div>
+  <div class="count" id="notification_count">
+    <span <%= 'class="zero"'.html_safe if true%>><%= 0 %></span>
+  </div>
+</div>

@@ -604,19 +604,38 @@ table {
   overflow: hidden;
   padding: 10px;
 }
-.content .item .details .follow {
-  background: #2aac9f;
-  padding: 5px;
-  color: #ffffff;
-  font-size: 13px;
-  border-radius: 3px;
-  text-decoration: none;
+.content .item .details {
+  .follow {
+    background: #2aac9f;
+    padding: 5px;
+    color: #ffffff;
+    font-size: 13px;
+    border-radius: 3px;
+    text-decoration: none;
+  }
+  .unfollow {
+    font-size: 11px;
+    background: #808083;
+  }
 }
 .content .item .details .follow:active {
   background: #00796c;
 }
-.content .item .details .follow:hover {
-  background: #088a7d;
+.content .item .details {
+  .follow:hover {
+    background: #088a7d;
+  }
+  .unfollow:hover {
+    background: #808083 !important;
+  }
+}
+
+
+.details-top {
+ .unfollow, .unfollow:hover {
+    background: #808083 !important;
+    border: 0;
+  } 
 }
 
 .content .item .details .user {
@@ -1383,9 +1402,6 @@ h3 {
   padding: 10px;
   top: 126%;
 }
-.more-menu {
-  margin-top: -10px;
-}
 .drop ul li:not(.active) a:hover {
   text-decoration: underline;
 }
@@ -1519,6 +1535,27 @@ ins {
   margin-top: 3px;
   margin-right: 55px;
 }
+
+#profile_nav {
+  color: #666666;
+  text-align: center;
+  overflow: hidden;
+  height: 26px;
+  margin-bottom: 25px;
+  .profile-tab {
+    border: 1px solid #B2B2B2;
+    width: 10%;
+    padding: 7px 10px 13px 10px;
+    border-radius: 10px;
+  }
+  .profile-tab-line {
+    float: right;
+    border-bottom: 1px solid #B2B2B2;
+    width: 90%;
+    margin-top: -8px;
+  }
+}
+
 .user_profile {
   position: relative;
   overflow: hidden;
@@ -1533,7 +1570,7 @@ ins {
 }
 .user_profile .l .profile_l {
   position: absolute;
-  top: 20px;
+  top: 55px;
   left: 140px;
 }
 .user_profile .l .profile_l .name {

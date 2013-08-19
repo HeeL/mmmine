@@ -9,7 +9,7 @@
                   <span class="posted">Posted <%=nice_date(@product.created_at, false)%></span>
                   <div class="details-top">
                     <div class="left-top">
-                      <a href="#" class="btn">Follow</a>
+                      <%= render partial: 'shared/follow_btn', locals: {classes: 'btn'}%>
                     </div>
                     <div class="right-top">
                       <b><%=get_currency_sign(@product.currency)%><%=@product.price%></b> <span class="currency"><%=get_currency(@product.currency)%></span>
@@ -40,7 +40,6 @@
       <div class="big_item_details">
         <%=render partial: 'products/social_btns'%>
       <section class="more_in_set">
-          <button class="btn green r fllw">Follow</button>
           <div class="product_desc">
             <%=simple_format(@product.description)%>
           </div>

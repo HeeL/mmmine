@@ -39,4 +39,12 @@ module ApplicationHelper
     CURRENCIES.each_with_index.map{|c, i| [c.upcase, i]}
   end
 
+  def at_profile_page?
+    params[:controller] == "users" && params[:action] == "show" && !params[:id]
+  end
+
+  def at_edit_profile_page?
+    params[:controller] == "users" && params[:action] == "edit"
+  end
+
 end

@@ -27,4 +27,8 @@ $(document).ready(function(){
   if(popup = window.location.href.match(/#thing_popup([0-9]+)/)){
     $(popup[0]).modal('show');
   }
+
+  $('a[href="#signup"]').on('click', function(){
+    scrollTo(0,35);
+  });
 });

@@ -34,13 +34,13 @@ $(document).ready(function(){
   }
 
   function load_new_products(){
-    $.post('/products', {page: ++page_num}, function(data, e) {
+    product_path = $('.products_list').data('product-path');
+    $.post(product_path, {page: ++page_num}, function(data, e) {
       if(data == '') {
         page_num = 0;
         return false;
       }
       $('.products_list:last').parent().append(data);
-      console.log(data);
     }).complete(function() {
       $('#products_loading').hide();
     });

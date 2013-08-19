@@ -18,26 +18,7 @@
   <div class="w960">
     <header>
       <a href="/" class="logo"></a>
-      <nav>
-        <%= render "shared/#{user_signed_in? ? 'user' : 'guest'}_nav" %>
-      </nav>
-      <div class="search">
-        <input type="text" placeholder="Search">
-        <input type="button">
-      </div>
-      <% if user_signed_in? %>
-              <div class="account">
-                  <div class="usermenu drop">
-                      <%=image_tag current_user.photo(:avatar), class: 'small-avatar' %>
-                      <ul class="hide">
-                          <li class="active"><a href="">Profile</a></li>
-                          <li><%= link_to "Settings", edit_profile_path %></li>
-                          <li><%= link_to "Sign out", logout_path %></li>
-                      </ul>
-                  </div>
-                  <div class="count" id="notification_count"><span <%= 'class="zero"'.html_safe if true%>><%= 0 %></span></div>
-              </div>
-      <% end %>
+      <%= render "shared/#{user_signed_in? ? 'user' : 'guest'}_nav" %>
     </header>
 
     <%= render 'shared/strapline' unless user_signed_in?%>
