@@ -1,7 +1,7 @@
 <%if user_signed_in?%>
   <%if current_user.id != user.id%>
     <%follow = current_user.following?(user)%>
-    <%=link_to(follow ? 'Unfollow' : 'Follow', follow_path(options), remote: true, class: "#{classes} #{'unfollow' if follow} follow-#{options[:product_id]}")%>
+    <%=link_to(follow ? 'Unfollow' : 'Follow', follow_path(user_id: user.id), remote: true, class: "#{classes} #{'unfollow' if follow} follow-#{user.id}")%>
   <%end%>
 <%else%>
   <%=link_to 'Follow', '#signup', class: classes, data:{toggle: 'modal'}%>

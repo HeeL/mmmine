@@ -9,7 +9,7 @@
                   <span class="posted">Posted <%=nice_date(@product.created_at, false)%></span>
                   <div class="details-top">
                     <div class="left-top">
-                      <%= render partial: 'shared/follow_btn', locals: {classes: 'btn', user: @product.user, options: {product_id: @product.id}}%>
+                      <%= render partial: 'shared/follow_btn', locals: {classes: 'btn', user: @product.user}%>
                     </div>
                     <div class="right-top">
                       <b><%=get_currency_sign(@product.currency)%><%=@product.price%></b> <span class="currency"><%=get_currency(@product.currency)%></span>

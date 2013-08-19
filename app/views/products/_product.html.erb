@@ -15,7 +15,7 @@
         <%=format_price(@product)%> <span class="separator">|</span> Size: <%=@product.size%>
       </div>
       
-      <%= render partial: 'shared/follow_btn', locals: {classes: 'follow r', user: @product.user, options: {product_id: @product.id}}%>
+      <%= render partial: 'shared/follow_btn', locals: {classes: 'follow r', user: @product.user}%>
 
       <div class="user l">
         <%= image_tag @product.user.photo(:avatar) %>

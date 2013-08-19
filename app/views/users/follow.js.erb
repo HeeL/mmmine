@@ -6,7 +6,7 @@ function change_followers(add) {
   }
 }
 
-btn = $('.follow-<%=@product_id%>');
+btn = $('.follow-<%=@follow_user.id%>');
 <%if @follow%>
   label = 'Follow';
   btn.removeClass('unfollow');

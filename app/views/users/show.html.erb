@@ -6,7 +6,7 @@
       <%if own_profile?%>
         <%=link_to 'Edit Profile', edit_profile_path, class: 'btn gray'%>
       <%else%>
-        <%= render partial: 'shared/follow_btn', locals: {classes: 'btn', user: @user, options: {user_id: @user.id}}%>
+        <%= render partial: 'shared/follow_btn', locals: {classes: 'btn', user: @user}%>
       <%end%>
     </div>
   </div>

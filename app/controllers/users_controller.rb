@@ -69,8 +69,7 @@ class UsersController < ApplicationController
   end
 
   def follow
-    @follow = current_user.following?(@follow_user)
-    if @follow
+    if @follow = current_user.following?(@follow_user)
       current_user.stop_following(@follow_user)
     else
       current_user.follow(@follow_user)
@@ -80,14 +79,7 @@ class UsersController < ApplicationController
   private
 
   def follow_info
-    if params[:product_id]
-      product = Product.find(params[:product_id])
-      @follow_user = product.user
-      @product_id = product.id
-    else
-      @product_id = ''
-      @follow_user = User.find(params[:user_id])
-    end
+    @follow_user = User.find(params[:user_id])
   end
 
   def find_user
