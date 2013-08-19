@@ -21,7 +21,7 @@
       <%= render "shared/#{user_signed_in? ? 'user' : 'guest'}_nav" %>
     </header>
 
-    <%= render 'shared/strapline' unless user_signed_in?%>
+    <%= render 'shared/strapline' if !user_signed_in? && request.path == '/'%>
 
       <%= yield %>
     

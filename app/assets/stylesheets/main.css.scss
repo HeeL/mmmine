@@ -1261,9 +1261,9 @@ header .logo {
   display: block;
   float: left;
   width: 192px;
-  height: 36px;
+  height: 38px;
   position: relative;
-  top: 2px;
+  top: -2px;
   background: url('/assets/logo.png');
 }
 .clearfix {
@@ -1552,7 +1552,7 @@ ins {
     float: right;
     border-bottom: 1px solid #B2B2B2;
     width: 90%;
-    margin-top: -8px;
+    margin-top: -9px;
   }
 }
 
@@ -1572,6 +1572,12 @@ ins {
   position: absolute;
   top: 55px;
   left: 140px;
+}
+.profile_l {
+  .unfollow {
+    background: #808083;
+    border: 0;
+  }
 }
 .user_profile .l .profile_l .name {
   font: bold 25px Helvetica, Arial, sans-serif;

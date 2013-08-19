@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_filter :authenticate_user!, except: [:login, :register]
+  before_filter :authenticate_user!, except: [:login, :register, :show]
   before_filter :follow_info, only: :follow
   before_filter :find_user, only: :show
 
@@ -80,8 +80,14 @@ class UsersController < ApplicationController
   private
 
   def follow_info
-    @product = Product.find(params[:product_id])
-    @follow_user = @product.user
+    if params[:product_id]
+      product = Product.find(params[:product_id])
+      @follow_user = product.user
+      @product_id = product.id
+    else
+      @product_id = ''
+      @follow_user = User.find(params[:user_id])
+    end
   end
 
   def find_user

@@ -3,7 +3,11 @@
     <img src="<%=@user.photo(:photo)%>" alt="ava2" width="117" height="123">
     <div class="profile_l">
       <h3 class="name"><%=@user.name%></h3>
-      <%=link_to 'Edit Profile', edit_profile_path, class: 'btn gray'%>
+      <%if own_profile?%>
+        <%=link_to 'Edit Profile', edit_profile_path, class: 'btn gray'%>
+      <%else%>
+        <%= render partial: 'shared/follow_btn', locals: {classes: 'btn', user: @user, options: {user_id: @user.id}}%>
+      <%end%>
     </div>
   </div>
   <div class="r">
@@ -13,7 +17,7 @@
           <a class="btn" href="#"><%=@user.follow_count%></a><span>Following</span>
         </li>
         <li>
-          <a class="btn orange" href="#"><%=@user.followers_count%></a><span>Followers</span>
+          <a class="btn orange" href="#" id="followers_num"><%=@user.followers_count%></a><span>Followers</span>
         </li>
       </ul>
     </div>

@@ -1,10 +1,20 @@
-btn = $('.follow-<%=@product.id%>');
+function change_followers(add) {
+  field = $('#followers_num')
+  add = add ? 1 : -1;
+  if(field) {
+    field.text(parseInt(field.text()) + add);
+  }
+}
+
+btn = $('.follow-<%=@product_id%>');
 <%if @follow%>
   label = 'Follow';
   btn.removeClass('unfollow');
+  change_followers();
 <%else%>
   label = 'Unfollow';
   btn.addClass('unfollow');
+  change_followers(1);
 <%end%>
 
 btn.text(label);
