@@ -14,6 +14,23 @@ $(document).ready(function(){
     return true;
   });
 
+  $('.guest-buy-now, .guest-make-mine').on('click', function(e){
+    scrollTo(0,35);
+    $('#signup').modal('show');
+  });
+
+  comment_form = $('.comment-form[data-guest="true"]');
+  comment_form.find('textarea').on('focus', function(){
+    scrollTo(0,35);
+    $('#signup').modal('show');
+  });
+
+  comment_form.on('submit', function(){
+    scrollTo(0,35);
+    $('#signup').modal('show');
+    return false;
+  });
+
   function form_not_filled(){
     return $('#new_product :input[value=""][type="file"]').length == 3 || $('#new_product :input[value=""][type!="file"]') == true
   }

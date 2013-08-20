@@ -4,7 +4,7 @@
     <%=image_tag @product.main_picture%>
   </a>
   <div class="social">
-    <a title="Make it mmmine!" href="#make_mmmine" class="b mmmine" data-toggle="modal" role="button">45</a>
+    <a title="Make it mmmine!" href="#make_mmmine<%=@product.id%>" class="b mmmine<%=' guest-make-mine' unless current_user%>" data-toggle="modal" role="button">45</a>
     <a title="Show a friend" href="#share" class="b myspace" data-toggle="modal" role="button">124</a>
     <a title="Share" class="b other">26</a>
   </div>
@@ -45,4 +45,5 @@
   </div>
 </div>
 
-<%=render partial: 'products/product_details' %>
+<%= render partial: 'products/product_details' %>
+<%= render 'shared/pop_ups/make_mine' if current_user %>

@@ -1,6 +1,8 @@
 <section class="content">
+
+  <%= render 'shared/pop_ups/change_password' %>
       
- <h2>Edit Account Settings</h2>
+  <h2>Edit Account Settings</h2>
 
      <%= form_for(current_user, url: edit_profile_path,html: {id: 'profile_settings'}) do |f|%>
         
@@ -17,6 +19,9 @@
             <%=f.label :name%>
             <span>http://mmmine.com/u/</span>
             <%=f.text_field :name, size: '21'%>
+            <span class="field-hint">
+              *This will be displayed on your profile
+            </span>
         </div>
         <div>
           <%=f.label :photo%>
