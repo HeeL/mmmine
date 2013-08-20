@@ -181,7 +181,7 @@ del {
 :-ms-input-placeholder {
   color: #808080;
 }
-#tooltip {
+.ui-tooltip {
   position: absolute;
   z-index: 3000;
   border: 1px solid #2aac9f;
@@ -1116,7 +1116,7 @@ dfn[title] {
   max-width: 100%;
   max-height: 100%;
 }
-#tooltip {
+.ui-tooltip {
   position: absolute;
   z-index: 3000;
   border: 1px solid #2aac9f;

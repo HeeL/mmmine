@@ -13,16 +13,12 @@ $(document).ready(function() {
     $(document).ready(function() {
 
     $('.social a').tooltip({
-        track: false,
-        delay: 500,
-        showURL: false,
-        showBody: " - ",
-        fade: 250
+      hide: { duration: 0 },
+      show: { duration: 100 }
     });
 
-
-        var from = $('.details .t_from'),
-            share = $('.details .t_share');
+      var from = $('.details .t_from'),
+          share = $('.details .t_share');
 
       $('.social .other').click(function(){
          $(this).parent().parent().find(from).slideToggle();

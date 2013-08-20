@@ -40,6 +40,7 @@ end
 gem 'haml'
 
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 
 gem 'unicorn'
 gem 'capistrano'
