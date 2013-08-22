@@ -12,8 +12,7 @@ class Product < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   has_many :product_pictures, dependent: :destroy
 
-  validates :price, presence: true
-  validates :description, presence: true
+  validates :price, :description, :size, :currency, :title, presence: true
 
   acts_as_followable
 
