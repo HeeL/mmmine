@@ -17,7 +17,7 @@ class ProductsController < ApplicationController
       classes: 'content row3 products_list',
       path: live_feed_path
     }
-    products = Product.where(user_id: current_user.all_following.map(&:id))
+    products = Product.where(user_id: current_user.following_users.map(&:id))
     @products = get_product_list(products, @product_list_options)
   end
 
