@@ -2,8 +2,8 @@ class Product < ActiveRecord::Base
 
   default_scope order('created_at desc')
 
-  attr_accessible :user, :price, :description, 
-    :size, :currency, :title, :category_id, :sub_category_id
+  attr_accessible :user, :price, :description, :size, :currency,
+                  :title, :category_id, :sub_category_id, :sold_to
 
   belongs_to :user
   belongs_to :category
@@ -19,6 +19,10 @@ class Product < ActiveRecord::Base
 
   def main_picture
     (product_pictures.first || ProductPicture.new).picture(:middle)
+  end
+
+  def sold?
+    self.sold_to > 0
   end
 
 end

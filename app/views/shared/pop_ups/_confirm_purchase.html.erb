@@ -1,11 +1,21 @@
-<div id="buy_confirm<%=@product.id%>" class="style modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+<div id="buy_confirm<%=@product.id%>" class="buy-confirm style modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
         <h3>buy this item</h3>
     </div>
     <div class="modal-body">
-      A lot of text goes here...
-      <%= form_tag(root_path, remote: true) do |f|%>
+      <h1><%=@product.title%></h1>
+      <div class="size">Size: <%=@product.size%></div>
+      <div class="location">Location:  <%=@product.user.location%></div>
+      <div class="total">Total to be charged: <%=format_price(@product, false)%></div>
+      <p>
+        You’re just one click away from owning this beautiful item! :) By clicking 
+        “Confirm Purchase” you agree to purchase this item from the owner. Your contact 
+        details will be exchanged with the seller so that you can arrange payment and
+        collection or delivery. After clicking “Confirm Purchase”, please check your email for 
+        more information about contacting the seller and completing the deal.
+      </p>
+      <%= form_tag(product_buy_path(@product.id), remote: true) do %>
         <button class="btn" type="submit">Confirm Purchase</button>
       <%end%>
     </div>

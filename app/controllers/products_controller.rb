@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   
   before_filter :authenticate_user!, except: :index
   before_filter :show_sidebar, only: [:index, :live_feed]
+  before_filter :find_product, only: [:destroy, :buy]
 
 
   def index
@@ -32,14 +33,23 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    product = Product.find(params[:id])
-    authorize! :destroy, product
-    product.destroy
+    authorize! :destroy, @product
+    @product.destroy
 
     redirect_to live_feed_path
   end
 
+  def buy
+    @product.update_attributes(sold_to: current_user.id)
+    PurchaseMailer.buyer(current_user, @product).deliver
+    PurchaseMailer.seller(current_user, @product).deliver
+  end
+
   private
+
+  def find_product
+    @product = Product.find(params[:id])
+  end
 
   def show_sidebar
     @right_section = true

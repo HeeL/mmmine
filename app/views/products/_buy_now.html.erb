@@ -1,7 +1,7 @@
 <%if @product.sold?%>
-  <a href="#" class="buy-now follow">Sold</a>
+  <a href="#" class="sold follow">Sold</a>
 <%else%>
-  <a href="#buy_confirm<%=@product.id%>" class="buy-now follow<%=' guest-buy-now' unless current_user%>">Buy Now</a>
+  <a href="#buy_confirm<%=@product.id%>" data-toggle="modal" class="buy-now follow<%=' guest-buy-now' unless current_user%>">Buy Now</a>
 <%end%>
 
 <%= render 'shared/pop_ups/confirm_purchase' if current_user%>

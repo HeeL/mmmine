@@ -663,14 +663,20 @@ table {
         display: inline;
         margin-left: 4px;
       }
-      .buy-now {
+      .buy-now, .sold {
         margin-left: 40px;
-        background: #ED7822;
         padding: 12px;
         color: #ffffff;
         font-size: 18px;
         border-radius: 3px;
         text-decoration: none;
+      }
+      .sold {
+        background-color: #C0272D;
+        cursor: default;
+      }
+      .buy-now {
+        background: #ED7822;
       }
       .buy-now:hover {
         background-color: #eaa823;
@@ -679,9 +685,6 @@ table {
   }
 }
 
-.content .item .details .follow {
-
-}
 .content .item .details .follow:active {
   background: #00796c;
 }
@@ -2348,4 +2351,35 @@ span.or {
 }
 .more p {
   color: #fff;
+}
+
+
+.buy-confirm .modal-body {
+  margin-top: 20px;
+  color: #515151;
+  h1 {
+    font-size: 22px;
+  }
+  p {
+    margin-top: 30px;
+    font-size: 12px;
+    line-height: 1.35;
+    color: #7D7D7D;
+  }
+  .size {
+    margin-top: 20px;
+    font-weight: bold;
+  }
+  .location {
+    font-weight: bold;
+    margin-top: 3px;
+  }
+  .total {
+    margin-top: 20px;
+    font-weight: bold;
+  }
+  .btn {
+    margin-top: 18px;
+    float: right;
+  }
 }
