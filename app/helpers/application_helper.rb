@@ -47,4 +47,11 @@ module ApplicationHelper
     params[:controller] == "users" && params[:action] == "edit"
   end
 
+  def subs_cols(subs)
+    cols = []
+    cols << subs[0, (subs.count   / 2.to_f).round]
+    cols << subs[(subs.count   / 2.to_f).round, subs.count]
+    cols
+  end
+
 end

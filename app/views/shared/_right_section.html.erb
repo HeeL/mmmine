@@ -1,20 +1,17 @@
 <section class="right">
   <div class="elem">
-    <h4>related tags</h4>
-    <div class="tags">
-      <a href="#">girl</a>
-      <a href="#">cute</a>
-      <a href="#">fashion</a>
-      <a href="#">photography</a>
-      <a href="#">love</a>
-      <a href="#">beautiful</a>
-      <a href="#">pretty</a>
-      <a href="#">hair</a>
-      <a href="#">style</a>
-      <a href="#">sexy</a>
-      <a href="#">vintage</a>
-      <a href="#">dress</a>
-    </div>
+    <h4>Categories</h4>
+    <%Category.all.each do |cat| %>
+      <div class="cat"><span>&#x25BC;</span><%=cat.title%></div>
+        <%subs_cols(cat.sub_categories).each_with_index do |col, i|%>
+          <ul class="<%= i == 0 ? 'left' : 'right'%>-col">
+            <%col.each do |sub_cat| %>
+              <li><%=link_to sub_cat.title, product_list_path(sub_cat_id: sub_cat.id)%></li>
+            <%end%>
+          </ul>
+        <%end%>
+      <div class="clear"></div>
+    <%end%>
   </div>
   <div class="elem">
     <h4>discover</h4>

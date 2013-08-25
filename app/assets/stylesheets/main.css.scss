@@ -1498,6 +1498,26 @@ ins {
 }
 .right .elem {
   margin-bottom: 30px;
+  .cat {
+    margin: 20px 0 10px 0;
+    font-weight: bold;
+    span {
+      color: #2aac9f;
+      position: absolute;
+      margin-left: 60px;
+    }
+  }
+  ul li {
+    margin-top: 5px;
+  }
+  ul.right-col {
+    float: right;
+    width: 110px;
+  }
+  ul.left-col {
+    float: left;
+    width: 100px;
+  }
 }
 .right .elem menu a {
   display: block;
@@ -1512,6 +1532,7 @@ ins {
   font-size: 26px;
   text-transform: lowercase;
   font-weight: 400;
+  margin-bottom: 20px;
 }
 .right .tags {
   font-size: 0;
