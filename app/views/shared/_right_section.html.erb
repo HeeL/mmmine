@@ -2,15 +2,17 @@
   <div class="elem">
     <h4>Categories</h4>
     <%Category.all.each do |cat| %>
-      <div class="cat"><span>&#x25BC;</span><%=cat.title%></div>
-        <%subs_cols(cat.sub_categories).each_with_index do |col, i|%>
-          <ul class="<%= i == 0 ? 'left' : 'right'%>-col">
-            <%col.each do |sub_cat| %>
-              <li><%=link_to sub_cat.title, product_list_path(sub_cat_id: sub_cat.id)%></li>
-            <%end%>
-          </ul>
-        <%end%>
-      <div class="clear"></div>
+      <div id="cat<%=cat.id%>">
+        <div class="cat"><span data-cat-id="<%=cat.id%>">&#x25BC;</span><%=cat.title%></div>
+          <%subs_cols(cat.sub_categories).each_with_index do |col, i|%>
+            <ul style="display: <%= cat.women? ? 'block' : 'none' %>" class="<%= i == 0 ? 'left' : 'right'%>-col">
+              <%col.each do |sub_cat| %>
+                <li><%=link_to sub_cat.title, product_list_path(sub_category_id: sub_cat.id)%></li>
+              <%end%>
+            </ul>
+          <%end%>
+        <div class="clear"></div>
+      </div>
     <%end%>
   </div>
   <div class="elem">

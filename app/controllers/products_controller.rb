@@ -8,9 +8,13 @@ class ProductsController < ApplicationController
   def index
     @product_list_options = {
       classes: 'content row3 products_list',
-      path: product_list_path
+      path: product_list_path(sub_category_id: params[:sub_category_id])
     }
-    @products = get_product_list(Product, @product_list_options)
+    product = Product
+    if params[:sub_category_id]
+      product = product.where(sub_category_id: params[:sub_category_id])
+    end
+    @products = get_product_list(product, @product_list_options)
   end
 
   def live_feed

@@ -12,4 +12,8 @@ class Category < ActiveRecord::Base
     self.all.collect { |c| [c.title, c.id] }
   end
 
+  def women?
+    id == 2
+  end
+
 end

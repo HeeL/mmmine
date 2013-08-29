@@ -31,4 +31,9 @@ $(document).ready(function(){
   $('a[href="#signup"]').on('click', function(){
     scrollTo(0,35);
   });
+
+  $('.right .cat span').on('click', function(e){
+    $('#cat' + $(e.target).data('cat-id')).find('ul').toggle('up');
+  });
+
 });

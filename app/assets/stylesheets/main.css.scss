@@ -1499,16 +1499,20 @@ ins {
 .right .elem {
   margin-bottom: 30px;
   .cat {
-    margin: 20px 0 10px 0;
+    margin-top: 15px;
     font-weight: bold;
     span {
       color: #2aac9f;
       position: absolute;
       margin-left: 60px;
+      cursor: pointer;
     }
   }
-  ul li {
-    margin-top: 5px;
+  ul {
+    margin: 10px 0;
+    li { 
+      margin-top: 5px;
+    }
   }
   ul.right-col {
     float: right;
