@@ -4,9 +4,25 @@
       <h3>save to Things I want</h3>
   </div>
   <div class="modal-body">
-      <form>
+      <%= form_tag(follow_product_path(@product.id), remote: true) do %>
           <textarea placeholder="Add your comment, #hashtag, @mention"></textarea>
           <button class="btn" type="submit">Save</button>
-      </form>
+      <%end%>
+  </div>
+</div>
+
+<div id="delete_from_mmmine<%=@product.id%>" class="style modal hide fade delete-confirm" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+      <h3>delete</h3>
+  </div>
+  <div class="modal-body">
+    Are you sure you want to delete<br /> this item?
+    <div class="btns-action">
+      <button class="btn unfollow cancel-follow" data-cancel-follow="<%=@product.id%>">Cancel</button>
+      <%= form_tag(follow_product_path(@product.id), remote: true) do %>
+          <button class="btn delete-btn" type="submit">Delete</button>
+      <%end%>
+    </div>
   </div>
 </div>

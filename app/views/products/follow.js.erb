@@ -1,0 +1,29 @@
+function product_followers(add) {
+  field_small = $('#make_mmmine_small_<%=@product.id%>');
+  field_big = $('#make_mmmine_big_<%=@product.id%>');
+  add = add ? 1 : -1;
+  if(field_small) {
+    val = parseInt(field_small.text()) + add;
+    field_small.text(val);
+    field_big.text(val);
+  }
+}
+
+small_btn = $('#make_mmmine_small_<%=@product.id%>');
+big_btn = $('#make_mmmine_big_<%=@product.id%>'); 
+
+<%if @follow%>
+  $('#delete_from_mmmine<%=@product.id%>').modal('hide');
+  small_btn.removeClass('unfollow-product');
+  big_btn.removeClass('unfollow-product');
+  small_btn.attr('href', '#make_mmmine<%=@product.id%>');
+  big_btn.attr('href', '#make_mmmine<%=@product.id%>');
+  product_followers();
+<%else%>
+  $('#make_mmmine<%=@product.id%>').modal('hide');
+  small_btn.addClass('unfollow-product');
+  big_btn.addClass('unfollow-product');
+  small_btn.attr('href', '#delete_from_mmmine<%=@product.id%>');
+  big_btn.attr('href', '#delete_from_mmmine<%=@product.id%>');
+  product_followers(1);
+<%end%>

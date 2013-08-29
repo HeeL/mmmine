@@ -25,6 +25,7 @@ Mmmine::Application.routes.draw do
     match '/comments/create' => 'comments#create', as: :comment_create
     match '/comments/:id/destroy' => 'comments#destroy', as: :comment_destroy
     match '/users/follow' => 'users#follow', as: :follow
+    match '/products/follow/:id' => 'products#follow', as: :follow_product
     get '/users/auth/:provider/callback' => 'users/omniauth_callbacks#passthru'
     match '/profile/edit' => 'users#edit', as: :edit_profile, via: [:get, :put]
     match '/profile/show(/:id)' => 'users#show', as: :show_profile

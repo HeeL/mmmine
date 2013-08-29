@@ -18,8 +18,8 @@
   <div class="elem">
     <h4>discover</h4>
     <menu>
-      <a href="#">Just Posted</a>
-      <a href="#">Most Popular</a>
+      <%=link_to 'Just Posted', root_path%>
+      <%=link_to 'Most Popular', product_list_path(order: 'followed', desc: 1)%>
       <a href="#">Top Stores</a>
     </menu>
   </div>

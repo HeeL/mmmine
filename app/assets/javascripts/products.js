@@ -35,6 +35,10 @@ $(document).ready(function(){
     return $('#new_product :input[value=""][type="file"]').length == 3 || $('#new_product :input[value=""][type!="file"]') == true
   }
 
+  $('.cancel-follow').on('click', function(e){
+    $('#delete_from_mmmine' + $(e.target).data('cancel-follow')).modal('hide');
+  });
+
   var page_num = 1
 
   if($('.products_list').length > 0) {

@@ -7,4 +7,8 @@ module ProductHelper
     sign ? "#{curreny_sign}#{price} #{currency}" : "#{currency} #{price}"
   end
 
+  def make_mmmine_link
+    current_user && current_user.following?(@product) ? "#delete_from_mmmine#{@product.id}" : "#make_mmmine#{@product.id}"
+  end
+
 end

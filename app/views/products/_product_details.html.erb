@@ -28,7 +28,7 @@
                 <%=image_tag pic.picture(:big), style: i == 0 ? "margin-top: 0" : ''%>
               <%end%>
               <div class="social">
-                  <a title="Make it mmmine!" href="#make_mmmine<%=@product.id%>" class="b mmmine<%=' guest-make-mine' unless current_user%>" data-toggle="modal" role="button">45</a>
+                  <a id="make_mmmine_big_<%=@product.id%>" title="Make it mmmine!" href="<%=make_mmmine_link%>" class="b mmmine<%=' guest-make-mine' unless current_user%> <%='unfollow-product' if current_user && current_user.following?(@product)%>" data-toggle="modal" role="button"><%=@product.count_user_followers%></a>
                   <%if can? :destroy, @product%>
                     <a title="Delete Product" href="<%=product_destroy_path(@product)%>" onclick="return confirm('Are you sure you want to delete this product?')" class="report" role="button"><span>X</span></a>
                   <%else%>

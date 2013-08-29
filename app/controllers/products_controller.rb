@@ -2,17 +2,20 @@ class ProductsController < ApplicationController
   
   before_filter :authenticate_user!, except: :index
   before_filter :show_sidebar, only: [:index, :live_feed]
-  before_filter :find_product, only: [:destroy, :buy]
+  before_filter :find_product, only: [:destroy, :buy, :follow]
 
 
   def index
     @product_list_options = {
       classes: 'content row3 products_list',
-      path: product_list_path(sub_category_id: params[:sub_category_id])
+      path: product_list_path(desc: params[:desc], order: params[:order], sub_category_id: params[:sub_category_id])
     }
     product = Product
     if params[:sub_category_id]
       product = product.where(sub_category_id: params[:sub_category_id])
+    end
+    if params[:order] && ['followed'].include?(params[:order])
+      product = product.unscoped.order("#{params[:order]} #{'DESC' if params[:desc]}");
     end
     @products = get_product_list(product, @product_list_options)
   end
@@ -47,6 +50,17 @@ class ProductsController < ApplicationController
     @product.update_attributes(sold_to: current_user.id)
     PurchaseMailer.buyer(current_user, @product).deliver
     PurchaseMailer.seller(current_user, @product).deliver
+  end
+
+  def follow
+    if @follow = current_user.following?(@product)
+      current_user.stop_following(@product)
+      @product.followed -= 1
+    else
+      current_user.follow(@product)
+      @product.followed += 1
+    end
+    @product.save
   end
 
   private
