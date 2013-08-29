@@ -1,10 +1,10 @@
 Hi <%=@seller.name%><br /><br />
 
-Congratulations, <%=@buyer.name%> has agreed to purchase your item "<%=@product.title%>" for <%=format_price(@product, false)%>.<br /><br />
+Congratulations, <%=link_to @buyer.name, show_profile_url(@buyer.id)%> has agreed to purchase your item "<%=link_to @product.title, product_url(@product.id)%>" for <%=format_price(@product, false)%>.<br /><br />
 
-You can contact <%=@buyer.name%> to arrange payment and delivery or collection using the details below:<br /><br />
+You can contact <%=link_to @buyer.name, show_profile_url(@buyer.id)%> to arrange payment and delivery or collection using the details below:<br /><br />
 
-Email: <%=@buyer.email%><br /><br />
+Email: <%=mail_to @buyer.email%><br /><br />
 
 Thanks for using mmmine.<br /><br />
 

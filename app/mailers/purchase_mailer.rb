@@ -7,14 +7,14 @@ class PurchaseMailer < ActionMailer::Base
     @product = product
     @seller = product.user
     @buyer = buyer
-    mail(to: buyer.email, subject: "[mmmine] You have just purchased a product!")
+    mail(to: buyer.email, subject: "Congratulations, you've bought an item on mmmine")
   end
  
   def seller(buyer, product)
     @product = product
     @seller = product.user
     @buyer = buyer
-    mail(to: @seller.email, subject: "[mmmine] Somebody has just purchased one of your products!")
+    mail(to: @seller.email, subject: "Congratulations, you've sold an item on mmmine")
   end
 
 end
