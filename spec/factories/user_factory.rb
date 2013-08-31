@@ -5,5 +5,6 @@ FactoryGirl.define do
     end
     name 'Firstname Lastname'
     password 'password'
+    location 'Ukraine'
   end
 end

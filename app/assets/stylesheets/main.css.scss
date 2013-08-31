@@ -770,7 +770,7 @@ table {
     background: #2aac9f url('/assets/icons/mmmine.png');
   }
   .b.unfollow-product {
-    background: #2aac9f url('/assets/icons/myspace.png');  
+    background: #2aac9f url('/assets/icons/small_trash.png') no-repeat 28px 13px !important;  
   }
   .b:after {
     width: 0px;
@@ -1937,7 +1937,7 @@ ins {
     background: #2aac9f url('/assets/icons/big_mmmine.png') 5px 15px;
   }
   .b.unfollow-product {
-    background: #2aac9f url('/assets/icons/big_url.png') 5px 15px;
+    background: #2aac9f url('/assets/icons/big_trash.png') 5px 15px;
   }
 } 
 img + .comment-form {

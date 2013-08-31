@@ -59,6 +59,7 @@ class ProductsController < ApplicationController
     else
       current_user.follow(@product)
       @product.followed += 1
+      add_comment
     end
     @product.save
   end
@@ -67,6 +68,15 @@ class ProductsController < ApplicationController
 
   def find_product
     @product = Product.find(params[:id])
+  end
+
+  def add_comment
+    if params[:comment].present?
+      @comment = current_user.comments.create(
+        text: params[:comment],
+        product: @product
+      )
+    end
   end
 
   def show_sidebar

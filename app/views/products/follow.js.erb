@@ -27,3 +27,8 @@ big_btn = $('#make_mmmine_big_<%=@product.id%>');
   big_btn.attr('href', '#delete_from_mmmine<%=@product.id%>');
   product_followers(1);
 <%end%>
+
+<%if @comment && @comment.persisted?%>
+  $('#make_mmmine<%=@product.id%>').find('textarea').val('');
+  $('#thing_popup<%=@product.id%>').find('.list-comments ul').prepend('<%= j(render partial: "/products/comments/comment", locals: {comment: @comment}) %>');  
+<%end%>

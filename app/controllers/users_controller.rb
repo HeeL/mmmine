@@ -57,7 +57,8 @@ class UsersController < ApplicationController
     user = User.create(
       email: params[:email],
       password: params[:password], 
-      name: params[:name]
+      name: params[:name],
+      location: params[:location]
     )
     if user.persisted?
       sign_in user

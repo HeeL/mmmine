@@ -5,7 +5,7 @@
   </div>
   <div class="modal-body">
       <%= form_tag(follow_product_path(@product.id), remote: true) do %>
-          <textarea placeholder="Add your comment, #hashtag, @mention"></textarea>
+          <textarea name="comment" placeholder="Add your comment, #hashtag, @mention"></textarea>
           <button class="btn" type="submit">Save</button>
       <%end%>
   </div>

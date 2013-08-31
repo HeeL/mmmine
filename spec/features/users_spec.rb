@@ -8,7 +8,7 @@ describe UsersController do
 
   describe '#edit' do
     it "updates all the fields" do
-      fields = %w(email location website name)
+      fields = %w(email website name)
       checks = %w(mentions_notify new_follower_notify product_save_notify publish_fb)
       visit '/profile/edit'
       fields.each do |f|
@@ -17,6 +17,7 @@ describe UsersController do
       checks.each do |f|
         find("#user_user_setting_attributes_#{f}").set(false)
       end
+      fill_in 'Country', with: "new country"
       fill_in 'About', with: "new about"
       click_button 'Save Profile'
 

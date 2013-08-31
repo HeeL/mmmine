@@ -17,7 +17,7 @@ describe UsersController do
   
   describe '#register' do
     it "signs up a user" do
-      get :register, email: 'test@test.com', password: 's3cr3Tzz', name: 'Name'
+      get :register, email: 'test@test.com', password: 's3cr3Tzz', name: 'Name', location: 'Ukraine'
       User.where(email: 'test@test.com').count.should == 1
     end
   end

@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
   :default_url => '/assets/missing_photo/:style.png'
 
   validates :name, presence: true, length: {in: 3..30}
+  validates :location, presence: true
 
   accepts_nested_attributes_for :user_setting
 
@@ -25,10 +26,11 @@ class User < ActiveRecord::Base
     user = User.where(provider: auth.provider, uid: auth.uid).first
     if !user
       photo = open("http://graph.facebook.com/#{auth.uid}/picture?type=large") rescue nil
+      location = auth.info.location.present? ? auth.info.location : 'No Location Set'
       user = User.new(
         name: auth.info.nickname,
         email: auth.info.email,
-        location: auth.info.location,
+        location: location,
         password: Devise.friendly_token[0,10],
         photo: photo
       )
