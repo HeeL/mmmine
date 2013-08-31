@@ -31,8 +31,8 @@ module ApplicationHelper
     flash[:error] = ''
   end
 
-  def product_url(id)
-    "http://mmmine.com/#thing_popup#{id}"
+  def product_url(id, reload = false)
+    "http://mmmine.com/#{reload && request.fullpath == '/' ? '?r' : '' }#thing_popup#{id}"
   end
 
   def currencies_for_select

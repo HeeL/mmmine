@@ -45,11 +45,11 @@
             <%=simple_format(@product.description)%>
           </div>
           <span class="product_size">Size: <%=@product.size%></span><span class="product_date"> <span class="delimiter">|</span> <%=nice_date(@product.created_at)%></span>
-          <div class="product_more_from">More from <%=link_to "#{@product.user.name}'s Store", root_path%></p>
+          <div class="product_more_from">More from <%=link_to "#{@product.user.name}'s Store", root_path%></div>
           <ul class="thumbnails-more">
             <%@product.user.products.reject{|p| p.id == @product.id}.first(7).each do |product|%>
               <li>
-                <%=link_to(image_tag(product.main_picture(:small), alt: product.title, title: product.title), product_url(product.id))%>
+                <%=link_to(image_tag(product.main_picture(:small), alt: product.title, title: product.title), product_url(product.id, true))%>
               </li>
             <%end%>
           </ul>
