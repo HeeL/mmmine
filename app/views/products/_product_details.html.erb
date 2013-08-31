@@ -40,18 +40,18 @@
       <div class="big_item_details">
         <%=render partial: 'products/social_btns'%>
       <section class="more_in_set">
+          <div class="product_title"><%=@product.title%></div>
           <div class="product_desc">
             <%=simple_format(@product.description)%>
           </div>
-          <p>More from <a href=""><b>Things I Want</b></a></p>
-          <ul>
-              <li><a href="#"><img src="/assets/7_m.jpg" alt=""/></a></li>
-              <li><a href="#"><img src="/assets/7_m.jpg" alt=""/></a></li>
-              <li><a href="#"><img src="/assets/7_m.jpg" alt=""/></a></li>
-              <li><a href="#"><img src="/assets/7_m.jpg" alt=""/></a></li>
-              <li><a href="#"><img src="/assets/7_m.jpg" alt=""/></a></li>
-              <li><a href="#"><img src="/assets/7_m.jpg" alt=""/></a></li>
-              <li><a href="#"><img src="/assets/7_m.jpg" alt=""/></a></li>
+          <span class="product_size">Size: <%=@product.size%></span><span class="product_date"> <span class="delimiter">|</span> <%=nice_date(@product.created_at)%></span>
+          <div class="product_more_from">More from <%=link_to "#{@product.user.name}'s Store", root_path%></p>
+          <ul class="thumbnails-more">
+            <%@product.user.products.reject{|p| p.id == @product.id}.first(7).each do |product|%>
+              <li>
+                <%=link_to(image_tag(product.main_picture(:small), alt: product.title, title: product.title), product_url(product.id))%>
+              </li>
+            <%end%>
           </ul>
       </section>
       <%=render partial: 'products/comments/section'%>

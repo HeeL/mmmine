@@ -1714,14 +1714,43 @@ ins {
   display: none;
 }
 .product-details {
-  .product_desc {
-    width: 90%;
-    line-height: 160%;
-  }
   color: #808080 !important;
   padding: 34px 45px !important;
   width: 722px !important;
   top: 3% !important;
+  .product_desc {
+    width: 90%;
+    p {
+      line-height: 160%;
+      margin: 5px 0 5px 0;
+    }
+  }
+  .product_title {
+    color: #4D4D4D;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .product_size {
+    color: #4D4D4D;
+    font-size: 15px;
+    font-weight: bold;
+  }
+  .product_date {
+    color: #ccc;
+    font-size: 10px;
+  }
+  .product_more_from {
+    margin-top: 15px;
+  }
+  .delimiter {
+    margin: 0 7px 0 7px;
+  }
+  .thumbnails-more {
+    img {
+      width: 80px;
+      border: 0;
+    }
+  }
 }
 .product-details .fllw.r {
   margin-top: -8px;

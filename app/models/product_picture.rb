@@ -6,7 +6,8 @@ class ProductPicture < ActiveRecord::Base
 
   has_attached_file :picture, styles: { 
     big: "620x",
-    middle: "217x"
+    middle: "217x",
+    small: '80x'
   },
   default_url: '/assets/missing_photo/photo.png'
 

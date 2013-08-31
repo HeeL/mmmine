@@ -17,8 +17,8 @@ class Product < ActiveRecord::Base
   acts_as_followable
 
 
-  def main_picture
-    (product_pictures.first || ProductPicture.new).picture(:middle)
+  def main_picture(size = :middle)
+    (product_pictures.first || ProductPicture.new).picture(size)
   end
 
   def sold?

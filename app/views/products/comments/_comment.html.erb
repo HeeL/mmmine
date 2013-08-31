@@ -3,7 +3,7 @@
     <div class="user_l">
         <%=link_to comment.user.name, show_profile_path(comment.user.id), class: 'name'%>
         <p class="comment-text"><%=simple_format(comment.text)%></p>
-        <small class="comment-time"><%=comment.created_at.strftime('%d.%m.%Y')%></small>
+        <small class="comment-time"><%=nice_date(comment.created_at)%></small>
         <%if can? :destroy, comment%>
           <div class="delete">
             <%= link_to 'Delete', comment_destroy_path(comment), method: :delete, remote: true %>
