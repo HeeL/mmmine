@@ -8,7 +8,15 @@ module ProductHelper
   end
 
   def make_mmmine_link
-    current_user && current_user.following?(@product) ? "#delete_from_mmmine#{@product.id}" : "#make_mmmine#{@product.id}"
+    following_product? ? "#delete_from_mmmine#{@product.id}" : "#make_mmmine#{@product.id}"
+  end
+
+  def make_mmmine_title
+    following_product? ? 'delete' : 'save to Things I want'
+  end
+
+  def following_product?
+    current_user && current_user.following?(@product)
   end
 
 end

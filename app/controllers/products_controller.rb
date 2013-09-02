@@ -4,20 +4,14 @@ class ProductsController < ApplicationController
   before_filter :show_sidebar, only: [:index, :live_feed]
   before_filter :find_product, only: [:destroy, :buy, :follow]
 
+  SEARCH_KEYS = [:desc, :order, :sub_category_id, :things_i_want]
 
   def index
     @product_list_options = {
       classes: 'content row3 products_list',
-      path: product_list_path(desc: params[:desc], order: params[:order], sub_category_id: params[:sub_category_id])
+      path: product_list_path(list_params)
     }
-    product = Product
-    if params[:sub_category_id]
-      product = product.where(sub_category_id: params[:sub_category_id])
-    end
-    if params[:order] && ['followed'].include?(params[:order])
-      product = product.unscoped.order("#{params[:order]} #{'DESC' if params[:desc]}");
-    end
-    @products = get_product_list(product, @product_list_options)
+    @products = get_product_list(product_conditions, @product_list_options)
   end
 
   def live_feed
@@ -66,6 +60,20 @@ class ProductsController < ApplicationController
 
   private
 
+  def product_conditions
+    product = Product
+    if params[:sub_category_id]
+      product = product.where(sub_category_id: params[:sub_category_id])
+    end
+    if params[:things_i_want]
+      product = User.find(params[:things_i_want]).following_products
+    end
+    if params[:order] && ['followed'].include?(params[:order])
+      product = product.unscoped.order("#{params[:order]} #{'DESC' if params[:desc]}");
+    end
+    product
+  end
+
   def find_product
     @product = Product.find(params[:id])
   end
@@ -81,6 +89,14 @@ class ProductsController < ApplicationController
 
   def show_sidebar
     @right_section = true
+  end
+
+  def list_params
+    keys = {}
+    SEARCH_KEYS.each do |key|
+      keys[key] = params[key]
+    end
+    keys
   end
 
 end

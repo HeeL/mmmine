@@ -4,7 +4,7 @@
     <%=image_tag @product.main_picture%>
   </a>
   <div class="social">
-    <a id="make_mmmine_small_<%=@product.id%>" title="Make it mmmine!" href="<%=make_mmmine_link%>" class="b mmmine<%=' guest-make-mine' unless current_user%> <%='unfollow-product' if current_user && current_user.following?(@product)%>" data-toggle="modal" role="button"><%=@product.count_user_followers%></a>
+    <a id="make_mmmine_small_<%=@product.id%>" title="<%=make_mmmine_title%>" href="<%=make_mmmine_link%>" class="b mmmine<%=' guest-make-mine' unless current_user%> <%='unfollow-product' if following_product?%>" data-toggle="modal" role="button"><%=@product.count_user_followers%></a>
     <a title="Show a friend" href="#share" class="b myspace" data-toggle="modal" role="button">124</a>
     <a title="Share" class="b other">26</a>
   </div>
