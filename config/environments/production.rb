@@ -53,6 +53,9 @@ Mmmine::Application.configure do
 
   config.action_mailer.delivery_method = :smtp
 
+  config.action_mailer.default_url_options = { :host => 'mmmine.com' }
+
+
   config.action_mailer.smtp_settings = {
     address: ENV['EMAIL_SERVER'],
     port: 25,
