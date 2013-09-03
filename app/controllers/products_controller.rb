@@ -1,26 +1,28 @@
 class ProductsController < ApplicationController
   
   before_filter :authenticate_user!, except: :index
-  before_filter :show_sidebar, only: [:index, :live_feed]
+  before_filter :show_sidebar, only: [:index, :live_feed, :top_stores]
   before_filter :find_product, only: [:destroy, :buy, :follow]
 
   SEARCH_KEYS = [:desc, :order, :sub_category_id, :things_i_want]
 
   def index
-    @product_list_options = {
-      classes: 'content row3 products_list',
-      path: product_list_path(list_params)
-    }
-    @products = get_product_list(product_conditions, @product_list_options)
+    list_products(product_conditions, product_list_path(list_params))
   end
 
   def live_feed
+    products = Product.where(user_id: current_user.following_users.map(&:id))
+    list_products(products, live_feed_path)
+  end
+
+  def top_stores
     @product_list_options = {
       classes: 'content row3 products_list',
-      path: live_feed_path
+      path: top_stores_path
     }
-    products = Product.where(user_id: current_user.following_users.map(&:id))
-    @products = get_product_list(products, @product_list_options)
+    user_ids = User.order('followed DESC').limit(10).map(&:id)
+    @products = Product.unscoped.select('DISTINCT ON (user_id) *').where(user_id: user_ids)
+    @products.sort!{|x,y| y.user.followed <=> x.user.followed}
   end
 
   def create
@@ -72,6 +74,14 @@ class ProductsController < ApplicationController
       product = product.unscoped.order("#{params[:order]} #{'DESC' if params[:desc]}");
     end
     product
+  end
+
+  def list_products(products, path)
+    @product_list_options = {
+      classes: 'content row3 products_list',
+      path: path
+    }
+    @products = get_product_list(products, @product_list_options)
   end
 
   def find_product

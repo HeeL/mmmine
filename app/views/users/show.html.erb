@@ -1,6 +1,6 @@
 <section class="user_profile">
   <div class="l">
-    <img src="<%=@user.photo(:photo)%>" alt="ava2" width="117" height="123">
+    <%=image_tag @user.photo(:photo), alt: @user.name, title: @user.name%>
     <div class="profile_l">
       <h3 class="name"><%=@user.name%></h3>
       <%if own_profile?%>

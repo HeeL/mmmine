@@ -72,9 +72,12 @@ class UsersController < ApplicationController
   def follow
     if @follow = current_user.following?(@follow_user)
       current_user.stop_following(@follow_user)
+      @follow_user.followed -= 1
     else
       current_user.follow(@follow_user)
+      @follow_user.followed += 1
     end
+    @follow_user.save
   end
 
   private
