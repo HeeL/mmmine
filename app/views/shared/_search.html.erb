@@ -1,4 +1,6 @@
 <div class="search">
-  <input type="text" placeholder="Search">
-  <input type="button">
-</div>
+  <%=form_tag('/', method: :get, html: {class: 'search'}) do %>
+    <%= text_field_tag :search, params[:search], placeholder: 'Search' %>
+    <%=submit_tag ''%>
+  <%end%>
+</div>  

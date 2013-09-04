@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   before_filter :show_sidebar, only: [:index, :live_feed, :top_stores]
   before_filter :find_product, only: [:destroy, :buy, :follow]
 
-  SEARCH_KEYS = [:desc, :order, :sub_category_id, :things_i_want]
+  SEARCH_KEYS = [:search, :desc, :order, :sub_category_id, :things_i_want]
 
   def index
     list_products(product_conditions, product_list_path(list_params))
@@ -73,6 +73,27 @@ class ProductsController < ApplicationController
     if params[:order] && ['followed'].include?(params[:order])
       product = product.unscoped.order("#{params[:order]} #{'DESC' if params[:desc]}");
     end
+    if params[:search]
+      fields = [
+        '"products".title',
+        '"products".size',
+        '"products".price',
+        '"products".description',
+        '"sub_categories".title',
+        '"categories".title'
+      ]
+      query = []
+      words = params[:search]
+      words.gsub!(/[^\sa-z0-9]/im, '')
+      words.split(' ').each do |word|
+        query << fields.join(" ILIKE '#{word}' OR ") + " ILIKE '#{word}'"
+      end
+      if query.present?
+        log_query unless request.xhr?
+        query = query.join(' OR ')
+        product = product.unscoped.includes([:category, :sub_category]).where(query).order('"products".created_at desc')
+      end
+    end
     product
   end
 
@@ -107,6 +128,10 @@ class ProductsController < ApplicationController
       keys[key] = params[key]
     end
     keys
+  end
+
+  def log_query
+    SearchLog.create(query: params[:search])
   end
 
 end

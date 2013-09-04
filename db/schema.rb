@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130903201512) do
+ActiveRecord::Schema.define(:version => 20130904205847) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -105,6 +105,12 @@ ActiveRecord::Schema.define(:version => 20130903201512) do
   add_index "products", ["category_id"], :name => "index_products_on_category_id"
   add_index "products", ["sub_category_id"], :name => "index_products_on_sub_category_id"
   add_index "products", ["user_id"], :name => "index_products_on_user_id"
+
+  create_table "search_logs", :force => true do |t|
+    t.string   "query"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "sub_categories", :force => true do |t|
     t.string   "title"
