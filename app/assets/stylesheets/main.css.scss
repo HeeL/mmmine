@@ -1184,6 +1184,10 @@ dfn[title] {
   height: 40px;
 }
 
+.photo-profile {
+  height: 123px;
+}
+
 #profile_settings input:not(#user_name):not([type=checkbox]):not([type=button]):not([type=submit]),
 #profile_settings textarea {
   margin-top: 0!important;
@@ -1626,7 +1630,6 @@ ins {
 }
 .user_profile .l img {
   width: 117px;
-  height: 123px;
   border-radius: 20px;
   float: left;
   margin-right: 30px;
