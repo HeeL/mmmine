@@ -86,7 +86,7 @@ class ProductsController < ApplicationController
       words = params[:search]
       words.gsub!(/[^\sa-z0-9]/im, '')
       words.split(' ').each do |word|
-        query << fields.join(" ILIKE '#{word}' OR ") + " ILIKE '#{word}'"
+        query << fields.join(" ILIKE '%#{word}%' OR ") + " ILIKE '%#{word}%'"
       end
       if query.present?
         log_query unless request.xhr?

@@ -5,7 +5,7 @@
           <div class="l">
               <img src="<%=@product.user.photo(:photo)%>" alt="ava2" width="117" height="123" />
               <div class="user_l">
-                  <span class="name"><%=@product.user.name%></span>
+                  <span class="name"><%=link_to @product.user.name, show_profile_path(id: @product.user.id)%></span>
                   <span class="posted">Posted <%=nice_date(@product.created_at, false)%></span>
                   <div class="details-top">
                     <div class="left-top">
