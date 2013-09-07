@@ -10,9 +10,12 @@
 <%=render 'shared/search'%>
 
 <div class="account">
+  <a href="<%=show_profile_path%>">
+    <div class="nav-menu"></div>
+  </a>
   <div class="usermenu drop">
       <%=image_tag current_user.photo(:avatar), class: 'small-avatar' %>
-      <ul class="hide">
+      <ul class="hide nav-menu">
           <li <%='class=active' if at_profile_page?%>><%= link_to "Profile", show_profile_path %></li>
           <li <%='class=active' if at_edit_profile_page?%>><%= link_to "Settings", edit_profile_path %></li>
           <li><%= link_to "Sign out", logout_path %></li>
