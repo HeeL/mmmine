@@ -1,0 +1,8 @@
+<%if @users%>
+  $('#share<%=@product.id%>').modal('hide');
+  $('a[href="#share<%=@product.id%>"].share-num').html('<%=@product.shared%>');
+<%end%>
+
+<%if @comment && @comment.persisted?%>
+  $('#thing_popup<%=@product.id%>').find('.list-comments ul').prepend('<%= j(render partial: "/products/comments/comment", locals: {comment: @comment}) %>');
+<%end%>

@@ -5,7 +5,7 @@
   </a>
   <div class="social">
     <a id="make_mmmine_small_<%=@product.id%>" title="<%=make_mmmine_title%>" href="<%=make_mmmine_link%>" class="b mmmine<%=' guest-make-mine' unless current_user%> <%='unfollow-product' if following_product?%>" data-toggle="modal" role="button"><%=@product.count_user_followers%></a>
-    <a title="Show a friend" href="#share" class="b myspace" data-toggle="modal" role="button">124</a>
+    <a title="Show a friend" href="#share<%=@product.id%>" class="share-num b myspace<%=' guest-share-product' unless current_user%>" data-toggle="modal" role="button"><%=@product.shared%></a>
     <a title="Share" class="b other">&nbsp;</a>
   </div>
   <div class="details">
@@ -47,3 +47,4 @@
 
 <%= render partial: 'products/product_details' %>
 <%= render 'shared/pop_ups/make_mine' if current_user %>
+<%= render 'shared/pop_ups/share_product' if current_user %>

@@ -14,7 +14,7 @@ $(document).ready(function(){
     return true;
   });
 
-  $('.guest-buy-now, .guest-make-mine').on('click', function(e){
+  $('.guest-buy-now, .guest-make-mine, .guest-share-product').on('click', function(e){
     scrollTo(0,35);
     $('#signup').modal('show');
   });

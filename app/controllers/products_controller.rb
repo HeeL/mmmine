@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   
   before_filter :authenticate_user!, except: :index
   before_filter :show_sidebar, only: [:index, :live_feed, :top_stores]
-  before_filter :find_product, only: [:destroy, :buy, :follow]
+  before_filter :find_product, only: [:destroy, :buy, :follow, :share]
 
   SEARCH_KEYS = [:search, :desc, :order, :sub_category_id, :things_i_want]
 
@@ -58,6 +58,15 @@ class ProductsController < ApplicationController
       add_comment
     end
     @product.save
+  end
+
+  def share
+    if params[:users].present?
+      @users = params[:users].split(',').map{|u| "@#{u}"}.join(', ')
+      @product.update_attributes(shared: @users.split(',').count + @product.shared)
+      params[:comment] = "#{@users}. #{params[:comment]}" 
+      add_comment
+    end
   end
 
   private

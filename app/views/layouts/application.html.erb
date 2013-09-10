@@ -6,6 +6,7 @@
     <script src="/assets/html5shiv.js"></script>
     <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
   <![endif]-->
+  <%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/flick/jquery-ui.css", media: "all" %>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -28,7 +29,6 @@
     <%= render 'shared/right_section' if @right_section %>
   </div>
 
-  <%= render 'shared/pop_ups/share_product' %>
   <%= render 'shared/pop_ups/report' %>
   <% if !current_user %>
     <%= render 'shared/pop_ups/sign_in' %>

@@ -45,4 +45,9 @@ class User < ActiveRecord::Base
     true  
   end
 
+  def self.match_names(name, exact = false)
+    name = exact ? name : "%#{name}%"
+    self.where('name ILIKE ?', name).limit(5).all.map(&:name) 
+  end
+
 end

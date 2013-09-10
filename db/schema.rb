@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130904205847) do
+ActiveRecord::Schema.define(:version => 20130908170405) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -77,6 +77,18 @@ ActiveRecord::Schema.define(:version => 20130904205847) do
   add_index "follows", ["followable_id", "followable_type"], :name => "fk_followables"
   add_index "follows", ["follower_id", "follower_type"], :name => "fk_follows"
 
+  create_table "notifications", :force => true do |t|
+    t.integer  "from_user_id"
+    t.integer  "to_user_id"
+    t.integer  "action"
+    t.integer  "object_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "notifications", ["from_user_id"], :name => "index_notifications_on_from_user_id"
+  add_index "notifications", ["to_user_id"], :name => "index_notifications_on_to_user_id"
+
   create_table "product_pictures", :force => true do |t|
     t.integer  "product_id"
     t.string   "picture_file_name"
@@ -100,6 +112,7 @@ ActiveRecord::Schema.define(:version => 20130904205847) do
     t.integer  "currency"
     t.integer  "sold_to",         :default => 0
     t.integer  "followed",        :default => 0
+    t.integer  "shared",          :default => 0
   end
 
   add_index "products", ["category_id"], :name => "index_products_on_category_id"

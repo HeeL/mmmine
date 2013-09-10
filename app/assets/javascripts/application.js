@@ -23,4 +23,5 @@
 //= require ./lib/modernizr
 //= require ./lib/jquery.placeholder.min
 //= require ./lib/modernizr
+//= require ./lib/tag_it.min
 //= require_directory .

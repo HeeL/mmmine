@@ -80,6 +80,10 @@ class UsersController < ApplicationController
     @follow_user.save
   end
 
+  def match_names
+    render json: User.match_names(params[:name])
+  end
+
   private
 
   def follow_info

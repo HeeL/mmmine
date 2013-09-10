@@ -1,13 +1,14 @@
-<div id="share" class="style modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+<div id="share<%=@product.id%>" data-share-product="<%=@product.id%>" class="style modal hide fade share-product" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
     <h3>show a friend</h3>
   </div>
   <div class="modal-body">
-    <form>
-      <p>Share this product with a friend from <i>mmmine</i> or Facebook</p>
-      <textarea>@</textarea>
+    <%= form_tag(share_product_path(@product.id), remote: true) do %>
+      <p>Share this product with a friend from <i>mmmine</i></p>
+      <%=text_field_tag :users, nil%><br />
+      <textarea name="comment" placeholder="Add your comment"></textarea>
       <button class="btn" type="submit">Tag</button>
-    </form>
+    <%end%>
   </div>
 </div>
