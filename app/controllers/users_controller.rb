@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_filter :authenticate_user!, except: [:login, :register, :show]
   before_filter :follow_info, only: :follow
   before_filter :find_user, only: :show
+  after_filter  :notify_follow, only: :follow
 
 
   def show
@@ -88,6 +89,17 @@ class UsersController < ApplicationController
 
   def follow_info
     @follow_user = User.find(params[:user_id])
+  end
+
+  def notify_follow
+    return if @follow
+    Notification.add(
+      { 
+        from_user_id: current_user.id,
+        to_user_id: @follow_user.id 
+      },
+      :follow_user
+    )
   end
 
   def find_user
