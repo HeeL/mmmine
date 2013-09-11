@@ -96,7 +96,7 @@ class UsersController < ApplicationController
     Notification.add(
       { 
         from_user_id: current_user.id,
-        to_user_id: @follow_user.id 
+        to_user_id:   @follow_user.id 
       },
       :follow_user
     )

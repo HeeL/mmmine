@@ -56,16 +56,35 @@ class ProductsController < ApplicationController
       current_user.follow(@product)
       @product.followed += 1
       add_comment
+      Notification.add(
+        { 
+          from_user_id: current_user.id,
+          to_user_id:   @product.user.id,
+          item_id:      @product.id
+        },
+        :follow_product
+      )
     end
     @product.save
   end
 
   def share
     if params[:users].present?
-      @users = params[:users].split(',').map{|u| "@#{u}"}.join(', ')
+      username_list = params[:users].split(',')
+      @users = username_list.map{|u| "@#{u}"}.join(', ')
       @product.update_attributes(shared: @users.split(',').count + @product.shared)
       params[:comment] = "#{@users}. #{params[:comment]}" 
       add_comment
+      User.where(name: username_list).each do |user|
+        Notification.add(
+          { 
+            from_user_id: current_user.id,
+            to_user_id:   user.id,
+            item_id:    @product.id
+          },
+          :share_product
+        )
+      end
     end
   end
 

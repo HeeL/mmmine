@@ -565,6 +565,14 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
+#notificaitons {
+  position: absolute;
+  width: 370px;
+  height: 380px;
+  border: 10px solid #ccc;
+}
+
 .fancybox-lock {
   overflow: hidden;
 }

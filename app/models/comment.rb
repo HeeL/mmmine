@@ -9,4 +9,18 @@ class Comment < ActiveRecord::Base
 
   validates :text, presence: {message: 'You have to write something'}
 
+  before_save :notify
+
+
+  def notify
+    Notification.add(
+      { 
+        from_user_id: self.user.id,
+        to_user_id:   self.product.user.id,
+        item_id:      self.product.id
+      },
+      :comment_product
+    )
+  end
+
 end
