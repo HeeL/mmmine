@@ -1,0 +1,14 @@
+<div id="notifications">
+  <h3>notifications</h3>
+  <%@notifications.each do |notify|%>
+    <% from_user = notify.from_user%>
+    <div class="notify-item <%='not-viewed' if notify.created_at > current_user.notified_at%>">
+      <%= link_to image_tag(notify.from_user.photo(:avatar)), show_profile_path(id: from_user.id)%> 
+      <div class="notify-text">
+        <b><%= link_to from_user.name, show_profile_path(id: from_user.id)%></b> <%=notify_text(notify)%>
+        <div class="notify-date"><%=nice_date(notify.created_at)%></div>
+      </div>
+    </div>
+    <div class="clear"></div>
+  <%end%>
+</div>

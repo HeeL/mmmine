@@ -566,11 +566,48 @@ table {
   border-spacing: 0;
 }
 
-#notificaitons {
+#notifications {
+  display: none;
   position: absolute;
   width: 370px;
-  height: 380px;
+  max-height: 360px;
+  height: auto;
   border: 10px solid #ccc;
+  cursor: default;
+  margin: 20px 0 0 -95px;
+  z-index: 1;
+  overflow-y: scroll;
+  h3 {
+    font-weight: bold;
+    color: #2aac9f;
+    font-size: 18px;
+    text-align: left;
+    padding: 5px 0 0 8px;
+    margin-bottom: 10px;
+  }
+  .not-viewed {
+    background-color: #F4F5F6;
+  }
+  .notify-item {
+    height: 55px;
+    padding-top: 10px;
+    border-top: 2px solid #ccc;
+    color: #808080;
+    text-align: left;
+    .notify-text, img {
+      float: left;
+    }
+    img {
+      border-radius: 5px;
+    }
+    .notify-text {
+      margin-left: 10px;
+    }
+    .notify-date {
+      font-size: 10px;
+      margin-top: 10px;
+    }
+  }
 }
 
 .fancybox-lock {

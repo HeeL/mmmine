@@ -22,7 +22,12 @@
       </ul>
   </div>
   <div class="count" id="notification_count">
-    <span <%= 'class="zero"'.html_safe if true%>><%= 0 %></span>
+    <% @notifications = Notification.my(current_user.id)%>
+    <%if @notifications.first && @notifications.first.created_at > current_user.notified_at%>
+      <span>!</span>
+    <%else%>
+      <span class="zero">0</span>
+    <%end%>
   </div>
-
+  <%=render 'shared/notifications'%>
 </div>

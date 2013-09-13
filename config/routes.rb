@@ -31,6 +31,7 @@ Mmmine::Application.routes.draw do
     get '/users/auth/:provider/callback' => 'users/omniauth_callbacks#passthru'
     match '/profile/edit' => 'users#edit', as: :edit_profile, via: [:get, :put]
     match '/profile/show(/:id)' => 'users#show', as: :show_profile
+    post '/users/mark_viewed_notification' => 'users#mark_viewed_notification'
   end
 
   match  '/products' => 'products#index', as: :product_list

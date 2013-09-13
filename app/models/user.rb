@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :validatable, :omniauthable, :rememberable, :trackable
 
   attr_accessible :about, :email, :location, :name, :password, :photo, :user_setting_attributes,
-  :provider, :uid, :website, :password_confirmation, :remember_me
+  :provider, :uid, :website, :password_confirmation, :remember_me, :notified_at
 
   has_one :user_setting, :dependent => :destroy
   has_many :products
@@ -16,6 +16,8 @@ class User < ActiveRecord::Base
 
   validates :name, presence: true, length: {in: 3..30}
   validates :location, presence: true
+
+  before_save :default_values
 
   accepts_nested_attributes_for :user_setting
 
@@ -48,6 +50,13 @@ class User < ActiveRecord::Base
   def self.match_names(name, exact = false)
     name = exact ? name : "%#{name}%"
     self.where('name ILIKE ?', name).limit(5).all.map(&:name) 
+  end
+
+  private
+
+  def default_values
+    self.notified_at ||= Time.now
+    true
   end
 
 end

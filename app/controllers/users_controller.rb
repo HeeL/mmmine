@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_filter :authenticate_user!, except: [:login, :register, :show]
+  before_filter :authenticate_user!, except: [:login, :register, :show, :match_names]
   before_filter :follow_info, only: :follow
   before_filter :find_user, only: :show
   after_filter  :notify_follow, only: :follow
@@ -68,6 +68,11 @@ class UsersController < ApplicationController
       result = set_error(user.errors.full_messages.first)
     end
     render json: result
+  end
+
+  def mark_viewed_notification
+    current_user.update_attributes(notified_at: Time.now)
+    render nothing: true
   end
 
   def follow

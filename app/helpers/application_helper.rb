@@ -22,6 +22,17 @@ module ApplicationHelper
     "#{capitalize ? date.capitalize : date} ago"
   end
 
+  def notify_text(notify)
+    [:follow_user, :share_product, :follow_product, :comment_product, :mention_user]
+
+    {
+      follow_user: "started following you",
+      share_product: "showed you an #{link_to 'item', product_url(notify.item_id, true)}",
+      follow_product: "saved your #{link_to 'item', product_url(notify.item_id, true)}",
+      comment_product: "commented on your #{link_to 'item', product_url(notify.item_id, true)}"
+    }[Notification::ACTIONS[notify.action]].html_safe
+  end
+
   def has_photo?
     current_user.photo.exists?
   end

@@ -81,6 +81,7 @@ $(document).ready(function() {
     });
 
     $('.nav-menu').on('mouseover', function(e){
+      $('#notifications').slideUp('fast');
       el = $(e.target).parent().parent();
       if (!el.find('ul:visible').length && !el.hasClass('nav-menu')) {
         $('ul.nav-menu:visible').slideUp('fast');
