@@ -1,8 +1,6 @@
 <%@product = product%>
 <div class="item">
-  <a href="#thing_popup<%=@product.id%>" data-toggle="modal" role="button">
-    <%=image_tag @product.main_picture%>
-  </a>
+  <%= link_to image_tag(@product.main_picture, title: @product.title, alt: @product.title), show_product_path(id: @product.id), data: {toggle: true}, remote: true%>
   <div class="social">
     <a id="make_mmmine_small_<%=@product.id%>" title="<%=make_mmmine_title%>" href="<%=make_mmmine_link%>" class="b mmmine<%=' guest-make-mine' unless current_user%> <%='unfollow-product' if following_product?%>" data-toggle="modal" role="button"><%=@product.count_user_followers%></a>
     <a title="Show a friend" href="#share<%=@product.id%>" class="share-num b myspace<%=' guest-share-product' unless current_user%>" data-toggle="modal" role="button"><%=@product.shared%></a>
@@ -45,6 +43,5 @@
   </div>
 </div>
 
-<%= render partial: 'products/product_details' %>
 <%= render 'shared/pop_ups/make_mine' if current_user %>
 <%= render 'shared/pop_ups/share_product' if current_user %>

@@ -1,0 +1,2 @@
+$('.products_list:first').prepend('<%= j(render partial: "/products/product_details", locals: {product: @product}) %>');
+$('#thing_popup<%=@product.id%>').modal('show');

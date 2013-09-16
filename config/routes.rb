@@ -35,6 +35,7 @@ Mmmine::Application.routes.draw do
   end
 
   match  '/products' => 'products#index', as: :product_list
+  match  '/products/show/:id' => 'products#show', as: :show_product
   match  '/users/match_names' => 'users#match_names'
 
 end

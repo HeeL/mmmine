@@ -2,12 +2,15 @@ class ProductsController < ApplicationController
   
   before_filter :authenticate_user!, except: :index
   before_filter :show_sidebar, only: [:index, :live_feed, :top_stores]
-  before_filter :find_product, only: [:destroy, :buy, :follow, :share]
+  before_filter :find_product, only: [:show, :destroy, :buy, :follow, :share]
 
   SEARCH_KEYS = [:search, :desc, :order, :sub_category_id, :things_i_want]
 
   def index
     list_products(product_conditions, product_list_path(list_params))
+  end
+
+  def show
   end
 
   def live_feed
