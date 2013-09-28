@@ -17,7 +17,7 @@
       <h3>delete</h3>
   </div>
   <div class="modal-body">
-    Are you sure you want to delete<br /> this item?
+    Are you sure you want to remove<br /> this item from "Things I Want"?
     <div class="btns-action">
       <button class="btn unfollow cancel-follow" data-cancel-follow="<%=@product.id%>">Cancel</button>
       <%= form_tag(follow_product_path(@product.id), remote: true) do %>

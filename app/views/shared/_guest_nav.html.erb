@@ -3,7 +3,9 @@
     <li>
       <%=link_to 'Trending', product_list_path(order: 'followed', desc: 1)%>
     </li>
-    <%=render 'shared/more'%>
+    <li>
+      <a href="/more">More</a>
+    </li>
     <li>
       <a href="#login" class="login" data-toggle="modal" role="button">Log in</a>
     </li>

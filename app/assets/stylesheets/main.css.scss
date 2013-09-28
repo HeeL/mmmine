@@ -1173,18 +1173,6 @@ dfn[title] {
   color: #808080;
 }
 
-.more-menu {
-  div.nav-menu {
-    width: 48px;
-    margin-left: -17px;
-    height: 33px;
-    margin-top: -17px;
-    cursor: pointer;
-    position: absolute;
-    background: none;
-    z-index: 1;
-  }
-}
 .account {
   float: right;
   margin-right: 40px;
@@ -2221,6 +2209,9 @@ section p {
 .more {
   width: 100%;
   color: #fff;
+  a {
+    color: #fff;
+  }
 }
 .more > div {
   padding: 22px;

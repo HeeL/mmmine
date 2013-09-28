@@ -12,7 +12,7 @@ module ProductHelper
   end
 
   def make_mmmine_title
-    following_product? ? 'delete' : 'save to Things I want'
+    following_product? ? 'remove' : 'save to Things I want'
   end
 
   def following_product?
