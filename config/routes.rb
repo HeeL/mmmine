@@ -35,6 +35,7 @@ Mmmine::Application.routes.draw do
     
     get '/invite_friends' => 'invite_friends#index', as: :invite_friends
     match '/invite_friends/send_emails' => 'invite_friends#send_emails', as: :send_invite_emails
+    match '/invite_friends/fb_friends' => 'invite_friends#fb_friends', as: :fb_friends
   end
 
   match  '/products' => 'products#index', as: :product_list

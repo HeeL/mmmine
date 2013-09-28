@@ -15,6 +15,8 @@ gem 'kaminari'
 gem 'cancan'
 gem 'remotipart', '~> 1.2'
 gem "acts_as_follower"
+gem "fb_graph"
+
 
 group :test do
   gem 'capybara'

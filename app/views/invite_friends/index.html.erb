@@ -18,53 +18,13 @@
         <div id="fr-facebook">
             <h3 class="fb-color">Facebook Friends</h3>
             <div class="search">
-                <input type="text" placeholder="Friend's name">
-                <input type="button" class="s-b">
+              <%= form_tag(fb_friends_path, remote: true) do %>
+                <%= text_field_tag "name", nil, placeholder: "Friend's name", onkeydown: '$(this).parent().submit();'%>
+              <%end%>
             </div>
             <div class="clear"></div>
-            <ul class="clearfix">
-                <li>
-                    <a href="">
-                        <img src="img/ava2.jpg" alt=""/>
-                        <span>Name Surname</span>
-                    </a>
-                    <a href="" class="btn gray">Invite</a>
-                </li>
-                <li>
-                    <a href="">
-                        <img src="img/ava2.jpg" alt=""/>
-                        <span>Name Surname</span>
-                    </a>
-                    <a href="" class="btn gray">Invite</a>
-                </li>
-                <li>
-                    <a href="">
-                        <img src="img/ava2.jpg" alt=""/>
-                        <span>Name Surname</span>
-                    </a>
-                    <a href="" class="btn gray">Invite</a>
-                </li>
-                <li>
-                    <a href="">
-                        <img src="img/ava2.jpg" alt=""/>
-                        <span>Name Surname</span>
-                    </a>
-                    <a href="" class="btn gray">Invite</a>
-                </li>
-                <li>
-                    <a href="">
-                        <img src="img/ava2.jpg" alt=""/>
-                        <span>Name Surname</span>
-                    </a>
-                    <a href="" class="btn gray">Invite</a>
-                </li>
-                <li>
-                    <a href="">
-                        <img src="img/ava2.jpg" alt=""/>
-                        <span>Name Surname</span>
-                    </a>
-                    <a href="" class="btn gray">Invite</a>
-                </li>
+            <ul class="clearfix" id="fb_friends">
+
             </ul>
         </div>
     </div>
