@@ -1,6 +1,6 @@
 <li>
   <a href="https://www.facebook.com/messages/<%=friend[:nickname]%>" target="_blank">
-    <%=image_tag "http://graph.facebook.com/#{friend[:id]}/picture?type=small"%>
+    <%=image_tag "http://graph.facebook.com/#{friend[:id]}/picture?type=small", class: 'friend_ava'%>
     <span><%=friend[:name]%></span>
   </a>
   <a href="https://www.facebook.com/messages/<%=friend[:nickname]%>" target="_blank" class="btn gray">Invite</a>
