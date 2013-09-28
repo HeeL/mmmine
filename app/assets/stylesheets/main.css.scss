@@ -1172,6 +1172,14 @@ dfn[title] {
 :-moz-placeholder {
   color: #808080;
 }
+#invite_friends {
+  margin-top: 50px;
+  input[type="text"] {
+    border: 1px solid #ccc;
+    padding-left: 3px;
+    height: 25px;
+  }
+}
 
 .account {
   float: right;

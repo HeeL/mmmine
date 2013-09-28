@@ -32,6 +32,9 @@ Mmmine::Application.routes.draw do
     match '/profile/edit' => 'users#edit', as: :edit_profile, via: [:get, :put]
     match '/profile/show(/:id)' => 'users#show', as: :show_profile
     post '/users/mark_viewed_notification' => 'users#mark_viewed_notification'
+    
+    get '/invite_friends' => 'invite_friends#index', as: :invite_friends
+    match '/invite_friends/send_emails' => 'invite_friends#send_emails', as: :send_invite_emails
   end
 
   match  '/products' => 'products#index', as: :product_list

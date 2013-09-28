@@ -1,0 +1,71 @@
+<div id="invite_friends">    
+    <div class="tabs">
+        <ul>
+            <li class="active"><a href="#fr-email"><span></span>Email</a></li>
+            <li><a href="#fr-facebook"><span></span>Facebook</a></li>
+        </ul>
+    </div>
+    <div class="tab-content">
+        <div id="fr-email">
+            <h3 class="orange_c">Invite Friends</h3>
+            <%= form_tag(send_invite_emails_path, remote: true) do %>
+              <%(1..5).each do |i|%>
+                <%= text_field_tag "email[#{i}]", nil, placeholder: "Email Address #{i}"%>
+              <%end%>
+                <button type="submit" class="btn gray">Invite</button>
+            <%end%>
+        </div>
+        <div id="fr-facebook">
+            <h3 class="fb-color">Facebook Friends</h3>
+            <div class="search">
+                <input type="text" placeholder="Friend's name">
+                <input type="button" class="s-b">
+            </div>
+            <div class="clear"></div>
+            <ul class="clearfix">
+                <li>
+                    <a href="">
+                        <img src="img/ava2.jpg" alt=""/>
+                        <span>Name Surname</span>
+                    </a>
+                    <a href="" class="btn gray">Invite</a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="img/ava2.jpg" alt=""/>
+                        <span>Name Surname</span>
+                    </a>
+                    <a href="" class="btn gray">Invite</a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="img/ava2.jpg" alt=""/>
+                        <span>Name Surname</span>
+                    </a>
+                    <a href="" class="btn gray">Invite</a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="img/ava2.jpg" alt=""/>
+                        <span>Name Surname</span>
+                    </a>
+                    <a href="" class="btn gray">Invite</a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="img/ava2.jpg" alt=""/>
+                        <span>Name Surname</span>
+                    </a>
+                    <a href="" class="btn gray">Invite</a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="img/ava2.jpg" alt=""/>
+                        <span>Name Surname</span>
+                    </a>
+                    <a href="" class="btn gray">Invite</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

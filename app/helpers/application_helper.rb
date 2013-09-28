@@ -54,6 +54,10 @@ module ApplicationHelper
     params[:controller] == "users" && params[:action] == "show" && !params[:id]
   end
 
+  def at_invite_friends_page?
+    params[:controller] == "invite_friends" && params[:action] == "index"
+  end
+
   def at_edit_profile_page?
     params[:controller] == "users" && params[:action] == "edit"
   end
