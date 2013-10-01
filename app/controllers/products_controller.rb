@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   
-  before_filter :authenticate_user!, except: :index
+  before_filter :authenticate_user!, except: [:index, :show]
   before_filter :show_sidebar, only: [:index, :live_feed, :top_stores]
   before_filter :find_product, only: [:show, :destroy, :buy, :follow, :share]
 
