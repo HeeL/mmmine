@@ -1,0 +1,13 @@
+<div id="edit_product_<%=@product.id%>" class="edit-form style modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+      <h3>edit your item</h3>
+  </div>
+  <div class="modal-body">
+    <%= form_for(@product, url: product_update_path, remote: true, html: {multipart: true}) do |f| %>
+      <%=render partial: '/products/form', locals:{f: f, sub_categories_select: subs_for_select(@product.category.sub_categories)}%>
+      <button class="btn big edit-item-btn" type="submit">Save</button>
+      <button class="btn big delete-item-btn" type="button" data-delete-item-id="<%=@product.id%>">Delete item</button>
+    <%end%>
+  </div>
+</div>

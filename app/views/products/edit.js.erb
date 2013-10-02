@@ -1,0 +1,7 @@
+<%if params[:product].present?%>
+  show_message('oops! We’re missing some information,<br /> please review your listing','','error');
+<%else%>
+  $('body').prepend('<%= j(render partial: "/products/edit_form") %>');
+  $('#thing_popup<%=@product.id%>').modal('hide');
+  $('#edit_product_<%=@product.id%>').modal('show');
+<%end%>

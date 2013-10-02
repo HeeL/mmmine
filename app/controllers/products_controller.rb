@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   
   before_filter :authenticate_user!, except: [:index, :show]
   before_filter :show_sidebar, only: [:index, :live_feed, :top_stores]
-  before_filter :find_product, only: [:show, :destroy, :buy, :follow, :share]
+  before_filter :find_product, only: [:show, :destroy, :edit, :update, :buy, :follow, :share]
 
   SEARCH_KEYS = [:search, :desc, :order, :sub_category_id, :things_i_want]
 
@@ -11,6 +11,15 @@ class ProductsController < ApplicationController
   end
 
   def show
+  end
+
+  def edit
+    authorize! :edit, @product
+  end
+
+  def update
+    authorize! :edit, @product
+    render :edit unless @product.update_attributes(params[:product])
   end
 
   def live_feed
@@ -42,7 +51,7 @@ class ProductsController < ApplicationController
     authorize! :destroy, @product
     @product.destroy
 
-    redirect_to live_feed_path
+    redirect_to root_path
   end
 
   def buy

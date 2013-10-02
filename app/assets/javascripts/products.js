@@ -1,8 +1,9 @@
 $(document).ready(function(){
 
-  $('#product_category_id').on('change', function(){
+  $('#product_category_id').live('change', function(e){
+    cat_select = $(e.target);
     $.get('/categories/subcategories/' + $(this).val(), function(data, e) {
-      $('#product_sub_category_id').html(data);
+      cat_select.parent().find('#product_sub_category_id').html(data);
     });
   });
 
@@ -12,6 +13,12 @@ $(document).ready(function(){
       return false;
     }
     return true;
+  });
+
+  $('button[class*="delete-item-btn"]').live('click', function(e){
+    if(confirm('Are you sure you want remove this item?')) {
+      window.location.href = '/products/destroy/' + $(e.target).data('delete-item-id');
+    }
   });
 
   $('.guest-buy-now, .guest-make-mine, .guest-share-product').on('click', function(e){

@@ -2012,7 +2012,7 @@ ins {
   padding: 0 10px;
   font-size: 10px;
   font-weight: 600;
-  .report, .delete-product {
+  .report, .edit-product {
     width: 22px;
     height: 22px;
     position: absolute;
@@ -2025,13 +2025,13 @@ ins {
     border-radius: 0 0 2px 2px;
     text-decoration: none;
   }
-  .delete-product {
-    background: #cfd1d2 url(/assets/icons/trash_gray.png) no-repeat 7px 2px;
+  .edit-product {
+    background: #cfd1d2 url(/assets/icons/edit_gray.png) no-repeat 7px 2px;
   }
   .report span {
     margin-left: -2px;
   }
-  .report:after, .delete-product:after {
+  .report:after, .edit-product:after {
     width: 0px;
     height: 0px;
     border-top: 5px solid transparent;
@@ -2459,11 +2459,15 @@ span.or {
   font-size: 14px;
   margin: 0 10px;
 }
-#post {
+#post, .edit-form {
   width: 570px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  .delete-item-btn {
+    background-color: #808083;
+    border: 0;
+  }
   .mandatory-info {
     color: #999;
     font-style: italic;
@@ -2482,11 +2486,11 @@ span.or {
       margin-top: 10px;
     }
     .price-field {
-      width: 240px;
+      width: 240px  !important;
       float: left;
     }
     .currency {
-      width: 100px;
+      width: 100px  !important;
       float: left;
       height: 35px;
       margin-left: 10px;
@@ -2496,7 +2500,7 @@ span.or {
       width: 350px;
     }
     input, select, textarea {
-      width: 350px;
+      width: 350px !important;
       display: inline-block;
       float: right;
     }
@@ -2511,7 +2515,7 @@ span.or {
     }
   }
 }
-#post .btn {
+#post .btn, .edit-form .btn {
   display: inline-block;
   vertical-align: top;
   padding: 8px 20px;
@@ -2544,6 +2548,10 @@ span.or {
   height: 36px!important;
   display: inline-block !important;
   line-height: 24px;
+}
+.edit-form .edit-item-btn {
+  float: left !important;
+  margin-left: 89px !important;
 }
 .more p {
   color: #fff;

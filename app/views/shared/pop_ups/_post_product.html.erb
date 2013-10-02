@@ -8,34 +8,7 @@
       <%3.times do |i| %>
         <%= file_field_tag "product_pictures[#{i}]", placeholder: 'You can upload up to 3 photos' %>
       <%end%>
-      <div class="input-line">
-        <%= f.label :title, 'Title*' %>
-        <%= f.text_field :title %>
-      </div>
-      <div class="input-line">
-        <%= f.label :category, 'Category*' %>
-        <%= f.select :category_id, Category.for_select, include_blank: 'Please choose...' %>
-        <%= f.select :sub_category_id, [] %>
-      </div>
-      <div class="input-line-text">
-        <%= f.label :description, 'Description*' %>
-        <%= f.text_area :description, placeholder: 'Description' %>
-      </div>
-      <div class="input-line">
-        <%= f.label :size, 'Size*'  %>
-        <%= f.text_field :size %>
-      </div>
-      <div class="input-line">
-        <%= f.label :price, 'Price*' %>
-        <div class="right-fields">
-          <%= f.text_field :price, class: 'price-field' %>
-          <%= f.select :currency, currencies_for_select, {}, class: 'currency' %>  
-        </div>
-      </div>
-      <div class="clear"></div>
-      <div class="mandatory-info">
-        *Mandatory
-      </div>
+      <%=render partial: '/products/form', locals:{f: f, sub_categories_select: []}%>
       <button class="btn big" type="submit">Post</button>
     <%end%>
   </div>

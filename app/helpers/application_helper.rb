@@ -69,4 +69,8 @@ module ApplicationHelper
     cols
   end
 
+  def subs_for_select(subs)
+    [['Please choose...', '']] + subs.map{|s| [s.title, s.id]}
+  end
+
 end

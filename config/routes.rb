@@ -23,6 +23,8 @@ Mmmine::Application.routes.draw do
     match '/products/buy/:id' => 'products#buy', as: :product_buy
     match '/products/create' => 'products#create', as: :product_create
     match '/products/destroy/:id' => 'products#destroy', as: :product_destroy
+    match '/products/edit/:id' => 'products#edit', as: :product_edit
+    match '/products/update/:id' => 'products#update', as: :product_update
     match '/comments/create' => 'comments#create', as: :comment_create
     match '/comments/:id/destroy' => 'comments#destroy', as: :comment_destroy
     match '/users/follow' => 'users#follow', as: :follow
