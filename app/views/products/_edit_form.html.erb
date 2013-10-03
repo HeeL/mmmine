@@ -4,7 +4,19 @@
       <h3>edit your item</h3>
   </div>
   <div class="modal-body">
+    <div class="uploaded-pics">
+    <%@product.product_pictures.each do |pic|%>
+      <div class="pic-block" id="pic<%=pic.id%>">
+        <%=image_tag pic.picture(:small)%><br />
+        <%=link_to 'Remove', product_picture_destroy_path(id: pic.id), remote: true%>
+      </div>
+    <%end%>
+    </div>
+    <div class="clear"></div>
     <%= form_for(@product, url: product_update_path, remote: true, html: {multipart: true}) do |f| %>
+      <%3.times do |i| %>
+        <%= file_field_tag "product_pictures[#{i}]", style: "display: #{i >= @product.product_pictures.count ? 'block' : 'none'}" %>
+      <%end%>
       <%=render partial: '/products/form', locals:{f: f, sub_categories_select: subs_for_select(@product.category.sub_categories)}%>
       <button class="btn big edit-item-btn" type="submit">Save</button>
       <button class="btn big delete-item-btn" type="button" data-delete-item-id="<%=@product.id%>">Delete item</button>

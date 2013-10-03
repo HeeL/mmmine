@@ -19,7 +19,7 @@ class ProductsController < ApplicationController
 
   def update
     authorize! :edit, @product
-    render :edit unless @product.update_attributes(params[:product])
+    @product.update_attributes(params[:product]) ? upload_pics : render(:edit)
   end
 
   def live_feed
@@ -41,9 +41,7 @@ class ProductsController < ApplicationController
     @product = current_user.products.new(params[:product])
     if @product.valid? && params[:product_pictures].present?
       @product.save
-      params[:product_pictures].each do |i, pic|
-        @product.product_pictures.create(picture: pic)
-      end
+      upload_pics
     end
   end
 
@@ -100,7 +98,25 @@ class ProductsController < ApplicationController
     end
   end
 
+  def picture_destroy
+    pic = ProductPicture.find(params[:id])
+    authorize! :edit, pic.product
+    if pic.product.product_pictures.count > 1
+      pic.destroy
+    else
+      @error = 'Your item should have at least one picture uploaded'
+    end
+  end
+
   private
+
+  def upload_pics
+    if params[:product_pictures].present?
+      params[:product_pictures].each do |i, pic|
+        @product.product_pictures.create(picture: pic)
+      end
+    end
+  end
 
   def product_conditions
     product = Product

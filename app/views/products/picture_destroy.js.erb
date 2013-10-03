@@ -1,0 +1,6 @@
+<%if @error%>
+  show_message('<%=@error%>', 'Error', 'error');
+<%else%>
+  $('.uploaded-pics:visible #pic<%=params[:id]%>').slideUp('slow');
+  $('.edit-form:visible input[type="file"]:hidden:first').slideDown('slow');
+<%end%>

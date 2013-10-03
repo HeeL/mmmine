@@ -2522,6 +2522,23 @@ span.or {
   margin: 10px 0 0 20px;
   float: right;
 }
+.edit-form {
+  input[type=file] {
+    width: 490px !important;
+  }
+  .uploaded-pics {
+    margin-left: 85px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    .pic-block {
+      float: left;
+      margin-left: 20px;
+      a {
+        margin-left: 20px;
+      }
+    }
+  }
+}
 .btn.gray {
   background: #808080;
   border: 1px solid #767676;
