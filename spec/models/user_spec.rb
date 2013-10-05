@@ -3,6 +3,22 @@ require 'spec_helper'
 describe User do
   subject { User }
 
+  context "default_values" do
+    it "sets notified_at when its nil" do
+      old_time = Time.now
+      user = FactoryGirl.create(:user)
+      user.notified_at.to_i === (old_time.to_i..Time.now.to_i)
+    end
+
+    it "doesn't overwrite notified_at if it's exists" do
+      notified_at = 1.minute.ago
+      user = FactoryGirl.create(:user, notified_at: notified_at)
+      user.name = 'Name'
+      user.save
+      user.notified_at.should eq(notified_at)
+    end
+  end
+
   context 'create' do
     it "case insensitive to email" do
       user = FactoryGirl.create(:user, email: 'TeSt@gMaIL.com')
