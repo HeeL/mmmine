@@ -43,7 +43,7 @@ module ApplicationHelper
   end
 
   def product_url(id, reload = false)
-    "http://mmmine.com/#{reload && request.fullpath == '/' ? '?r' : '' }#thing_popup#{id}"
+    "http://mmmine.com/#{reload && (request.fullpath == '/' || params[:request_path] == '/') ? '?r' : '' }#thing_popup#{id}"
   end
 
   def currencies_for_select
