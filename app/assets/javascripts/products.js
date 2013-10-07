@@ -21,18 +21,18 @@ $(document).ready(function(){
     }
   });
 
-  $('.guest-buy-now, .guest-make-mine, .guest-share-product').on('click', function(e){
+  $('.guest-buy-now, .guest-make-mine, .guest-share-product').live('click', function(e){
     scrollTo(0,35);
     $('#signup').modal('show');
   });
 
   comment_form = $('.comment-form[data-guest="true"]');
-  comment_form.find('textarea').on('focus', function(){
+  comment_form.find('textarea').live('focus', function(){
     scrollTo(0,35);
     $('#signup').modal('show');
   });
 
-  comment_form.on('submit', function(){
+  comment_form.live('submit', function(){
     scrollTo(0,35);
     $('#signup').modal('show');
     return false;
@@ -42,7 +42,7 @@ $(document).ready(function(){
     return $('#new_product :input[value=""][type="file"]').length == 3 || $('#new_product :input[value=""][type!="file"]') == true
   }
 
-  $('.cancel-follow').on('click', function(e){
+  $('.cancel-follow').live('click', function(e){
     $('#delete_from_mmmine' + $(e.target).data('cancel-follow')).modal('hide');
   });
 
