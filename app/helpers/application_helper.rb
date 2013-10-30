@@ -47,6 +47,8 @@ module ApplicationHelper
   end
 
   def currencies_for_select
+    #temporary make only NZD available
+    return [[:NZD, 1]]
     CURRENCIES.each_with_index.map{|c, i| [c.upcase, i]}
   end
 
