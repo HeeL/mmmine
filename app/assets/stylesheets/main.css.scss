@@ -630,6 +630,7 @@ table {
 }
 .content .item {
   width: 217px;
+  min-height: 155px;
   position: relative;
   font-size: 0px;
   overflow: hidden;
@@ -2521,6 +2522,13 @@ span.or {
   padding: 8px 20px;
   margin: 10px 0 0 20px;
   float: right;
+}
+#post {
+  #new_product_loading {
+    position: absolute;
+    display: none;
+    right: 100px;
+  }
 }
 .edit-form {
   input[type=file] {

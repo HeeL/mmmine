@@ -9,6 +9,7 @@
         <%= file_field_tag "product_pictures[#{i}]", placeholder: 'You can upload up to 3 photos' %>
       <%end%>
       <%=render partial: '/products/form', locals:{f: f, sub_categories_select: []}%>
+      <%=image_tag 'small_loading.gif', :id => 'new_product_loading'%>
       <button class="btn big" type="submit">Post</button>
     <%end%>
   </div>

@@ -7,6 +7,14 @@ $(document).ready(function(){
     });
   });
 
+  $('#new_product').on('ajaxSend', function(){
+    $('#new_product_loading').show();
+  });
+
+  $('#new_product').on('ajaxComplete', function(){
+    $('#new_product_loading').hide();
+  });
+
   $('#new_product').on('submit', function(){
     if(form_not_filled()) {
       show_message('oops! We’re missing some information,<br /> please review your listing','','error');
@@ -39,7 +47,18 @@ $(document).ready(function(){
   });
 
   function form_not_filled(){
-    return $('#new_product :input[value=""][type="file"]').length == 3 || $('#new_product :input[value=""][type!="file"]') == true
+    return $('#new_product :input[value=""][type="file"]').length == 3 ||
+    $('#new_product :input[value=""][type!="file"]') == true ||
+    empty_field('product_title') ||
+    empty_field('product_price') ||
+    empty_field('product_size') ||
+    empty_field('product_sub_category_id') ||
+    empty_field('product_category_id') ||
+    empty_field('product_description')
+  }
+
+  function empty_field(field_id) {
+    return $('#' + field_id).val() == ''
   }
 
   $('.cancel-follow').live('click', function(e){

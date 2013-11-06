@@ -7,13 +7,14 @@
       <h1><%=@product.title%></h1>
       <div class="size">Size: <%=@product.size%></div>
       <div class="location">Country:  <%=@product.user.location%></div>
-      <div class="total">Total to be charged: <%=format_price(@product, false)%></div>
+      <div class="total">Total to be charged: <%=format_price(@product, false)%> (plus postage or pick to be arranged with seller)</div>
       <p>
-        You’re just one click away from owning this beautiful item! :) By clicking 
-        “Confirm Purchase” you agree to purchase this item from the owner. Your contact 
-        details will be exchanged with the seller so that you can arrange payment and
-        collection or delivery. After clicking “Confirm Purchase”, please check your email for 
-        more information about contacting the seller and completing the deal.
+      <p>
+        You’re just one click away from buying this beautiful item! :) By clicking “Confirm Purchase” you agree to purchase this item from the owner. <strong>Your contact details will be exchanged with the seller so that you can arrange payment and collection or delivery.</strong><br /><br />
+
+        Please note that mmmine.com does not facilitate the sale - we simply put buyers and sellers in touch with each other. <strong>Clicking buy and not fulfilling the transaction could result in your account being suspended.</strong><br /><br />
+
+        After clicking “Confirm Purchase”, please check your email for more information about contacting the seller and completing the deal.
       </p>
       <%= form_tag(product_buy_path(@product.id), remote: true) do %>
         <button class="btn" type="submit">Confirm Purchase</button>

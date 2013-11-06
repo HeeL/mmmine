@@ -2,6 +2,7 @@
   $('#post').modal('hide');
   $('.products_list:first').prepend('<%= j(render partial: "/products/product_details", locals: {product: @product}) %>');
   $('#thing_popup<%=@product.id%>').modal('show');
+  $("#new_product")[0].reset();
 <%else%>
   show_message('oops! We’re missing some information,<br /> please review your listing','','error');
 <%end%>
