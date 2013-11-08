@@ -1,3 +1,4 @@
+$('#new_product_loading').hide();
 <%if @product.persisted?%>
   $('#post').modal('hide');
   $('.products_list:first').prepend('<%= j(render partial: "/products/product_details", locals: {product: @product}) %>');

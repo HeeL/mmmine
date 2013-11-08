@@ -7,19 +7,12 @@ $(document).ready(function(){
     });
   });
 
-  $('#new_product').on('ajaxSend', function(){
-    $('#new_product_loading').show();
-  });
-
-  $('#new_product').on('ajaxComplete', function(){
-    $('#new_product_loading').hide();
-  });
-
   $('#new_product').on('submit', function(){
     if(form_not_filled()) {
       show_message('oops! We’re missing some information,<br /> please review your listing','','error');
       return false;
     }
+    $('#new_product_loading').show();
     return true;
   });
 
