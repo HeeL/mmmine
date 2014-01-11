@@ -168,11 +168,15 @@
 		
 		label[for="nav-menu-toggle"] {
 			display: block;
-			width: 16px;
-			height: 20px;
+			width: 40px;
+			height: 40px;
 			float: right;
-			margin: 10px;
-			background: url(/assets/icons/subnav-toggle-arrow.png) no-repeat top center;
+			background: url(/assets/icons/subnav-toggle-arrow.png) no-repeat center;
+			cursor: pointer;
+			
+			&:hover, &:active {
+				background-color: #252525;
+			}
 		}
 		#nav-menu-toggle:checked+ul.nav-menu {display: block !important;}
 		

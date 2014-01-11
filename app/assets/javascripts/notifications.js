@@ -10,5 +10,6 @@ $(document).ready(function(){
       span.text('0');
       span.addClass('zero');
     }
+		$(window).scrollTop(0);
   });
 });
