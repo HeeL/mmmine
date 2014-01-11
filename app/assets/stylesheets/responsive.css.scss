@@ -1,0 +1,485 @@
+@mixin box-sizing($sizing) {
+	-webkit-box-sizing: $sizing;
+	-moz-box-sizing: $sizing;
+	box-sizing: $sizing;
+	
+}
+
+@media only screen and (max-width: 970px) {
+	.content.row3 {
+		width: 68%;
+		margin-left: 2%;
+	}
+	.content.row4 {
+	  max-width: 990px;
+	  width: 96% !important;
+	  margin-left: 2% !important;
+	  margin-right: 2% !important;
+	}
+	.profile_nav, .user_profile {
+		margin-left: 2%;
+		margin-right: 2%;
+	}
+	.right {
+		width: 28%;
+		min-width: 210px;
+	}
+	.modal {
+		padding: 15px 4% !important;
+	}
+	.user_profile .l .profile_l {top: 5px;}
+	
+	header {	
+		padding-top: 5px;
+		min-height: 50px;
+		border-radius: 0;
+		-webkit-border-radius: 0;
+		position: relative;
+		.responsive-menu-toggle {
+			width: 30px;
+			height: 19px;
+			background: url(/assets/icons/list-icon2.png) no-repeat top left;
+			position: absolute;
+			top: 14px;
+			left: 15px;
+			z-index: 999;
+			display: block;
+		}
+		.search-box-toggle {
+			width: 31px;
+			height: 31px;
+			background: url(/assets/icons/search-big-icon.png) no-repeat top left;
+			position: absolute;
+			top: 9px;
+			right: 18px;
+			z-index: 999;
+			display: block;
+		}
+		.logo {
+			float: none;
+			margin: 0 auto;
+		}
+		.topnav-wrapper {
+			display: none;
+			float: left;
+			width: 100%;
+			clear: both;
+			nav {
+				width: 100%;
+				ul {
+					border-bottom: 1px solid #727272;
+					li {
+						margin-left: 0;
+						width: 100%;
+						height: auto;
+						padding: 20px 0;
+						border-top: 1px solid #727272;
+						a {
+							font-size: 18px;
+						}
+					}
+				}
+			}
+			&.on {display: block !important;}
+		}
+	}
+	.search {
+		display: none;
+		float: left;
+		width: 100%;
+		top: 0;
+		margin: 20px 0;
+		input[type='text'] {
+				padding-top: 9px !important;
+				padding-bottom: 9px !important;
+				font-size: 18px;
+		}
+		input[type='submit'] {
+			width: 24px;
+			height: 22px;
+			right: 7px;
+			top: 9px;
+			background: url(/assets/icons/search-icon-mobile.png);
+		}
+	}
+	
+	.edit-profile-wrap {
+		width: 94%;
+		margin-left: 2%;
+		margin-right: 2%;
+	}
+	
+	.account {
+		margin: 0;
+		padding: 20px 0;
+		width: 100%;
+		& > div {
+			margin-left: 0;
+		}
+		.usermenu-img-box, .zero, .new-note {
+			float: left;
+			clear: both;
+			width: 40px;
+			height: 40px;
+			margin-left: 0;
+			
+			.small-avatar {width: 34px; height: 34px;}
+			
+		}
+		.zero, .new-note {font-size: 16px; line-height: 36px;}
+		.usermenu {
+			margin-bottom: 20px;
+			&:after {
+				display: none;
+			}
+			ul {
+				width: 100%;
+				padding: 0;
+				min-height: 213px !important;
+				margin-left: 0;
+				display: none !important;
+				margin-top: 10px !important;
+				position: relative;
+				float: left;
+				top: 0;
+				left: 0;
+				background: transparent;
+				
+				li.profile-link {display: none;}
+				li { 
+					width: 100%;
+					padding: 20px 0;
+					border-top: 1px solid #727272;
+					a {
+						font-size: 18px;
+						color: #fff;
+					}
+				}
+			
+			}
+		}
+		.count {margin-top: 20px;}
+		.divider {
+			width: 100%;
+			float: left;
+			clear: both;
+			border-top: 1px solid #727272;
+		}
+		
+		label[for="nav-menu-toggle"] {
+			display: block;
+			width: 16px;
+			height: 20px;
+			float: right;
+			margin: 10px;
+			background: url(/assets/icons/subnav-toggle-arrow.png) no-repeat top center;
+		}
+		#nav-menu-toggle:checked+ul.nav-menu {display: block !important;}
+		
+		#notifications {
+			width: 320px;
+			margin: 20px 0 0 -160px;
+			top: 50px;
+			left: 50%;
+			
+			.notifications-wrapper {width: 296px;}
+			&:before {
+				content: '';
+				width: 0px;
+				height: 0px;
+				border-style: solid;
+				border-width: 0 15px 15px 15px;
+				border-color: transparent transparent #cccccc transparent;
+				position: absolute;
+				top: -23px;
+				left: 132px;
+			}
+			.notify-item .notify-text {width: 220px;}
+		}
+	}
+
+	.account .usermenu,
+	.account .count {clear: both; width: 100%;}
+}
+
+
+@media only screen and (max-width: 600px) {
+	.popup_item_info .l {
+		width: 100%;
+		background: #f1f1f1;
+		padding: 5px;
+		@include box-sizing(border-box);
+	}
+	.popup_item_info .r {
+		width: 100%;
+		
+		.user_r {margin-top: 20px;}
+		.right-top {
+			width: 100%;
+			
+			.buy-now, .sold {float: right;}
+		}
+		.modal-price-box {
+			float: left;
+			margin-top: 15px;
+		}
+	}
+	#password {width: auto !important;}
+	.more > div .follow {
+		position: relative;
+		bottom: 0;
+		top: 0;
+		right: 0;
+	}
+	.profile-count-wrap {
+		float: left !important;
+		padding-left: 115px;
+		width: 100%;
+	}
+	.profile_count {
+		position: relative;
+		top: -40px;
+		li {
+			display: inline !important;
+			float: left;
+			&:first-child {
+				margin-right: 8px;
+			}
+		}
+		}
+
+		#profile_settings input::-webkit-input-placeholder,
+		#profile_settings textarea::-webkit-input-placeholder  {
+			color: #808080;
+		}
+}
+
+@media only screen and (max-width: 750px) {
+	.content.row3, .right {
+		width: 96%;
+		margin-left: 2%;
+	    margin-right: 2%;
+	}
+	.right {
+  	h4 {
+			font-weight: 700;
+			font-weight: 700;
+			font-style: italic;
+	  }
+		.elem menu a {
+			display: block;
+			padding: 20px 15px;
+			background: #cbcbcb;
+			border: 1px solid #989898;
+			border-top: 0;
+			color: #404041;
+			font-size: 18px;
+			font-weight: bold;
+			&:first-child {
+				border-top: 1px solid #989898;
+			}
+			&:hover {
+				text-decoration: none;
+			}
+			&:active {
+				background: #b4b3b3;
+			}
+		}
+		.elem ul {
+			margin-left: 15px;
+			width: 130px !important;
+			 li {
+				font-size: 18px;
+				margin-top: 10px;
+			}
+		}
+		.elem .cat {
+			font-size: 18px;
+			display: block;
+			padding: 20px 15px;
+			background: #f1f1f1;
+			border: 1px solid #cbcbcb;
+			color: #404041;
+			
+			span {
+				font-size: 16px;
+				position: relative;
+				float: right;
+				margin-right: 15px;
+				margin-left: 0;
+			}
+		}
+		.filter-searchbox {
+			display: block !important;
+			position: relative;
+			
+			input[type="text"] {border-radius: 7px !important;}
+			input[type="submit"] {top: 19px !important;}
+		}
+		.show-filters-toggle {
+			display: block !important;
+			background: #2aac9f;
+			display: block;
+			position: relative;
+			padding: 8px 10px;
+			font-size: 16px;
+			font-weight: bold;
+			font-style: italic;
+			color: #fff;
+			-webkit-border-radius: 5px;
+			border-radius: 5px;
+			text-decoration: none;
+			
+			&.open {
+				-webkit-border-radius: 5px 5px 0 0;
+				border-radius: 5px 5px 0 0;
+			}
+			&:after {
+				content: '';
+				width: 0px;
+				height: 0px;
+				border-style: solid;
+				border-width: 10px 5px 0 5px;
+				border-color: #fff transparent transparent transparent;
+				position: absolute;
+				top: 12px;
+				right: 14px;
+			}
+			&:active {
+				background-color: #219287;
+			}
+		}
+		.filters-wrap {
+			display: none;
+			border: 1px solid #2aac9f;
+			border-top: 0;
+			position: relative;
+			top: -4px;
+			padding: 0 10px;
+			border-radius: 0 0 5px 5px;
+			
+			&.on {
+				display: block !important;
+			}
+		}
+	}
+	.content .item {
+		width: 205px;
+		min-height: 164px;
+	}
+	.user_profile .l .profile_l .name {font-size: 20px;}
+	.user_profile .r .profile_count ul > li a {width: 60px;}
+	.user_profile .l img {width: 95px;}
+	
+	#invite_friends .tabs {width: 30% !important;}
+	#invite_friends .tab-content {width: 70% !important; max-width: 490px;}
+	#invite_friends .tab-content #fr-email {width: 100%; }
+}
+
+@media only screen and (max-width: 700px) {
+
+
+  .strapline {padding: 30px 4% !important;}
+  .strapline span.or {clear: both; display: block;}
+  .strapline h2 {font-size: 22px; margin-bottom: 10px;}
+  .strapline form button {
+		width: 50%;
+		margin-left: 2% !important;
+		font-size: 13px !important;
+  }
+  .strapline input {width: 47%;}
+	
+	#signup .modal-body > .l,
+	#signup .modal-body > .r {float: left; width: 100%; clear: both; margin-bottom: 10px;}
+	#signup .modal-body input:not([type=checkbox]):not([type=radio]) {
+		min-width: 235px;
+		width: 100%;
+	}
+}
+
+
+@media only screen and (max-width: 545px) {
+	
+	#post .input-line label,
+	#post .input-line-text label,
+  .edit-form .input-line label,
+	.edit-form .input-line-text label	{width: 100%; margin-bottom: 5px;}
+	#post .input-line input, #post .input-line select,
+	#post .input-line textarea, 
+	#post .input-line-text input, 
+	#post .input-line-text select, 
+	#post .input-line-text textarea,
+	.edit-form .input-line input,
+	.edit-form .input-line select, 
+	.edit-form .input-line textarea,
+	.edit-form .input-line-text input,
+	.edit-form .input-line-text select,
+	.edit-form .input-line-text textarea {
+		width: 100% !important;
+	}
+	#post .input-line .right-fields {float: left; clear: both; width: auto;}
+	.edit-form .input-line .right-fields {float: left; clear: both; width: auto;}
+	
+	#invite_friends .tabs {width: 100% !important; margin-bottom: 20px;}
+	#invite_friends .tabs li {width: 50%; float: left;}
+	#invite_friends .tab-content {width: 100% !important; }
+	
+	.edit-form .edit-item-btn {
+		float: left !important;
+		margin-left: 0 !important;
+	}
+	.mandatory-info {
+		clear: both;
+		float: left;
+		width: 100%;
+		margin: 10px 0;
+	}
+}
+
+
+@media only screen and (max-width: 479px) {
+	header .logo {
+		width: 164px;
+		bottom: -13px;
+		background: url("/assets/logo.png") no-repeat top center;
+		-webkit-background-size: 100% auto;
+		-moz-background-size: 100% auto;
+		background-size: 100% auto;
+	}
+
+	.strapline form button {
+			width: 100%;
+			margin-left: 0% !important;
+			margin-top: 10px !important;
+			font-size: 14px !important;
+		}
+		.strapline input {width: 100%;}
+		
+		#profile_settings div label {width: 100%; margin-bottom: 5px;}
+		#profile_settings input:not(#user_name):not([type=checkbox]):not([type=button]):not([type=submit]), 
+		#profile_settings textarea {width: 100%; margin-left: 0;}
+		#profile_settings  .btn.big {margin-left: 0 !important;}
+		#profile_settings .photo {
+			margin: 0 auto;
+			display: block;
+		}
+		.big_item .social .b {width: 55px; height: 55px; padding: 35px 10px 0px 0px;}
+		#profile_settings .field-hint {margin: 7px 0 0 125px;}
+		#profile_settings input#user_name {width: 150px;}
+		
+		#post .input-line .price-field,
+	  .edit-form .input-line .price-field {width: 55% !important; float: left; }
+		#post .input-line .currency,
+		.edit-form .input-line .currency {float: right; width: 43% !important; float: right !important; margin-left: 0; }
+		
+		
+		.user_profile .l .profile_l .name {
+			font-size: 20px;
+			white-space: nowrap;
+			width: 180px;
+			text-overflow: ellipsis;
+			overflow: hidden;
+		}
+		.product-details .thumbnails-more img {width: 40px !important;}
+
+}

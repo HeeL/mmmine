@@ -1,36 +1,43 @@
-<nav>
-  <ul>
-    <li><%=link_to 'Live Feed', live_feed_path%></li>
-    <li><%=link_to 'Things I want', product_list_path(things_i_want: current_user.id)%></li>
-    <li><a href="#post" data-toggle="modal" role="button" class="b post">Sell an item</a></li>
-    <li>
-      <a href="/more">More</a>
-    </li>
-  </ul>
-</nav>
+<div class="topnav-wrapper">
+	<nav>
+	  <ul>
+		<li><%=link_to 'Live Feed', live_feed_path%></li>
+		<li><%=link_to 'Things I want', product_list_path(things_i_want: current_user.id)%></li>
+		<li><a href="#post" data-toggle="modal" role="button" class="b post">Sell an item</a></li>
+		<li>
+		  <a href="/more">More</a>
+		</li>
+	  </ul>
+	</nav>
 
-<%=render 'shared/search'%>
 
-<div class="account">
-  <a href="<%=show_profile_path%>">
-    <div class="nav-menu"></div>
-  </a>
-  <div class="usermenu drop">
-      <%=image_tag current_user.photo(:avatar), class: 'small-avatar' %>
-      <ul class="hide nav-menu">
-          <li <%='class=active' if at_profile_page?%>><%= link_to "Profile", show_profile_path %></li>
-          <li <%='class=active' if at_invite_friends_page?%>><%= link_to "Invite Friends", invite_friends_path %></li>
-          <li <%='class=active' if at_edit_profile_page?%>><%= link_to "Settings", edit_profile_path %></li>
-          <li><%= link_to "Sign out", logout_path %></li>
-      </ul>
-  </div>
-  <div class="count" id="notification_count">
-    <% @notifications = Notification.my(current_user.id)%>
-    <%if @notifications.first && @notifications.first.created_at > current_user.notified_at%>
-      <span>!</span>
-    <%else%>
-      <span class="zero">0</span>
-    <%end%>
-  </div>
-  <%=render 'shared/notifications'%>
+	<div class="account">
+	  <a href="<%=show_profile_path%>">
+		<div class="nav-menu"></div>
+	  </a>
+	  <div class="usermenu drop">
+		  <div class="usermenu-img-box">
+		  <%=image_tag current_user.photo(:avatar), class: 'small-avatar' %>
+			</div>
+			<label for="nav-menu-toggle"></label>
+			<input type="checkbox" id="nav-menu-toggle" />
+		  <ul class="hide nav-menu">
+			  <li class="profile-link <%='active' if at_profile_page?%>"><%= link_to "Profile", show_profile_path %></li>
+			  <li <%='class=active' if at_invite_friends_page?%>><%= link_to "Invite Friends", invite_friends_path %></li>
+			  <li <%='class=active' if at_edit_profile_page?%>><%= link_to "Settings", edit_profile_path %></li>
+			  <li><%= link_to "Sign out", logout_path %></li>
+		  </ul>
+	  </div>
+		<span class="divider"></span>
+	  <div class="count" id="notification_count">
+		<% @notifications = Notification.my(current_user.id)%>
+		<%if @notifications.first && @notifications.first.created_at > current_user.notified_at%>
+		  <span class="new-note">!</span>
+		<%else%>
+		  <span class="zero">0</span>
+		<%end%>
+	  </div>
+	  <%=render 'shared/notifications'%>
+	</div>
 </div>
+<%=render 'shared/search'%>

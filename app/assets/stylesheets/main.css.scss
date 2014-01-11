@@ -167,7 +167,8 @@ del {
   width: 745px;
 }
 .row4 {
-  width: 990px;
+  max-width: 990px;
+	width: 100%;
 }
 ::-webkit-input-placeholder {
   color: #808080;
@@ -576,7 +577,13 @@ table {
   cursor: default;
   margin: 20px 0 0 -95px;
   z-index: 1;
-  overflow-y: scroll;
+  background: #fff;
+	padding: 3px;
+	.notifications-wrapper {
+		width: 345px;
+		max-height: 335px;
+		overflow-y: scroll;
+	}
   h3 {
     font-weight: bold;
     color: #2aac9f;
@@ -591,6 +598,7 @@ table {
   .notify-item {
     height: 55px;
     padding-top: 10px;
+		margin-bottom: 6px;
     border-top: 2px solid #ccc;
     color: #808080;
     text-align: left;
@@ -628,6 +636,13 @@ table {
 .content .item:hover .social {
   top: 0px;
 }
+
+html.touch .content .item:hover .details {
+  bottom: -80%;
+}
+html.touch .content .item:hover .social {
+  top: -70px;
+}
 .content .item {
   width: 217px;
   min-height: 155px;
@@ -645,7 +660,7 @@ table {
   background: rgba(255, 255, 255, 0.9);
   position: absolute;
   width: 100%;
-  bottom: -50%;
+  bottom: -80%;
   font-size: 11px;
   overflow: hidden;
   padding: 10px;
@@ -683,22 +698,28 @@ table {
     border: 0;
   } 
 }
-
+.modal-follow-btn {
+	margin-top: 4px;
+}
 .content .item .details .user {
   width: 140px;
 }
+.responsive-menu-toggle,
+.search-box-toggle {display: none;}
 .content .item .details .user p.time {
   margin-top: 4px;
   font-size: 10px;
 }
-.user_l {
+.user_l, .user_r {
   .details-top {
-    width: 543px;
+    width: auto;
     .left-top {
       float: left;
     }
     .right-top {
       float: right;
+	  
+	  .modal-price-box {display: inline;}
       b {
         font-size: 22px;
         color: #000;
@@ -843,9 +864,12 @@ table {
   }
 }
 
-.modal {
+body .modal {
   border: 6px solid #cfd1d2;
+  width: 96%;
+  max-width: 560px;
 }
+
 .modal .fb_login {
   padding: 9px 20px 8px!important;
 }
@@ -896,7 +920,7 @@ table {
   margin-top: 0;
 }
 .modal.style textarea {
-  width: 500px;
+  width: 100%;
   height: 80px;
   padding: 5px !important;
   margin-bottom: 10px;
@@ -904,7 +928,7 @@ table {
 }
 .share-product {
   input[type=text] {
-    width: 490px !important;
+    width: 100% !important;
     font-size: 13px !important;
   }
 }
@@ -1011,7 +1035,7 @@ section {
   display: block;
 }
 #login {
-  width: 390px;
+  max-width: 390px;
 }
 
 .small-avatar {
@@ -1020,7 +1044,8 @@ section {
 }
 
 #profile_settings {
-  width: 448px;
+  max-width: 448px;
+	width: 100%;
   color: #808083;
   font-size: 13px;
   .photo {
@@ -1187,10 +1212,11 @@ dfn[title] {
   }
 }
 
+
 .account {
-  float: right;
-  margin-right: 40px;
-  margin-top: -5px;
+  float: left;
+  margin-top: 5px;
+	margin-left: 18px;
   a:hover {
     color: #2aac9f;
   }
@@ -1212,19 +1238,28 @@ dfn[title] {
   border-top: 7px solid #fff;
   position: absolute;
   bottom: -7px;
-  left: 50%;
+  left: 16px;
   margin-left: -4px;
 }
 .account .usermenu.active:after {
   border-top-color: #2aac9f;
 }
+#nav-menu-toggle,
+label[for="nav-menu-toggle"] {display: none;}
 .account {
   .usermenu ul {
     width: 90px;
-    margin-left: -13px;
+    margin-left: -5px;
+		margin-top: 1px;
   }
 }
-.account > div {
+.account .usermenu,
+.account .count {
+	display: inline-block;
+}
+.account .usermenu-img-box, 
+.account .zero,
+.account .new-note  {
   display: inline-block;
   width: 31px;
   height: 31px;
@@ -1234,9 +1269,10 @@ dfn[title] {
   padding: 3px;
   cursor: pointer;
   vertical-align: top;
-  margin-left: 18px;
+  margin-right: 18px;
   position: relative;
 }
+.account .count {margin-right: 0;}
 .account > div > span {
   line-height: 27px;
   font-weight: bold;
@@ -1299,6 +1335,10 @@ dfn[title] {
   margin-left: 4px;
   padding: 9px 5px;
 }
+#profile_settings input::-webkit-input-placeholder,
+#profile_settings textarea::-webkit-input-placeholder  {
+  color: #fff;
+}
 .fancybox-close {
   position: absolute;
   top: -5px;
@@ -1310,7 +1350,8 @@ dfn[title] {
   background: url(/assets/x.png) !important;
 }
 #signup {
-  width: 585px;
+  max-width: 565px;
+	width: auto;
 }
 #signup .fb_b {
   margin-top: -1px;
@@ -1340,7 +1381,7 @@ dfn[title] {
 .search {
   position: relative;
   float: right;
-  top: -2px;
+  top: 7px;
   width: 200px;
 }
 .search input[type='text']:-ms-input-placeholder {
@@ -1373,15 +1414,16 @@ dfn[title] {
 }
 header {
   margin-bottom: 20px;
-  padding: 44px 18px 0px 12px;
+  padding: 33px 18px 0px 12px;
   width: 100%;
-  height: 78px;
+  min-height: 78px;
+  float: left;
   background: #333;
   border-radius: 0 0 5px 5px;
 }
 header nav {
   float: left;
-  margin: 10px 0 0 0;
+  margin: 20px 0 0 0;
   text-decoration: none;
   font-size: 0;
 }
@@ -1408,7 +1450,7 @@ header .logo {
   width: 204px;
   height: 44px;
   position: relative;
-  top: -6px;
+  bottom: -5px;
   background: url('/assets/logo.png');
 }
 .clearfix {
@@ -1492,7 +1534,7 @@ header .logo {
 }
 .w960 {
   margin: 0 auto;
-  width: 960px;
+  max-width: 960px;
 }
 select {
   -webkit-appearance: none;
@@ -1626,6 +1668,13 @@ ins {
   outline: none;
   vertical-align: top;
 }
+@media only screen and (min-width: 751px) {
+	.filters-wrap {display: block !important;}
+}
+@media only screen and (min-width: 971px) {
+	.topnav-wrapper {display: block !important;}
+}
+ 
 .right {
   float: right;
   width: 215px;
@@ -1639,7 +1688,7 @@ ins {
     span {
       color: #2aac9f;
       position: absolute;
-      margin-left: 60px;
+      margin-left: 65px;
       cursor: pointer;
     }
   }
@@ -1650,8 +1699,9 @@ ins {
     }
   }
   ul.right-col {
-    float: right;
+    float: left;
     width: 110px;
+	padding-left: 5px;
   }
   ul.left-col {
     float: left;
@@ -1714,15 +1764,20 @@ ins {
   margin-bottom: 25px;
   .profile-tab {
     border: 1px solid #B2B2B2;
-    width: 10%;
-    padding: 7px 10px 13px 10px;
-    border-radius: 10px;
+	width: 96px;
+	padding: 7px 10px 13px 10px;
+	border-radius: 10px;
+	position: relative;
+	z-index: 5;
+	background: #fff;
   }
   .profile-tab-line {
     float: right;
-    border-bottom: 1px solid #B2B2B2;
-    width: 90%;
-    margin-top: -9px;
+	border-bottom: 1px solid #B2B2B2;
+	width: 100%;
+	margin-top: -9px;
+	position: relative;
+	z-index: 1;
   }
 }
 
@@ -1730,17 +1785,18 @@ ins {
   position: relative;
   overflow: hidden;
   margin-bottom: 40px;
+  clear: both;
 }
 .user_profile .l img {
   width: 117px;
   border-radius: 20px;
   float: left;
-  margin-right: 30px;
+  margin-right: 20px;
 }
 .user_profile .l .profile_l {
-  position: absolute;
-  top: 55px;
-  left: 140px;
+  float: left;
+  position: relative;
+  top: 48px;
 }
 .profile_l {
   .unfollow {
@@ -1787,6 +1843,9 @@ ins {
 .popup_item_info .user_l {
   margin-top: -3px;
 }
+.popup_item_info .user_r {
+	margin-top: 22px;
+}
 .popup_item_info .l img {
   float: left;
   width: 65px;
@@ -1822,7 +1881,8 @@ ins {
 .product-details {
   color: #808080 !important;
   padding: 34px 45px !important;
-  width: 722px !important;
+  max-width: 722px !important;
+  width: 96% !important;
   top: 3% !important;
   .product_desc {
     width: 90%;
@@ -1869,6 +1929,7 @@ ins {
 }
 .more_in_set ul {
   font-size: 0;
+  margin-top: 5px;
 }
 .more_in_set ul li {
   display: inline-block;
@@ -1883,6 +1944,7 @@ ins {
 .item_comments .list-comments li {
   margin-top: 15px;
   display: block;
+  position: relative;
   *zoom: 1;
 }
 .item_comments .list-comments li:before,
@@ -1895,13 +1957,16 @@ ins {
   clear: both;
 }
 .item_comments .list-comments .userpic {
-  margin-top: 2px;
+  position: absolute;
+  width: 45px;
+  top: 0;
+  left: 0;
 }
 .item_comments .list-comments .user_l {
   color: #808080;
-  float: right;
-  margin-left: 8px;
-  width: 565px;
+  margin-left: 55px;
+  display: block;
+  float: none;
 }
 .item_comments .list-comments .user_l a.name {
   font-weight: bold;
@@ -2005,6 +2070,7 @@ ins {
 .big_item img {
   width: 100%;
 }
+html.touch .big_item .social {top: 0 !important;}
 .big_item .social {
   width: 100%;
   height: 40px;
@@ -2013,6 +2079,7 @@ ins {
   padding: 0 10px;
   font-size: 10px;
   font-weight: 600;
+  
   .report, .edit-product {
     width: 22px;
     height: 22px;
@@ -2073,12 +2140,22 @@ ins {
   .b.mmmine {
     background: #2aac9f url('/assets/icons/big_mmmine.png') 5px 15px;
   }
+	.b.myspace {
+		background: #ed7822 url("/assets/icons/myspace.png") 10px 15px;
+	}
+	.b.other {
+		background: #f0a82e url("/assets/icons/other.png") 10px 15px;
+	}
   .b.unfollow-product {
     background: #2aac9f url('/assets/icons/big_trash.png') 5px 15px;
   }
 } 
-img + .comment-form {
-  float: right;
+.create-comment-form {
+	position: relative;
+	width: 100%;
+	padding-right: 90px;
+	display: block;
+	padding-left: 55px;
 }
 .comment-form textarea,
 .comment-form button {
@@ -2089,11 +2166,20 @@ img + .comment-form {
   vertical-align: top;
 }
 .comment-form .post-comment.btn {
-  width: 79px;
+	width: 79px;
+	position: absolute;
+	right: 0px;
+	top: 0;
+}
+.create-comment-form > img {
+	width: 45px;
+	position: absolute;
+	top: 0;
+	left: 0;
 }
 .comment-form textarea {
-  width: 480px;
-  margin-right: 5px;
+  width: 100%;
+  
 }
 .s_button {
   background: rgba(255, 255, 255, 0.9);
@@ -2149,7 +2235,8 @@ label {
   cursor: pointer;
 }
 #report {
-  width: 365px;
+  max-width: 365px;
+	width: auto;
 }
 #report form {
   margin-top: 30px;
@@ -2232,7 +2319,7 @@ section p {
   position: relative;
 }
 .more > div .column {
-  width: 530px;
+ 
 }
 .more > div h2 {
   margin-bottom: 25px;
@@ -2240,6 +2327,7 @@ section p {
 .more > div p {
   font-size: 13px;
   margin-bottom: 10px;
+   max-width: 530px;
 }
 .more > div .border-b {
   border-bottom: 1px solid;
@@ -2412,6 +2500,8 @@ ul li {
   width: 210px;
 }
 .strapline {
+  float: left;
+  width: 100%;
   background-color: #19988b;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#2aac9f), to(#00796c));
   background-image: -webkit-linear-gradient(top, #2aac9f, #00796c);
@@ -2433,6 +2523,7 @@ ul li {
 .strapline a {
   display: inline-block;
   vertical-align: middle;
+  margin: 5px 0;
 }
 .strapline .fb_login {
   font-size: 14px;
@@ -2440,6 +2531,7 @@ ul li {
 }
 .strapline form {
   display: inline-block;
+  margin: 5px 0;
 }
 .strapline form > * {
   display: inline-block !important;
@@ -2458,10 +2550,10 @@ span.or {
   display: inline-block;
   vertical-align: middle;
   font-size: 14px;
-  margin: 0 10px;
+  margin: 5px 10px;
 }
 #post, .edit-form {
-  width: 570px;
+  max-width: 570px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -2478,7 +2570,8 @@ span.or {
   }
   .input-line, .input-line-text {
     display: block;
-    height: 40px;
+    float: left;
+	width: 100%;
     label {
       font-size: 15px;
       color: #000;
@@ -2507,12 +2600,11 @@ span.or {
     }
   }
   input[type=file] {
-    width: 500px;
+    width: 100%;
   }
   .input-line-text {
-    height: 134px;
     label {
-      margin-top: 50px;
+      margin-top: 0px;
     }
   }
 }
@@ -2532,7 +2624,7 @@ span.or {
 }
 .edit-form {
   input[type=file] {
-    width: 490px !important;
+    width: 100% !important;
   }
   .uploaded-pics {
     margin-left: 85px;
@@ -2582,7 +2674,7 @@ span.or {
   color: #fff;
 }
 
-
+.modal-body ul.tagit li.tagit-new {width: 100%;}
 .buy-confirm .modal-body {
   margin-top: 20px;
   color: #515151;

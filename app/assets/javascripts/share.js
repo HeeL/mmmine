@@ -21,4 +21,32 @@ $(document).ready(function(){
       });
     }
   });
+	
+	$('.responsive-menu-toggle').on('click', function(e) {
+		e.preventDefault();
+		toggleTarget(this);
+	});
+	
+	$('.search-box-toggle').on('click', function(e) {
+		e.preventDefault();
+		toggleTarget(this);
+	});
+	
+	$('.show-filters-toggle').on('click', function(e) {
+		e.preventDefault();
+		toggleTarget(this);
+	});
+	
 });
+
+function toggleTarget(toggle) {
+	
+  	var menuWrap = $(toggle).attr('data-target');
+		if ($(menuWrap).hasClass('on')) {
+		  $(menuWrap).slideUp(200).removeClass('on');
+		} 
+		else {
+			$(menuWrap).slideDown(200).addClass('on');
+		}
+
+}

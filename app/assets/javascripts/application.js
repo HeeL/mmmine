@@ -10,6 +10,7 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
+//= require ./lib/modernizr
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ui.tooltip
@@ -20,7 +21,6 @@
 //= require ./lib/bootstrap-transition
 //= require ./lib/bootstrap-modal
 //= require ./lib/grid
-//= require ./lib/modernizr
 //= require ./lib/jquery.placeholder.min
 //= require ./lib/modernizr
 //= require ./lib/tag_it.min

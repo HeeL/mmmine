@@ -1,6 +1,16 @@
 $(document).ready(function() {
-    $(window).load( function() {
-    	$('.row3').masonry({
+  $(window).on('load resize', function() {
+		if ($(window).width() < 750) {
+			$('.row3').masonry({
+			  itemSelector: '.item',
+			  columnWidth: 230
+			});
+			$('.row4').masonry({
+			  itemSelector: '.item',
+			  columnWidth: 229
+			});
+		} else {
+			$('.row3').masonry({
     	  itemSelector: '.item',
     	  columnWidth: 248
     	});
@@ -8,6 +18,7 @@ $(document).ready(function() {
     	  itemSelector: '.item',
     	  columnWidth: 247
     	});
+		}
     });
 
     $(document).ready(function() {
@@ -100,7 +111,7 @@ $(document).ready(function() {
     });
 
     $(document).ready(function() {
-      $("input[type=checkbox], input[type=radio]").uniform();
+      $("input[type=checkbox]:not(#nav-menu-toggle), input[type=radio]").uniform();
       $('.modal').on('shown', function() {
         $("input[type=checkbox], input[type=radio]").uniform();
       });

@@ -1,4 +1,10 @@
 <section class="right">
+  <a href="#" class="show-filters-toggle hide" data-target=".filters-wrap">Show Filters</a>
+	<div class="filters-wrap">
+	<%=form_tag('/', method: :get, class: 'filter-searchbox search hide') do %>
+    <%= text_field_tag :search, params[:search], placeholder: 'Search' %>
+    <%=submit_tag ''%>
+  <%end%>
   <div class="elem">
     <h4>Categories</h4>
     <%Category.all.each do |cat| %>
@@ -23,4 +29,5 @@
       <%=link_to 'Top Stores', top_stores_path%>
     </menu>
   </div>
+	</div>
 </section>

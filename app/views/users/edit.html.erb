@@ -1,4 +1,4 @@
-<section class="content">
+<section class="content edit-profile-wrap">
 
   <%= render 'shared/pop_ups/change_password' %>
       
@@ -8,7 +8,7 @@
         
         <div>
           <%=f.label :email %>
-          <%=f.text_field :email%>
+          <%=f.text_field :email, :placeholder => 'Email'%>
         </div>
 
         <div>
@@ -18,7 +18,7 @@
         <div>
             <%=f.label :name%>
             <span>http://mmmine.com/u/</span>
-            <%=f.text_field :name, size: '21'%>
+            <%=f.text_field :name, size: '21', :placeholder => 'Name'%>
             <span class="field-hint">
               *This will be displayed on your profile
             </span>
@@ -30,15 +30,15 @@
         </div>
         <div>
           <%=f.label :location, 'Country' %>
-          <%=f.text_field :location%>
+          <%=f.text_field :location, :placeholder => 'Country' %>
         </div>
         <div>
           <%=f.label :website %>
-          <%=f.text_field :website%>
+          <%=f.text_field :website, :placeholder => 'Website' %>
         </div>
         <div>
           <%=f.label :about%>
-          <%=f.text_area :about, :size => "22x30"%>
+          <%=f.text_area :about, :size => "22x30", :placeholder => 'About' %>
         </div>
 
         <%= f.fields_for :user_setting, current_user.user_setting || current_user.build_user_setting do |f| %>

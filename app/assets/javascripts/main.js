@@ -33,7 +33,7 @@ $(document).ready(function(){
   });
 
   $('.right .cat span').on('click', function(e){
-    $('#cat' + $(e.target).data('cat-id')).find('ul').toggle('up');
+    $('#cat' + $(e.target).data('cat-id')).find('ul').slideToggle( "slow" );
   });
 
 });

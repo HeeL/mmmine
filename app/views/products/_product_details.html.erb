@@ -7,28 +7,37 @@
               <div class="user_l">
                   <span class="name"><%=link_to @product.user.name, show_profile_path(id: @product.user.id)%></span>
                   <span class="posted">Posted <%=nice_date(@product.created_at, false)%></span>
-                  <div class="details-top">
-                    <div class="left-top">
-                      <%= render partial: 'shared/follow_btn', locals: {classes: 'btn', user: @product.user}%>
-                    </div>
-                    <div class="right-top">
-                      <b><%=get_currency_sign(@product.currency)%><%=@product.price%></b> <span class="currency"><%=get_currency(@product.currency)%></span>
-                      <%=render 'products/buy_now'%>
-                    </div>
-                  </div>
+                   <div class="left-top">
+						<%= render partial: 'shared/follow_btn', locals: {classes: 'btn modal-follow-btn', user: @product.user}%>
+				  </div>
               </div>
+			 
           </div>
+		  <div class="r">
+		  <div class="user_r">
+		  <div class="details-top">
+            <div class="right-top">
+                <div class="modal-price-box">
+				  <b><%=get_currency_sign(@product.currency)%><%=@product.price%></b> <span class="currency"><%=get_currency(@product.currency)%></span>
+				</div>
+                <%=render 'products/buy_now'%>
+            </div>
+            </div>
+			</div>
+		  </div>
       </section>
   </div>
   <div class="modal-body">
 
       <section class="big_item">
           <div class="img">
-              <%@product.product_pictures.each_with_index do |pic, i|%>
+		       <%@product.product_pictures.each_with_index do |pic, i|%>
                 <%=image_tag pic.picture(:big), style: i == 0 ? "margin-top: 0" : ''%>
               <%end%>
               <div class="social">
                   <a id="make_mmmine_big_<%=@product.id%>" title="<%=make_mmmine_title%>" href="<%=make_mmmine_link%>" class="b mmmine<%=' guest-make-mine' unless current_user%> <%='unfollow-product' if following_product?%>" data-toggle="modal" role="button"><%=@product.count_user_followers%></a>
+									    <a title="Show a friend" href="#share<%=@product.id%>" class="share-num b myspace<%=' guest-share-product' unless current_user%>" data-toggle="modal" role="button"><%=@product.shared%></a>
+											<a title="Share" class="b other">&nbsp;</a>
                   <%if can? :manage, @product%>
                     <%=link_to '', product_edit_path(@product), title: 'edit an item', class: 'edit-product', role: 'button', remote: true%>
                   <%else%>

@@ -1,15 +1,17 @@
-<nav>  
-  <ul>
-    <li>
-      <%=link_to 'Trending', product_list_path(order: 'followed', desc: 1)%>
-    </li>
-    <li>
-      <a href="/more">More</a>
-    </li>
-    <li>
-      <a href="#login" class="login" data-toggle="modal" role="button">Log in</a>
-    </li>
-  </ul>
-</nav>
+<div class="topnav-wrapper on">
+	<nav>  
+	  <ul>
+		<li>
+		  <%=link_to 'Trending', product_list_path(order: 'followed', desc: 1)%>
+		</li>
+		<li>
+		  <a href="/more">More</a>
+		</li>
+		<li>
+		  <a href="#login" class="login" data-toggle="modal" role="button">Log in</a>
+		</li>
+	  </ul>
+	</nav>
+</div>
 
 <%=render 'shared/search'%>
