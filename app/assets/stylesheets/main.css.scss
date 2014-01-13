@@ -653,6 +653,7 @@ html.touch .content .item:hover .social {
   margin-bottom: 20px;
   padding-top: 5px;
 }
+.row4.masonry .item {width: 211px;}
 .content .item .s_button {
   background-color: rgba(0, 0, 0, 0.1);
 }
@@ -2015,6 +2016,9 @@ ins {
   display: inline-block;
   width: 100%;
   margin-top: 15px;
+	&:first-child {
+		margin-top: 0;
+	}
 }
 .big_item .details {
   background: rgba(255, 255, 255, 0.9);

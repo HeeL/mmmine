@@ -34,6 +34,12 @@ $(document).ready(function(){
 	
 	$('.show-filters-toggle').on('click', function(e) {
 		e.preventDefault();
+		if ($(this).hasClass('active')) {
+		  $(this).text('Show Filters').removeClass('active');
+		} 
+		else {
+			$(this).text('Hide Filters').addClass('active');
+		}
 		toggleTarget(this);
 	});
 	

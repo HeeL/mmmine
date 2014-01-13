@@ -31,7 +31,7 @@
 
       <section class="big_item">
           <div class="img">
-		       <%@product.product_pictures.each_with_index do |pic, i|%>
+					  <%@product.product_pictures.each_with_index do |pic, i|%>
                 <%=image_tag pic.picture(:big), style: i == 0 ? "margin-top: 0" : ''%>
               <%end%>
               <div class="social">
