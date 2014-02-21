@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:fb="http://ogp.me/ns/fb#">
 <head>
   <title>mmmine</title>
   <!--[if lt IE 9]>
@@ -14,6 +14,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+
   <%= js_msg([notice, alert])%>
   <%= js_msg([flash[:error]], 'error')%>
   <%clear_messages%>

@@ -1,20 +1,19 @@
 <div class="big_item_likes">
   
-<!--Facebook -->
-  <div id="fb-root"></div>
-  <script>(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));</script>
-  <div class="fb-like" data-href="http://mmmine.com/#thing_popup<%=@product.id%>" data-layout="button_count"></div>
+<div class="facebook-social-btn-wrap">
+<iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fmmmine.com%2F%23thing_popup<%=@product.id%>&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=false&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px;" allowTransparency="true"></iframe>
+ </div>
 
 <!-- Twitter -->
+<div class="twitter-social-btn-wrap">
   <a href="https://twitter.com/share?url=http://mmmine.com/#thing_popup<%=@product.id%>" class="twitter-share-button" data-via="mmmine">Tweet</a>
-    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div>
 
 <!-- Pin -->
   <a href="//pinterest.com/pin/create/button/?url=http://mmmine.com/#thing_popup<%=@product.id%>&media=<%=@product.main_picture%>&description=Next%20stop%3A%20Pinterest" data-pin-do="buttonPin" data-pin-config="none"><img src="//assets.pinterest.com/images/pidgets/pin_it_button.png" /></a>
 </div>
+<script>
+twttr.widgets.load();
+</script>
+

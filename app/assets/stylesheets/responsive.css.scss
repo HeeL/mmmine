@@ -442,6 +442,13 @@
 		width: 100%;
 		margin: 10px 0;
 	}
+  .big_item .social .b.other, .content .item .social .b.other {display: none !important;}
+  .facebook-social-btn-wrap {display: block !important; float: left; width: 125px;}
+  .twitter-social-btn-wrap {display: block !important; float: left; width: 95px;}
+  ul.tagit {
+    width: 100% !important;
+    padding: 0 !important;
+  }
 }
 
 

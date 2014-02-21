@@ -71,7 +71,8 @@ ul.tagit input[type="text"] {
 
 
 ul.tagit {
-    width: 500px;
+    max-width: 500px;
+    width: auto;
 }
 ul.tagit li.tagit-choice {
     -moz-border-radius: 6px;

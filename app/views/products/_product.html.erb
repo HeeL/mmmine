@@ -18,7 +18,7 @@
       <div class="user l">
         <%= image_tag @product.user.photo(:avatar) %>
         <p class="name">
-          <%= @product.user.name %>
+          <%=link_to @product.user.name, show_profile_path(id: @product.user.id)%>
         </p>
         <p class="time"><%=nice_date(@product.created_at)%></p>
       </div>
