@@ -47,6 +47,13 @@ describe User do
         fb_user = subject.find_fb_user(fb_auth_data)
         subject.last.try(:email).should eq(fb_user.email)
       end
+
+      it "creates a user if nickname is not provided" do
+        auth_data = fb_auth_data
+        auth_data.info.nickname = nil
+        fb_user = subject.find_fb_user(auth_data)
+        subject.last.try(:email).should eq(fb_user.email)
+      end
     end
 
   end

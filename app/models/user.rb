@@ -29,8 +29,9 @@ class User < ActiveRecord::Base
     if !user
       photo = open("http://graph.facebook.com/#{auth.uid}/picture?type=large") rescue nil
       location = auth.info.location.present? ? auth.info.location : 'No Location Set'
+      name = auth.info.nickname.present? ? auth.info.nickname : 'user'
       user = User.new(
-        name: auth.info.nickname,
+        name: name,
         email: auth.info.email,
         location: location,
         password: Devise.friendly_token[0,10],
